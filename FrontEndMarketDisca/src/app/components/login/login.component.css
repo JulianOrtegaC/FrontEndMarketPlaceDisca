@@ -1,0 +1,133 @@
+.imagenFondo {
+    position: absolute;
+    width: 64%;
+    height: 90%;
+    top: 5%;
+    left: 35%;
+    background-size: 100% 100%;
+    background-image: url("src\assets\imgLogin.png");
+}
+
+.divLogo {
+    display: inline;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.textLogo {
+    display: inline;
+    flex-grow: 1;
+    /* Para que el texto ocupe el espacio disponible */
+    text-align: center;
+    /* Para centrar el texto */
+    margin-left: 5px;
+    font-size: large;
+}
+
+.divFormulario {
+    position: absolute;
+    display: grid;
+    text-align: center;
+    width: 35%;
+    top: 20%;
+}
+
+.boton-circular {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    left: 45%;
+    border-radius: 50%;
+    background-color: #0E3A66;
+    border: none;
+    cursor: pointer;
+}
+.textLogin{
+    position: relative;
+    width: 70px;
+    height: 39px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    left: 45%;
+    line-height: 39px;
+    color: #0E3A66;
+}
+.texth4 {
+    position: relative;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.form {
+    position: relative;
+    z-index: 1;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+  }
+
+  .form input {
+    font-family: "Roboto", sans-serif;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #8f8f8f; 
+    width: 100%;
+    height: 25px;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    flex: 1;
+    padding-right: 30px; 
+  }
+  #iconEmail{
+    position: absolute;
+    right: 70px; /* Ajusta la posición del icono */
+    cursor: pointer;
+    top: 23%;
+  }
+  #iconEyeSlash{
+    position: absolute;
+    right: 70px; /* Ajusta la posición del icono */
+    cursor: pointer;
+    top: 39%;
+  }
+  .buttonAceptar{
+    position: relative;
+    width: 288.09px;
+    height: 51.22px;
+    top: calc(50% - 51.22px/2 + 271.61px);
+    color: white;
+    background: #0E3A66;
+    border-radius: 20px;
+  }
+
+  .message{
+    position: relative;
+    top: 79.72%;
+    bottom: 18.61%;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    text-decoration-line: underline;
+    
+    color: #0E3A66;
+  }
