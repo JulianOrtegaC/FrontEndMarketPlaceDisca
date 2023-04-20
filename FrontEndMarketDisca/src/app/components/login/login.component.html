@@ -5,6 +5,7 @@
         <span class="textLogo">AccessAbility</span>
     </button>
 </div>
+<button class="buttonRegister" routerLink="/register">Registrarse</button>
 
 <div class="divFormulario">
     <button class="boton-circular">
@@ -21,6 +22,14 @@
             <input type="password" placeholder="contraseña" class="form-control" formControlName="password"
                 id="password" />
                 <i class="fa-lg fa-sharp fa-solid fa-eye-slash" style="color: #8fc4f9;" id="iconEyeSlash"></i>
+
+                <button (click)="iniciarSesionConGoogle()" class="btn-google">
+                    <i class="fab fa-google"></i> Iniciar sesión con Google
+                  </button>
+                  
+                  <button (click)="iniciarSesionConFacebook()" class="btn-facebook">
+                    <i class="fab fa-facebook-f"></i> Iniciar sesión con Facebook
+                  </button>
             <button class="buttonAceptar">Entrar</button>
             <p class="message"><a href="#" routerLink="/forgot-password">Olvido su contraseña</a></p>
 

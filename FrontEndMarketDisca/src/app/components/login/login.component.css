@@ -1,9 +1,9 @@
 .imagenFondo {
     position: absolute;
-    width: 64%;
+    width: 58%;
     height: 90%;
     top: 5%;
-    left: 35%;
+    left: 41%;
     background-size: 100% 100%;
     background-image: url("src\assets\imgLogin.png");
 }
@@ -31,13 +31,22 @@
     margin-left: 5px;
     font-size: large;
 }
-
+.buttonRegister{
+  position: absolute;
+  width: 150px;
+  height: 40px;
+  color: white;
+  background: #0E3A66;
+  border-radius: 20px;
+  cursor: pointer;
+  left: 86%;
+  top: 8%;
+}
 .divFormulario {
-    position: absolute;
     display: grid;
     text-align: center;
     width: 35%;
-    top: 20%;
+    max-height: 500px;
 }
 
 .boton-circular {
@@ -48,6 +57,7 @@
     border-radius: 50%;
     background-color: #0E3A66;
     border: none;
+    margin-top: 15px;
     cursor: pointer;
 }
 .textLogin{
@@ -76,18 +86,19 @@
     position: relative;
     z-index: 1;
     max-width: 360px;
-    margin: 0 auto 100px;
-    padding: 45px;
+    margin: 0 auto 90px;
     text-align: center;
+  }
+  .login-form{
   }
 
   .form input {
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif;
     background: transparent;
     border: none;
     border-bottom: 1px solid #8f8f8f; 
-    width: 100%;
-    height: 25px;
+    width: 70%;
+    height: 24px;
     margin: 0 0 15px;
     padding: 15px;
     box-sizing: border-box;
@@ -99,13 +110,13 @@
     position: absolute;
     right: 70px; /* Ajusta la posición del icono */
     cursor: pointer;
-    top: 23%;
+    top: 7%;
   }
   #iconEyeSlash{
     position: absolute;
     right: 70px; /* Ajusta la posición del icono */
     cursor: pointer;
-    top: 39%;
+    top: 22%;
   }
   .buttonAceptar{
     position: relative;
@@ -115,19 +126,21 @@
     color: white;
     background: #0E3A66;
     border-radius: 20px;
+    cursor: pointer;
   }
 
   .message{
-    position: relative;
-    top: 79.72%;
-    bottom: 18.61%;
-    
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
-    text-decoration-line: underline;
-    
-    color: #0E3A66;
   }
+  .btn-google , .btn-facebook{
+    background-color: white;
+    height: 34px;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+      border-radius: 20px;
+      cursor: pointer;
+  }
+
+  

@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  iniciarSesionConGoogle() {
+    // Lógica para iniciar sesión con Google
+  }
 
+  iniciarSesionConFacebook() {
+    // Lógica para iniciar sesión con Facebook
+  }
 }
