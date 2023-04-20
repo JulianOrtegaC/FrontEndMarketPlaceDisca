@@ -1,1 +1,48 @@
-<p>register works!</p>
+<div class="imagenFondo"> </div>
+<div class="divLogo">
+    <button class="logo">
+        <img src="../../../assets/Logo.png" width="50" height="50" alt="Imagen del botón">
+        <span class="textLogo">AccessAbility</span>
+    </button>
+</div>
+<button class="buttonRegister" routerLink="/register">Registrarse</button>
+<div class="divFormulario">
+
+    <form   class="form" >
+
+        <h2 class="uneText" data-aos="zoom-in">Únete a<br> Nosotros</h2>
+        <div class="divFormleft">
+            <input type="text" id="nameUser"  formControlName="nameUser" placeholder="Escribe tu nombre" />
+            <input type="text" id="surname"  formControlName="surname" placeholder="Escribe tu apellido" />
+            <input type="email" id="email" formControlName="email" placeholder="email" />
+            <input type="password" id="password" formControlName="password" placeholder="Escribe una contraseña" />
+            <input type="password" id="password" formControlName="confirmpassword" placeholder="Escribe nuevamente la contraseña" />
+
+
+        </div>
+        <select name="document_type"  id="document_type" formControlName="document_type">
+            
+            <option selected  value="CC">CC</option>
+            <option value="PA">PA</option>
+            <option value="CE">CE</option>
+        </select>
+        
+        
+        <input type="text" id="id_number" formControlName="documentNumber" placeholder="Numero de identificacion" />
+        
+        <!-- Lo de la fecha -->
+        <!-- <div id="date" name="formulario">
+            Selecciona la fecha deseada:
+            <input id="dateTime" formControlName="dateTime" type="date" name="fecha" max="2004-01-01" />
+        </div>
+    -->
+    
+    <input type="text"  id="address" formControlName="address" placeholder="Dirección"/>
+    <input type="text"  id="phone" formControlName="phone" placeholder="Telefono"  />
+  
+    <!-- <div class="one"><label id="container">Hombre<input class="radio" formControlName="checkmen" type="radio" name="radio"></label></div> -->
+    <!-- <div class="two"><label id="container">Mujer<input class="radio"  formControlName="checkwome"type="radio" name="radio"></label></div> -->
+    <!-- <div class="three"><label id="container">Otro<input class="radio" formControlName="checkother" type="radio" name="radio"></label></div> -->
+    <button mat-stroked-button (click)="registrarse()" [disabled]="">Registrarse</button>
+</form>
+</div>
