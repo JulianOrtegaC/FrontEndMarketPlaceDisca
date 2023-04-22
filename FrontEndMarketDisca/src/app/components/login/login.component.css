@@ -36,11 +36,13 @@
   width: 150px;
   height: 40px;
   color: white;
-  background: #0E3A66;
+  background: #4F7397;
   border-radius: 20px;
   cursor: pointer;
+  border:none;
   left: 86%;
   top: 8%;
+  font-size: large;
 }
 .divFormulario {
     display: grid;
@@ -55,7 +57,7 @@
     height: 80px;
     left: 45%;
     border-radius: 50%;
-    background-color: #0E3A66;
+    background-color: #4F7397;
     border: none;
     margin-top: 15px;
     cursor: pointer;
@@ -88,9 +90,9 @@
     max-width: 360px;
     margin: 0 auto 90px;
     text-align: center;
+    
   }
-  .login-form{
-  }
+
 
   .form input {
     font-family: "Poppins", sans-serif;
@@ -105,18 +107,19 @@
     font-size: 14px;
     flex: 1;
     padding-right: 30px; 
+    font-size: large;
   }
   #iconEmail{
     position: absolute;
     right: 70px; /* Ajusta la posición del icono */
     cursor: pointer;
-    top: 7%;
+    top: 5%;
   }
   #iconEyeSlash{
     position: absolute;
     right: 70px; /* Ajusta la posición del icono */
     cursor: pointer;
-    top: 22%;
+    top: 20%;
   }
   .buttonAceptar{
     position: relative;
@@ -124,23 +127,28 @@
     height: 51.22px;
     top: calc(50% - 51.22px/2 + 271.61px);
     color: white;
-    background: #0E3A66;
+    background: #4F7397;
     border-radius: 20px;
+    border: none;
     cursor: pointer;
+    font-size: large;
+    margin-top: 15px;
   }
 
   .message{
     font-family: 'Inter';
     font-style: normal;
+    font-size: large;
   }
   .btn-google , .btn-facebook{
     background-color: white;
     height: 34px;
     width: 100%;
-    margin-top: 5px;
+    margin-top: 15px;
     margin-bottom: 5px;
       border-radius: 20px;
       cursor: pointer;
+      font-size: large;
   }
 
   

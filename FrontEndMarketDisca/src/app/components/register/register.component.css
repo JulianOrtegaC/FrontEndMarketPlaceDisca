@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 .imagenFondo {
     position: fixed;
     width: 56%;
@@ -8,6 +10,7 @@
     left: 20px;
 }
 
+/* logo */
 .divLogo {
     display: inline;
 }
@@ -30,17 +33,6 @@
     font-size: large;
 }
 
-.buttonRegister {
-    position: absolute;
-    width: 150px;
-    height: 40px;
-    color: white;
-    background: #0E3A66;
-    border-radius: 20px;
-    cursor: pointer;
-    left: 86%;
-    top: 8%;
-}
 
 /* De aqui lo del mk formulario */
 
@@ -52,6 +44,12 @@
     left: 44%;
     top: 28%;
     border-radius: 20px;
+   
+}
+.conOTDI{
+    display: flex; /* Establecer la propiedad display como flex */
+    justify-content: space-between; 
+
 }
 .uneText{
 color: #FFFFFF;
@@ -63,128 +61,96 @@ font-size: 36px;
 line-height: 54px;
 }
 
-.divText p {
-    width: 26%;
-    height: 6%;
-    left: 30%;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 80%;
-    line-height: 100%;
-    display: flex;
-    align-items: center;
+.divFormleft{
+    position: relative;
+    height: auto;
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px
+}
+
+.divFormRight{
+    position: relative;
+    height: auto;
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px
+}
+
+.divFormleft input{
+    margin: auto;
+    width: 90%;
+    margin-top: 5px;
+    height:34px ;
+    border-radius: 5px;
+    border: none;
+    font-size: large;
+}
+#nameUser{
+    width: 80%;
+}
+#surname{
+    width: 80%;
+}
+#document_type{
+    margin: auto;
+    height: 34px;
+    width: 80%;
+    border-radius: 10px;
+    border: none;
+}
+#id_number{
+    width: 80%;
+}
+#email{
+    grid-column: span 2;
+}
+#password{
+    grid-column: span 2;
+}
+#dateTime{
+    grid-column: span 3;
+    width: 90%;
+    height:45px;
+    border-radius: 10px;
+    border: none;
+    font-size: large;
+}
+.buttonRegister{
+    grid-column: 2;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    color: #0E3A66;
+    font-size: large;
+    cursor: pointer;
+}
+.divCheckBox{
+    background-color: #FFFFFF;
+    height: 45px;
+    width: 80%;
+    border-radius: 10px;
+}
+.checkbox{
+    font-size: large;
+    font-family: 'Poppins';
+}
+.aceptarPolitica{
+    color: #FFFFFF;
+    grid-column: span 3;
     text-align: center;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: large;
+    margin-bottom: 2px;
 }
-
-
-.form #nameUser {
-    width: 12%;
-    height: 4.5%;
-    border: none;
-    background: #FFFFFF;
-    border-radius: 4px;
+.yaregis{
+    margin: 0;
+    grid-column: 2;
+    text-align: center;
+    font-size: larger;
 }
-
-.form #surname {
-    width: 12%;
-    height: 4.5%;
-    border: none;
-    background: #FFFFFF;
-    border-radius: 4px;
-}
-
-.form #document_type {
-    width: 6%;
-    height: 4.5%;
-    font-weight: 400;
-    font-size: 98%;
-    color: rgba(0, 0, 0, 0.5);
-    border: none;
-    background: #FFFFFF;
-    border-radius: 4px;
-}
-
-.form #id_number {
-    width: 18.3%;
-    height: 4.5%;
-    border: none;
-    background: #FFFFFF;
-    border-radius: 4px;
-}
-
-.form #password {
-    width: 25%;
-    height: 4.5%;
-    border: none;
-    background: #FFFFFF;
-    border-radius: 4px;
-}
-
-.form #email {
-    width: 25%;
-    height: 4.5%;
-    border: none;
-    background: #FFFFFF;
-    border-radius: 4px;
-}
-
-.form #date {
-    width: 55%;
-    height: 4.5%;
+.yaregis a{
     color: #FFFFFF;
-}
-
-.form #dateTime {
-    width: 45%;
-    height: 100%;
-    border: none;
-    font-size: 110%;
-    letter-spacing: 0.68em;
-    border-radius: 4px;
-}
-
-.form #address,
-#phone {
-    height: 4.5%;
-    width: 25%;
-    border: none;
-    border-radius: 4px;
-}
-
-.form #phone {
-    top: 46.4%;
-}
-
-.form #label {
-    width: 55%;
-    border: none;
-    color: #FFFFFF;
-}
-
-.form #labelM {
-    width: 7%;
-    height: 4.5%;
-    border: none;
-    bottom: 0%;
-    border-radius: 4px;
-    color: rgba(255, 255, 255, 1);
-}
-
-.form #labelW {
-    width: 7%;
-    height: 4.5%;
-    border: none;
-    bottom: 0%;
-    border-radius: 4px;
-    color: rgba(255, 255, 255, 1);
-}
-
-.form #labelO {
-    width: 7%;
-    height: 4.5%;
-    border: none;
-    bottom: 0%;
-    border-radius: 4px;
-    color: rgba(255, 255, 255, 1);
 }
