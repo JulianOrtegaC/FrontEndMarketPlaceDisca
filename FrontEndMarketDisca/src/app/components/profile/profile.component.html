@@ -1,2 +1,221 @@
 <app-nav-bar></app-nav-bar>
-<p>profile works!</p>
+<div class="contenedor">
+    <div class="left-content" >
+        <div class="profile-name" *ngIf="showPhotoProfile">
+            <img src="./assets/photo.png" alt="Alternate Text" class="image-profile" />
+            <p class="text-name">zz</p>
+        </div>
+
+        <div class="config-profile">
+            <a (click)="showCompras()">Compras</a>
+            <a (click)="showVentas()">Ventas</a>
+            <a (click)="showPrincipal()">Configuración</a>
+        </div>
+    </div>
+
+    <div class="right-profile" *ngIf="showPrinci">
+        <div class="prof">
+            <button (click)="showProfile()" class="profile-button">
+                <div class="icon-profile">
+                    <span class="material-symbols-outlined" id="xd">account_circle</span>
+                </div>
+                <div class="info-profile">
+                    <h2>Mis datos</h2>
+                    <p>Actualiza y ten control de tus datos personales.</p>
+                </div>
+            </button>
+            <mat-divider></mat-divider>
+        </div>
+
+
+        <div class="prof">
+            <button class="profile-button">
+                <div class="icon-profile">
+                    <span class="material-symbols-outlined">security</span>
+                </div>
+                <div class="info-profile">
+                    <h2>Seguridad</h2>
+                    <p>Configuración de seguridad.</p>
+                </div>
+            </button>
+            <mat-divider></mat-divider>
+        </div>
+
+        <div class="prof">
+            <button class="profile-button">
+                <div class="icon-profile">
+                    <span class="material-symbols-outlined">mark_as_unread</span>
+                </div>
+                <div class="info-profile">
+                    <h2>Comunicación</h2>
+                    <p>Elija qué tipo de información quiere recibir. </p>
+                </div>
+            </button>
+            <mat-divider></mat-divider>
+        </div>
+
+        <div class="prof">
+            <button class="profile-button">
+                <div class="icon-profile">
+                    <span class="material-symbols-outlined">loyalty</span>
+                </div>
+                <div class="info-profile">
+                    <h2>Suscripciones</h2>
+                    <p>Gestiona tus suscripciones. </p>
+                </div>
+            </button>
+        </div>
+
+    </div>
+
+    <!--Inicio Contenedor compras -->
+    <div class="conteCompras" *ngIf="showComp">
+        <h1 class="h1-cv">Lo que has comprado hasta el momento</h1>
+        <div class="TablaxD">
+            <table mat-table class="" matSort>
+
+
+                <!-- Position Column -->
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="bananaType">
+                    <th mat-header-cell *matHeaderCellDef> Tipo de Platano </th>
+                    <td mat-cell *matCellDef="let element"> {{element.bananaType}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="measurementUnits">
+                    <th mat-header-cell *matHeaderCellDef> Cantidad KG </th>
+                    <td mat-cell *matCellDef="let element"> {{element.measurementUnits}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="pricePurchase">
+                    <th mat-header-cell *matHeaderCellDef> Precio Total </th>
+                    <td mat-cell *matCellDef="let element"> {{element.pricePurchase}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="dateStarted">
+                    <th mat-header-cell *matHeaderCellDef> Fecha de Inicio </th>
+                    <td mat-cell *matCellDef="let element"> {{element.dateStarted}} </td>
+                </ng-container>
+                <ng-container matColumnDef="dateEnded">
+                    <th mat-header-cell *matHeaderCellDef> Fecha de Fin </th>
+                    <td mat-cell *matCellDef="let element"> {{element.dateEnded}} </td>
+                </ng-container>
+                <ng-container matColumnDef="Eliminar">
+                    <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+                    <td mat-cell *matCellDef="let element">
+                        <mat-icon (click)="eliminarInscripcion(element.idSubasta)" class="delete"
+                            matTooltip="Eliminar Subasta" fontIcon="delete"> </mat-icon>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [pageSize]="4" showFirstLastButtons aria-label="Select page of periodic elements">
+            </mat-paginator>
+
+        </div>
+    </div>
+
+    <div class="conteVentas " *ngIf="showVent">
+        <h1 class="h1-cv">Ventas Generadas</h1>
+        <div class="TablaxD">
+            <table mat-table class="">
+
+                <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="bananaType">
+                    <th mat-header-cell *matHeaderCellDef> Tipo de Banana </th>
+                    <td mat-cell *matCellDef="let element"> {{element.bananaType}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="measurementUnits">
+                    <th mat-header-cell *matHeaderCellDef> Cantidad Kg </th>
+                    <td mat-cell *matCellDef="let element"> {{element.measurementUnits}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="dateStarted">
+                    <th mat-header-cell *matHeaderCellDef> Fecha Inicial</th>
+                    <td mat-cell *matCellDef="let element"> {{element.dateStarted}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="dateEnded">
+                    <th mat-header-cell *matHeaderCellDef>Fecha Final $ </th>
+                    <td mat-cell *matCellDef="let element"> {{element.dateEnded}} </td>
+                </ng-container>
+                <!-- Estado Column -->
+                <ng-container matColumnDef="initialPrice">
+                    <th mat-header-cell *matHeaderCellDef>Precio Inicial </th>
+                    <td mat-cell *matCellDef="let element"> {{element.initialPrice}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Eliminar">
+                    <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+                    <td mat-cell *matCellDef="let element">
+                        <mat-icon (click)="eliminarSubasta(element.idSubasta)" class="delete"
+                            matTooltip="Eliminar Subasta" fontIcon="delete"> </mat-icon>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+            <mat-paginator [pageSize]="4" showFirstLastButtons aria-label="Select page of periodic elements">
+            </mat-paginator>
+        </div>
+
+    </div>
+
+    <div class="conteProfile " *ngIf="showProfi">
+        <div class="imagen"></div>
+            <div class="imgPortada">
+                <img src="./assets/portada.jpg" alt="" class="imgMyPortada">
+            </div>
+            <div class="imgProfile">
+                <img src="./assets/photo.png" alt="" class="imgMyProfile">
+                <p class="text-name">zz</p>
+            </div>
+            <input type="file" id="f1" multiple="false" accept="image/*" class="inputImg">
+        <div class="personal-datas">
+            <div class="info">
+                <div class="info-left">
+                    <div class="xdd">
+                        <h4> Fecha de Nacimiento: </h4>
+                        <input type="date" name="name" class="input-conf" />
+                    </div>
+                    <mat-divider class="matdividerProfile"></mat-divider>
+                    <div class="xdd">
+                        <h4>Documento: </h4>
+                        <input type="text" name="name" placeholder="Prueba" class="input-conf" />
+                    </div>
+                    <mat-divider class="matdividerProfile"></mat-divider>
+                    <div class="xdd">
+                        <h4>Correo: </h4>
+                        <input type="email" name="name" value="" placeholder="Prueba" class="input-conf" />
+                    </div>
+
+                </div>
+                <div class="info-right">
+                    <div class="xdd">
+                        <h4>Dirección: </h4>
+                        <input type="text" name="name" value="" placeholder="Prueba" class="input-conf" />
+                    </div>
+                    <mat-divider class="matdividerProfile"></mat-divider>
+                    <div class="xdd">
+                        <h4>Teléfono: </h4>
+                        <input type="number" name="name" value="" placeholder="Prueba" class="input-conf" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

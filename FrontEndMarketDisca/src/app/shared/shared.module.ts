@@ -6,18 +6,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
-
-
-
-
-
-
-
-
-
-
-
-
+import {MatDividerModule} from '@angular/material/divider';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 
@@ -35,7 +25,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatDatepickerModule,
     MatFormFieldModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDividerModule,
+    MatPaginatorModule
   ],
   exports: [ CommonModule,
     MatCheckboxModule,
@@ -43,7 +35,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatDatepickerModule,
     MatFormFieldModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDividerModule,
+    MatPaginatorModule
   ]
 })
 export class SharedModule { }
