@@ -13,40 +13,39 @@
         <div class="conOTDI">
 
             <div class="divFormleft">
-                <input type="text" id="nameUser"  formControlName="nameUser" placeholder="Escribe tu nombre" />
-                <input type="text" id="surname"  formControlName="surname" placeholder="Escribe tu apellido" />
-                <input type="email" id="email" formControlName="email" placeholder="email" />
-            <select name="document_type"  id="document_type" formControlName="document_type">
+                <input type="text" id="nameUser"  [(ngModel)]="nameUser" name="nameUser" placeholder="Escribe tu nombre" />
+                <input type="text" id="surname" [(ngModel)]="lastNameUser" name="lastNameUser" placeholder="Escribe tu apellido" />
+                <input type="email" id="email"  [(ngModel)]="email" name="email" placeholder="email" />
+            <select name="typeDocument"  id="document_type" [(ngModel)]="typeDocument" >
             
                 <option selected  value="CC">CC</option>
                 <option value="PA">PA</option>
                 <option value="CE">CE</option>
             </select>
-            <input type="text" id="id_number" formControlName="documentNumber" placeholder="Numero de identificacion" />
+            <input type="text" id="id_number" [(ngModel)]="idUser" name="idUser" placeholder="Numero de identificacion" />
 
-            <input type="password" id="password" formControlName="password" placeholder="Escribe una contraseña" />
-            <input type="password" id="password" formControlName="confirmpassword" placeholder="Escribe nuevamente la contraseña" />
+            <input type="password" class="password" id="password" [(ngModel)]="password" name="password" placeholder="Escribe una contraseña" />
+            <input type="password" class="password" id="forgotPassword" [(ngModel)]="forgotPassword" name="forgotPassword" placeholder="Escribe nuevamente la contraseña" />
             
 
         </div>
         <div class="divFormRight">
-            <input id="dateTime" formControlName="dateTime" type="date" name="fecha" max="2004-01-01" />
-           <div class="divCheckBox">
-               <mat-radio-button class="checkbox" value="before">Hombre</mat-radio-button>
-           </div>
-           <div class="divCheckBox">
+            <input id="dateTime" name="date" type="date" [(ngModel)]="date"  max="2004-01-01" />
+              <div class="divCheckBox">
+                <input class="checkbox" type="radio" [(ngModel)]="gender" name="gender" value="Hombre">Hombre
+              </div>
+              <div class="divCheckBox">
+                <input  class="checkbox" type="radio" [(ngModel)]="gender" name="gender" value="Mujer">Mujer
+              </div>
+              <div class="divCheckBox">
+                <input  class="checkbox"type="radio" [(ngModel)]="gender" name="gender" value="Otro">Otro
+              </div>
 
-               <mat-radio-button class="checkbox" value="before">Mujer</mat-radio-button>
-            </div>
-            <div class="divCheckBox">
-
-                <mat-radio-button class="checkbox" value="before">Otro</mat-radio-button>
-            </div>
             <p class="aceptarPolitica">Al hacer clic en "Registrarte", aceptas nuestras Condiciones, la Política de
                 privacidad y la Política de cookies.</p>
                 <p class="yaregis"><a href="#" routerLink="/login">Ya tiene cuenta</a></p>
 
-            <button class="buttonRegister" mat-stroked-button (click)="registrarse()" [disabled]="">Registrarse</button>
+            <button class="buttonRegister" mat-stroked-button (click)="registrarse()" [disabled]="!Registerr">Registrarse</button>
         </div>
     </div>
       

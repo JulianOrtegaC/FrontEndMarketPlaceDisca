@@ -1,10 +1,56 @@
-import { Component } from '@angular/core';
+
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Registro } from 'src/app/interfaces/cuenta';
+import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
-  registrarse(){}
+export class RegisterComponent implements OnInit {
+  idUser!:string;
+  nameUser!:string;
+  lastNameUser!:string;
+  address!:string;
+  telephone!:string;
+  email!:string;
+  typeDocument!:string;
+  date!:string;
+  gender!:string;
+  forgotPassword!:string;
+  password!:string;
+  constructor(private registerService: RegisterService,  private router: Router ) { }
+  ngOnInit() {
+  }
+
+  get Registerr() {
+    return this.idUser && this.nameUser && this.lastNameUser  && this.email && this.typeDocument && this.date && this.gender && this.forgotPassword && this.password ;
+
+  }
+  registrarse() {
+    const registAux: Registro = {
+      idUser:this.idUser,
+      nameUser:this.nameUser,
+      lastNameUser:this.lastNameUser,
+      address:"",
+      telephone:"123",
+      email:this.email,
+      typeDocument:this.typeDocument,
+      gender:this.gender,
+      password:this.password
+    }
+
+    console.log(registAux);
+    this.registerService.register(registAux).subscribe({
+      next: (res: any) => {
+        this.router.navigate(['login']);
+      },
+      error: (err) => {
+        console.log(err.message)
+      }
+    })
+   
+  }
 }
