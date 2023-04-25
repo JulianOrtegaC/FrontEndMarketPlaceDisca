@@ -1,8 +1,7 @@
 <div class="contnavBar">
     <div class="divLogo">
         <button class="logo">
-            <img src="../../../assets/Logo.png" width="50" height="50" alt="Imagen del botón">
-            <span class="textLogo">AccessAbility</span>
+            <img src="../../../assets/Logo.png" width="232" height="64" alt="Imagen del botón">
         </button>
     </div>
     <div class="optionNav">
@@ -13,15 +12,22 @@
 
     <div class="divIcons">
         <button class="buttonNav1">
-         <mat-icon class="iconNav" routerLink="#"   fill="0"      fontIcon="notifications"> </mat-icon>
+         <span class="material-symbols-outlined iconNav">notifications</span>
      </button>
      <button class="buttonNav1">
          Perfil
-         <mat-icon class="iconNav" [routerLink]=""          fontIcon="account_circle"> </mat-icon>
+         <span class="material-symbols-outlined  iconNav">account_circle</span>
+
         </button>
         <button class="buttonNav1">
             Ajustes
-            <mat-icon class="iconNav" [routerLink]="['#']"    fontIcon="settings"> </mat-icon>
+            <span class="material-symbols-outlined iconNav">settings</span>
+
+     </button>
+        <button  routerLink="/login" class="buttonNav1">
+            
+            <span class="material-symbols-outlined iconNav">logout</span>
+
      </button>
     </div>
 </div>

@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Registro } from 'src/app/interfaces/cuenta';
+import { RegisterService } from 'src/app/services/register.service';
 
 
 @Component({
@@ -10,7 +12,9 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit,AfterViewInit {
   displayedColumns: string[] = ['idSubasta','bananaType', 'measurementUnits', 'pricePurchase', 'dateStarted','dateEnded'];
   dataSource =<any> [];
-  constructor(  private router:Router) {
+  dataProfile!:Registro;
+  constructor( private registerService: RegisterService,private router:Router) {
+    this.dataProfile=registerService.getdatosPerfil$;
 
   }
 
@@ -48,7 +52,7 @@ export class ProfileComponent implements OnInit,AfterViewInit {
     this.showPrinci = false;
     this.showProfi = true;
   }
-  eliminarSubasta(idSub:number){
+  eliminarA(idSub:number){
     this.router.navigate(['start']);
     
   }

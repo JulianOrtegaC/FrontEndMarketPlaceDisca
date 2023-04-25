@@ -3,7 +3,7 @@
     <div class="left-content" >
         <div class="profile-name" *ngIf="showPhotoProfile">
             <img src="./assets/photo.png" alt="Alternate Text" class="image-profile" />
-            <p class="text-name">zz</p>
+            <p class="text-name">{{dataProfile.nameUser}} {{dataProfile.lastNameUser}}</p>
         </div>
 
         <div class="config-profile">
@@ -159,7 +159,7 @@
                 <ng-container matColumnDef="Eliminar">
                     <th mat-header-cell *matHeaderCellDef> Eliminar </th>
                     <td mat-cell *matCellDef="let element">
-                        <mat-icon (click)="eliminarSubasta(element.idSubasta)" class="delete"
+                        <mat-icon (click)="eliminarA(element.idSubasta)" class="delete"
                             matTooltip="Eliminar Subasta" fontIcon="delete"> </mat-icon>
                     </td>
                 </ng-container>
@@ -177,11 +177,11 @@
     <div class="conteProfile " *ngIf="showProfi">
         <div class="imagen"></div>
             <div class="imgPortada">
-                <img src="./assets/portada.jpg" alt="" class="imgMyPortada">
+                <img src="./assets/portada.png" alt="" class="imgMyPortada">
             </div>
             <div class="imgProfile">
                 <img src="./assets/photo.png" alt="" class="imgMyProfile">
-                <p class="text-name">zz</p>
+                <p class="text-name">{{dataProfile.nameUser}} {{dataProfile.lastNameUser}}</p>
             </div>
             <input type="file" id="f1" multiple="false" accept="image/*" class="inputImg">
         <div class="personal-datas">
@@ -194,12 +194,12 @@
                     <mat-divider class="matdividerProfile"></mat-divider>
                     <div class="xdd">
                         <h4>Documento: </h4>
-                        <input type="text" name="name" placeholder="Prueba" class="input-conf" />
+                        <input type="text" name="name" placeholder="{{dataProfile.idUser}}" class="input-conf" />
                     </div>
                     <mat-divider class="matdividerProfile"></mat-divider>
                     <div class="xdd">
                         <h4>Correo: </h4>
-                        <input type="email" name="name" value="" placeholder="Prueba" class="input-conf" />
+                        <input type="email" name="name" value="" placeholder="{{dataProfile.email}}" class="input-conf" />
                     </div>
 
                 </div>
