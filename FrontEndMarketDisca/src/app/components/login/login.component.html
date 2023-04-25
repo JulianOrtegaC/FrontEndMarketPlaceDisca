@@ -16,10 +16,10 @@
     <div class="form">
         <form class="login-form">
 
-            <input type="text" placeholder="correo electronico" class="form-control"
+            <input type="text"[(ngModel)]="email" name="email" placeholder="correo electronico" class="form-control"
                 id="email" />
             <i class=" fa-lg fa-solid fa-envelope" style="color: #8fc4f9;" id="iconEmail"></i>
-            <input type="password" placeholder="contraseña" class="form-control" 
+            <input type="password"[(ngModel)]="password"  name="password" placeholder="contraseña" class="form-control" 
                 id="password" />
                 <i class="fa-lg fa-sharp fa-solid fa-eye-slash" style="color: #8fc4f9;" id="iconEyeSlash"></i>
 
@@ -31,7 +31,7 @@
                   <button (click)="iniciarSesionConFacebook()" class="btn-facebook">
                     <i class="fa-brands fa-facebook" style="color: #1f6aea;"></i>Iniciar sesión con Facebook
                   </button>
-            <button class="buttonAceptar" routerLink="/profile">Entrar</button>
+            <button class="buttonAceptar" (click) ="login()" [disabled]="!Loginn">Entrar</button>
             <p class="message"><a href="#" routerLink="/forgot-password">Olvido su contraseña</a></p>
 
         </form>

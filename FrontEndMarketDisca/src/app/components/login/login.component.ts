@@ -1,16 +1,58 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+
+  constructor(private registerService: RegisterService, private router: Router) { }
+  ngOnInit(): void {
+  }
+  email!: string;
+  password!: string;
   iniciarSesionConGoogle() {
     // Lógica para iniciar sesión con Google
   }
 
   iniciarSesionConFacebook() {
     // Lógica para iniciar sesión con Facebook
+  }
+
+  get Loginn() {
+    return this.email && this.password;
+
+  }
+  login(): void {
+    const auxEmail = this.email;
+    const auxPas = this.password;
+
+    console.log(auxEmail, auxPas);//estos estan indefinidosssss
+    this.registerService.login(auxEmail,auxPas).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        localStorage.setItem('token', res.token);
+        this.registerService.setactualID(res.userId);
+        this.registerService.setDatosProfile(
+          res.idUser,
+          res.nameUser,
+          res.lastNameUser,
+          res.address,
+          res.telephone,
+          res.email,
+          res.typeDocument,
+          res.gender,
+          res.password
+        );
+
+        this.router.navigate(['profile']);
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    });
   }
 }
