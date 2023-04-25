@@ -27,18 +27,38 @@ export class ProfileComponent implements OnInit,AfterViewInit {
   ngOnInit(): void {
 
   }
+  
   ngAfterViewInit() {
+    // Obtén todos los elementos de ancla del menú
+const elementosMenu = document.getElementsByTagName("a");
+
+// Agrega el evento onclick a cada etiqueta de ancla
+for (let i = 0; i < elementosMenu.length; i++) {
+  elementosMenu[i].addEventListener("click", function(event) {
+    // Quita la clase .nav-seleccionada de todos los elementos de ancla
+    for (let j = 0; j < elementosMenu.length; j++) {
+      elementosMenu[j].classList.remove("nav-seleccionada");
+    }
+
+    // Agrega la clase .nav-seleccionada al elemento de ancla seleccionado
+    const elementoSeleccionado = event.target as HTMLElement;
+    elementoSeleccionado.classList.add("nav-seleccionada");
+  });
+}
+
   }
+
+  
   showCompras() {
     this.showVent = false;
-    this.showPhotoProfile = true;
+    this.showPhotoProfile = false;
     this.showComp = true;
     this.showPrinci = false;
     this.showProfi = false;
   }
 
   showVentas() {
-    this.showPhotoProfile = true;
+    this.showPhotoProfile = false;
     this.showVent = true;
     this.showComp = false;
     this.showPrinci = false;
@@ -63,6 +83,7 @@ export class ProfileComponent implements OnInit,AfterViewInit {
     this.showVent = false;
     this.showComp = false;
     this.showPrinci = true;
+    this.showProfi = false;
   }
 
   
