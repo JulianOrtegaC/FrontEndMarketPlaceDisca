@@ -183,41 +183,37 @@
         <div class="divImgMyProfile">
             <img src="./assets/photo.png" alt="" class="imgMyProfile2">
         </div>
+
         <h1 class="titleh1">Perfil</h1>
         <p class="ptitle">Actualiza tu foto y tus datos personales.</p>
-        <input type="file" id="f1" multiple="false" accept="image/*" class="inputImg">
-    
-        <div class="personal-datas">
-            <div class="info">
-                <div class="info-left">
-                    <div class="xdd">
-                        <h4> Fecha de Nacimiento: </h4>
-                        <input type="date" name="name" class="input-conf" />
-                    </div>
-                    <mat-divider class="matdividerProfile"></mat-divider>
-                    <div class="xdd">
-                        <h4>Documento: </h4>
-                        <input type="text" name="name" placeholder="{{dataProfile.idUser}}" class="input-conf" />
-                    </div>
-                    <mat-divider class="matdividerProfile"></mat-divider>
-                    <div class="xdd">
-                        <h4>Correo: </h4>
-                        <input type="email" name="name" value="" placeholder="{{dataProfile.email}}"
-                            class="input-conf" />
-                    </div>
+        <!--  -->
 
+        <div class="edit-data">
+            <div class="editdata1">
+                <h3 class="textditata">Nombre de Usuario</h3>
+                <input type="text"  class="input-editdatadaRout">
+                <input type="text"  class="input-editdata">
+            </div>
+            <mat-divider class="matdividerProfile"></mat-divider>
+            <div class="editdata1">
+                <h3 class="textditata">Tu Foto</h3>
+                <div class="myPhotoedit">
+                    <img src="./assets/photo.png" alt="" class="imgMyProfile">
                 </div>
-                <div class="info-right">
-                    <div class="xdd">
-                        <h4>Dirección: </h4>
-                        <input type="text" name="name" value="" placeholder="Prueba" class="input-conf" />
-                    </div>
-                    <mat-divider class="matdividerProfile"></mat-divider>
-                    <div class="xdd">
-                        <h4>Teléfono: </h4>
-                        <input type="number" name="name" value="" placeholder="Prueba" class="input-conf" />
-                    </div>
-                </div>
+                <input type="file" id="f1" multiple="false" accept="image/*" class="inputImg">
+                
+            </div>
+            <mat-divider class="matdividerProfile"></mat-divider>
+            <div class="editdata1">
+                <h3 class="textditata">Email</h3>
+                <input type="text"  class="input-editdataemail">
+                <i class=" fa-lg fa-solid fa-envelope" id="iconEmail"></i>
+            </div>
+            <mat-divider class="matdividerProfile"></mat-divider>
+            <div class="editdata1">
+                <h3 class="textditata">Telefono</h3>
+                <input type="text"  class="input-editdataphone1">
+                <input type="text"  class="input-editdataphone">
             </div>
         </div>
     </div>
