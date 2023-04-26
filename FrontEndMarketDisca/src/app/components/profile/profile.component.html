@@ -34,7 +34,7 @@
 
 
         <div class="prof">
-            <button class="profile-button">
+            <button (click)="showSecurity()" class="profile-button" >
                 <div class="icon-profile">
                     <span class="material-symbols-outlined">security</span>
                 </div>
@@ -70,111 +70,6 @@
 
     </div>
 
-    <!--Inicio Contenedor compras -->
-    <div class="conteCompras" *ngIf="showComp">
-        <h1 class="h1-cv">Lo que has comprado hasta el momento</h1>
-        <div class="TablaxD">
-            <table mat-table class="" matSort>
-
-
-                <!-- Position Column -->
-
-                <!-- Name Column -->
-                <ng-container matColumnDef="bananaType">
-                    <th mat-header-cell *matHeaderCellDef> Tipo de Platano </th>
-                    <td mat-cell *matCellDef="let element"> {{element.bananaType}} </td>
-                </ng-container>
-
-                <!-- Weight Column -->
-                <ng-container matColumnDef="measurementUnits">
-                    <th mat-header-cell *matHeaderCellDef> Cantidad KG </th>
-                    <td mat-cell *matCellDef="let element"> {{element.measurementUnits}} </td>
-                </ng-container>
-
-                <!-- Symbol Column -->
-                <ng-container matColumnDef="pricePurchase">
-                    <th mat-header-cell *matHeaderCellDef> Precio Total </th>
-                    <td mat-cell *matCellDef="let element"> {{element.pricePurchase}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="dateStarted">
-                    <th mat-header-cell *matHeaderCellDef> Fecha de Inicio </th>
-                    <td mat-cell *matCellDef="let element"> {{element.dateStarted}} </td>
-                </ng-container>
-                <ng-container matColumnDef="dateEnded">
-                    <th mat-header-cell *matHeaderCellDef> Fecha de Fin </th>
-                    <td mat-cell *matCellDef="let element"> {{element.dateEnded}} </td>
-                </ng-container>
-                <ng-container matColumnDef="Eliminar">
-                    <th mat-header-cell *matHeaderCellDef> Eliminar </th>
-                    <td mat-cell *matCellDef="let element">
-                        <mat-icon (click)="eliminarInscripcion(element.idSubasta)" class="delete"
-                            matTooltip="Eliminar Subasta" fontIcon="delete"> </mat-icon>
-                    </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-            <mat-paginator [pageSize]="4" showFirstLastButtons aria-label="Select page of periodic elements">
-            </mat-paginator>
-
-        </div>
-    </div>
-
-    <div class="conteVentas " *ngIf="showVent">
-        <h1 class="h1-cv">Ventas Generadas</h1>
-        <div class="TablaxD">
-            <table mat-table class="">
-
-                <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-
-                <!-- Position Column -->
-                <ng-container matColumnDef="bananaType">
-                    <th mat-header-cell *matHeaderCellDef> Tipo de Banana </th>
-                    <td mat-cell *matCellDef="let element"> {{element.bananaType}} </td>
-                </ng-container>
-
-                <!-- Name Column -->
-                <ng-container matColumnDef="measurementUnits">
-                    <th mat-header-cell *matHeaderCellDef> Cantidad Kg </th>
-                    <td mat-cell *matCellDef="let element"> {{element.measurementUnits}} </td>
-                </ng-container>
-
-                <!-- Weight Column -->
-                <ng-container matColumnDef="dateStarted">
-                    <th mat-header-cell *matHeaderCellDef> Fecha Inicial</th>
-                    <td mat-cell *matCellDef="let element"> {{element.dateStarted}} </td>
-                </ng-container>
-
-                <!-- Symbol Column -->
-                <ng-container matColumnDef="dateEnded">
-                    <th mat-header-cell *matHeaderCellDef>Fecha Final $ </th>
-                    <td mat-cell *matCellDef="let element"> {{element.dateEnded}} </td>
-                </ng-container>
-                <!-- Estado Column -->
-                <ng-container matColumnDef="initialPrice">
-                    <th mat-header-cell *matHeaderCellDef>Precio Inicial </th>
-                    <td mat-cell *matCellDef="let element"> {{element.initialPrice}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="Eliminar">
-                    <th mat-header-cell *matHeaderCellDef> Eliminar </th>
-                    <td mat-cell *matCellDef="let element">
-                        <mat-icon (click)="eliminarA(element.idSubasta)" class="delete" matTooltip="Eliminar Subasta"
-                            fontIcon="delete"> </mat-icon>
-                    </td>
-                </ng-container>
-
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-            </table>
-            <mat-paginator [pageSize]="4" showFirstLastButtons aria-label="Select page of periodic elements">
-            </mat-paginator>
-        </div>
-
-    </div>
 
     <div class="conteProfile " *ngIf="showProfi">
         <div class="imgPortada">
@@ -187,8 +82,111 @@
         <h1 class="titleh1">Perfil</h1>
         <p class="ptitle">Actualiza tu foto y tus datos personales.</p>
         <!--  -->
-
-        <div class="edit-data">
+        <div class="conteCompras" *ngIf="showComp">
+            <h1 class="h1-cv">Los servicios que has tomado  hasta el momento</h1>
+            <div class="TablaxD">
+                <table mat-table class="" matSort>
+    
+    
+                    <!-- Position Column -->
+    
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="bananaType">
+                        <th mat-header-cell *matHeaderCellDef> Tipo de Platano </th>
+                        <td mat-cell *matCellDef="let element"> {{element.bananaType}} </td>
+                    </ng-container>
+    
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="measurementUnits">
+                        <th mat-header-cell *matHeaderCellDef> Cantidad KG </th>
+                        <td mat-cell *matCellDef="let element"> {{element.measurementUnits}} </td>
+                    </ng-container>
+    
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="pricePurchase">
+                        <th mat-header-cell *matHeaderCellDef> Precio Total </th>
+                        <td mat-cell *matCellDef="let element"> {{element.pricePurchase}} </td>
+                    </ng-container>
+    
+                    <ng-container matColumnDef="dateStarted">
+                        <th mat-header-cell *matHeaderCellDef> Fecha de Inicio </th>
+                        <td mat-cell *matCellDef="let element"> {{element.dateStarted}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="dateEnded">
+                        <th mat-header-cell *matHeaderCellDef> Fecha de Fin </th>
+                        <td mat-cell *matCellDef="let element"> {{element.dateEnded}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Eliminar">
+                        <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+                        <td mat-cell *matCellDef="let element">
+                            <mat-icon (click)="eliminarInscripcion(element.idSubasta)" class="delete"
+                                matTooltip="Eliminar Subasta" fontIcon="delete"> </mat-icon>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <mat-paginator [pageSize]="4" showFirstLastButtons aria-label="Select page of periodic elements">
+                </mat-paginator>
+    
+            </div>
+        </div>
+    
+        <div class="conteVentas " *ngIf="showVent">
+            <h1 class="h1-cv">Ventas Generadas</h1>
+            <div class="TablaxD">
+                <table mat-table class="">
+    
+                    <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+    
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="bananaType">
+                        <th mat-header-cell *matHeaderCellDef> Tipo de Banana </th>
+                        <td mat-cell *matCellDef="let element"> {{element.bananaType}} </td>
+                    </ng-container>
+    
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="measurementUnits">
+                        <th mat-header-cell *matHeaderCellDef> Cantidad Kg </th>
+                        <td mat-cell *matCellDef="let element"> {{element.measurementUnits}} </td>
+                    </ng-container>
+    
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="dateStarted">
+                        <th mat-header-cell *matHeaderCellDef> Fecha Inicial</th>
+                        <td mat-cell *matCellDef="let element"> {{element.dateStarted}} </td>
+                    </ng-container>
+    
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="dateEnded">
+                        <th mat-header-cell *matHeaderCellDef>Fecha Final $ </th>
+                        <td mat-cell *matCellDef="let element"> {{element.dateEnded}} </td>
+                    </ng-container>
+                    <!-- Estado Column -->
+                    <ng-container matColumnDef="initialPrice">
+                        <th mat-header-cell *matHeaderCellDef>Precio Inicial </th>
+                        <td mat-cell *matCellDef="let element"> {{element.initialPrice}} </td>
+                    </ng-container>
+    
+                    <ng-container matColumnDef="Eliminar">
+                        <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+                        <td mat-cell *matCellDef="let element">
+                            <mat-icon (click)="eliminarA(element.idSubasta)" class="delete" matTooltip="Eliminar Subasta"
+                                fontIcon="delete"> </mat-icon>
+                        </td>
+                    </ng-container>
+    
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+                </table>
+                <mat-paginator [pageSize]="4" showFirstLastButtons aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div>
+    
+        </div>
+        <div class="edit-data" *ngIf="showeditProfi">
             <div class="editdata1">
                 <h3 class="textditata">Nombre de Usuario</h3>
                 <input type="text" class="input-editdatadaRout">
@@ -211,7 +209,7 @@
             </div>
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdata1">
-                <h3 class="textditata">Telefono</h3>
+                <h3 class="textditata">Teléfono</h3>
                 <input type="text" class="input-editdataphone1">
                 <input type="text" class="input-editdataphone">
             </div>
@@ -237,9 +235,21 @@
              <div class="editdata1">
                 <h3 class="textditata">Barrio</h3>
                 <input type="text" class="input-editdataemail">
-
-                
             </div>
+            <div class="editdata2">
+                <h3 class="textditata">Dirección</h3>
+                <input style="margin-left: 10%;" type="text" class="input-editdataAddres">
+                <input type="text" class="input-editdataAddres">
+                <h3 style="display: flex; font-size: large;">#</h3>
+                <input type="text" class="input-editdataAddres">
+                <h3 style="font-size: large;">-</h3>
+                <input type="text" class="input-editdataAddres">
+            </div>
+            <div class="editdata1">
+                <h3  class="textditata">Codigo Postal</h3>
+                <input type="text" class="input-editdataemail">
+            </div>
+            <mat-divider class="matdividerProfile" style="margin-bottom: 40px;"></mat-divider>
 
         </div>
     </div>

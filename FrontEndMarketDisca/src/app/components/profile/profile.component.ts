@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit,AfterViewInit {
   showVent: boolean = false;
   showComp: boolean = false;
   showProfi: boolean = false;
+  showeditProfi: boolean = false;
   showPrinci: boolean = true;
   showPhotoProfile:boolean = true;
 
@@ -54,7 +55,8 @@ for (let i = 0; i < elementosMenu.length; i++) {
     this.showPhotoProfile = false;
     this.showComp = true;
     this.showPrinci = false;
-    this.showProfi = false;
+    this.showProfi = true;
+    this.showeditProfi=false;
   }
 
   showVentas() {
@@ -62,7 +64,8 @@ for (let i = 0; i < elementosMenu.length; i++) {
     this.showVent = true;
     this.showComp = false;
     this.showPrinci = false;
-    this.showProfi = false;
+    this.showProfi = true;
+    this.showeditProfi=false;
 
   }
   showProfile(){
@@ -71,6 +74,7 @@ for (let i = 0; i < elementosMenu.length; i++) {
     this.showComp = false;
     this.showPrinci = false;
     this.showProfi = true;
+    this.showeditProfi=true;
   }
   eliminarA(idSub:number){
     this.router.navigate(['start']);
@@ -84,6 +88,15 @@ for (let i = 0; i < elementosMenu.length; i++) {
     this.showComp = false;
     this.showPrinci = true;
     this.showProfi = false;
+    this.showeditProfi=false;
+  }
+
+  showSecurity(){
+    this.showVent = false;
+    this.showComp = false;
+    this.showPrinci = false;
+    this.showProfi = false;
+    this.showeditProfi=false;
   }
 
   

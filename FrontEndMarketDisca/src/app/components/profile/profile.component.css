@@ -90,7 +90,7 @@
   .conteVentas,
   .conteProfile {
     background-color: #fff;
-    margin-top: 2%;
+    margin-top: 5%;
     width: 100%;
   }
 
@@ -146,9 +146,12 @@
 
 
   .h1-cv {
-    margin-top: 45px;
-    text-align: center;
-    font-size: 35px;
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+    
+    color: #151111;
   }
 
   .TablaxD {
@@ -358,16 +361,7 @@
     height: 40px;
     width: 55%;
   }
-  /* .selectAddress{
-    margin: auto;
-    position: relative;
-    box-sizing: border-box;
-    border: 1px solid #B9B3B3;
-    border-radius: 15px;
-    height: 40px;
-    width: 60%;
-  } */
-
+ 
   /*aqui una vaina xd */
 
   select {
@@ -421,4 +415,24 @@
   .select:hover::after {
     color: #969696;
   }
+
+  .input-editdataAddres{
+    border-radius: 15px;
+    position: relative;
+    height: 40px;
+    box-sizing: border-box;
+    width: 5%;
+    border: 1px solid #B9B3B3;
+    margin-left: 6px;
+    margin-right: 6px;
+  }
   
+  .editdata2{
+    margin: auto;
+    position: relative;
+    display: flex;
+    padding: auto;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+  }
