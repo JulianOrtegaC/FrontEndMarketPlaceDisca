@@ -7,54 +7,62 @@
 </div>
 <div class="divFormulario">
 
-    <form   class="form" >
+    <form class="form">
 
         <h2 class="uneText" data-aos="zoom-in">Únete a<br> Nosotros</h2>
-        <div class="conOTDI">
-
-            <div class="divFormleft">
-                <input type="text" id="nameUser"  [(ngModel)]="nameUser" name="nameUser" placeholder="Escribe tu nombre" />
-                <input type="text" id="surname" [(ngModel)]="lastNameUser" name="lastNameUser" placeholder="Escribe tu apellido" />
-                <input type="email" id="email"  [(ngModel)]="email" name="email" placeholder="email" />
-            <select name="typeDocument"  id="document_type" [(ngModel)]="typeDocument" >
-            
-                <option selected  value="CC">CC</option>
-                <option value="PA">PA</option>
-                <option value="CE">CE</option>
-            </select>
-            <input type="text" id="id_number" [(ngModel)]="idUser" name="idUser" placeholder="Numero de identificacion" />
-
-            <input type="password" class="password" id="password" [(ngModel)]="password" name="password" placeholder="Escribe una contraseña" />
-            <input type="password" class="password" id="forgotPassword" [(ngModel)]="forgotPassword" name="forgotPassword" placeholder="Escribe nuevamente la contraseña" />
-            
-
+        <div class="alert alert-danger " *ngIf="errors" role="alert">
+            Las credenciales Ingresadas son incorrectas
         </div>
-        <div class="divFormRight">
-            <input id="dateTime" name="date" type="date" [(ngModel)]="date"  max="2004-01-01" />
-              <div class="divCheckBox">
-                <input class="checkbox" type="radio" [(ngModel)]="gender" name="gender" value="Hombre">Hombre
-              </div>
-              <div class="divCheckBox">
-                <input  class="checkbox" type="radio" [(ngModel)]="gender" name="gender" value="Mujer">Mujer
-              </div>
-              <div class="divCheckBox">
-                <input  class="checkbox"type="radio" [(ngModel)]="gender" name="gender" value="Otro">Otro
-              </div>
+        <div class="conOTDI">
+            <div class="divFormleft">
+                <input type="text" id="nameUser" [(ngModel)]="nameUser" name="nameUser"
+                    placeholder="Escribe tu nombre" />
+                <input type="text" id="surname" [(ngModel)]="lastNameUser" name="lastNameUser"
+                    placeholder="Escribe tu apellido" />
+                <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="email" />
+                <select name="typeDocument" id="document_type" [(ngModel)]="typeDocument">
 
-            <p class="aceptarPolitica">Al hacer clic en "Registrarte", aceptas nuestras Condiciones, la Política de
-                privacidad y la Política de cookies.</p>
+                    <option selected value="CC">CC</option>
+                    <option value="PA">PA</option>
+                    <option value="CE">CE</option>
+                </select>
+                <input type="text" id="id_number" [(ngModel)]="idUser" name="idUser"
+                    placeholder="Numero de identificacion" />
+
+                <input type="password" class="password" id="password" [(ngModel)]="password" name="password"
+                    placeholder="Escribe una contraseña" />
+                <input type="password" class="password" id="forgotPassword" [(ngModel)]="forgotPassword"
+                    name="forgotPassword" placeholder="Escribe nuevamente la contraseña" />
+
+
+            </div>
+            <div class="divFormRight">
+                <input id="dateTime" name="date" type="date" [(ngModel)]="date" max="2004-01-01" />
+                <div class="divCheckBox">
+                    <input class="checkbox" type="radio" [(ngModel)]="gender" name="gender" value="Hombre"> Hombre
+                </div>
+                <div class="divCheckBox">
+                    <input class="checkbox" type="radio" [(ngModel)]="gender" name="gender" value="Mujer"> Mujer
+                </div>
+                <div class="divCheckBox">
+                    <input class="checkbox" type="radio" [(ngModel)]="gender" name="gender" value="Otro"> Otro
+                </div>
+
+                <p class="aceptarPolitica">Al hacer clic en "Registrarte", aceptas nuestras Condiciones, la Política de
+                    privacidad y la Política de cookies.</p>
                 <p class="yaregis"><a href="#" routerLink="/login">Ya tiene cuenta</a></p>
 
-            <button class="buttonRegister" mat-stroked-button (click)="registrarse()" [disabled]="!Registerr">Registrarse</button>
+                <button class="buttonRegister" mat-stroked-button (click)="registrarse()"
+                    [disabled]="!Registerr">Registrarse</button>
+            </div>
         </div>
-    </div>
-      
-        
-        
-        
-      
-    
-  
 
-</form>
+
+
+
+
+
+
+
+    </form>
 </div>

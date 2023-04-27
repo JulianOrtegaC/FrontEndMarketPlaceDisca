@@ -113,6 +113,10 @@
   font-weight: bold;
 }
 
+.form input:invalid {
+  border-bottom: 2px solid red;
+}
+
 #iconEmail {
   position: absolute;
   right: 70px;

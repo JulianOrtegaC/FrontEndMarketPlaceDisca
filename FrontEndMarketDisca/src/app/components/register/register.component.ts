@@ -10,6 +10,7 @@ import { RegisterService } from 'src/app/services/register.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
   idUser!:string;
   nameUser!:string;
   lastNameUser!:string;
@@ -21,6 +22,7 @@ export class RegisterComponent implements OnInit {
   gender!:string;
   forgotPassword!:string;
   password!:string;
+  errors:boolean=false;
   constructor(private registerService: RegisterService,  private router: Router ) { }
   ngOnInit() {
   }
@@ -46,9 +48,10 @@ export class RegisterComponent implements OnInit {
     this.registerService.register(registAux).subscribe({
       next: (res: any) => {
         this.router.navigate(['login']);
+        this.errors=false;
       },
       error: (err) => {
-        console.log(err.message)
+        this.errors=true;
       }
     })
    

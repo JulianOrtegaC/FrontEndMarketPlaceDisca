@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700,400,bold,1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
 
 .imagenFondo {
     position: fixed;
@@ -36,31 +38,47 @@
 /* De aqui lo del mk formulario */
 
 .divFormulario {
-    position: absolute;
+    position: relative;
     background-color: #4F7397;
     width: 55%;
-    height: 450px;
     left: 44%;
-    top: 28%;
+    top: 11vh;
+    ;
     border-radius: 20px;
-   
-}
-.conOTDI{
-    display: flex; /* Establecer la propiedad display como flex */
-    justify-content: space-between; 
+    padding: 15px;
 
 }
-.uneText{
-color: #FFFFFF;
-margin-left: 25px;
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 700;
-font-size: 36px;
-line-height: 54px;
+
+.alert {
+    position: relative;
+    display: inline-block;
+    margin-left: 15%;
+    border-radius: 50px;
+    background-color: #F06868;
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    padding-right: 5%;
+    padding-left: 5%;
 }
 
-.divFormleft{
+.conOTDI {
+    display: flex;
+    /* Establecer la propiedad display como flex */
+    justify-content: space-between;
+
+}
+
+.uneText {
+    position: relative;
+    display: inline;
+    top: 8%;
+    left: 3%;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-weight:bolder;
+}
+
+.divFormleft {
     position: relative;
     height: auto;
     width: 50%;
@@ -69,7 +87,7 @@ line-height: 54px;
     grid-gap: 10px
 }
 
-.divFormRight{
+.divFormRight {
     position: relative;
     height: auto;
     width: 50%;
@@ -78,46 +96,56 @@ line-height: 54px;
     grid-gap: 10px
 }
 
-.divFormleft input{
+.divFormleft input {
     margin: auto;
     width: 90%;
     margin-top: 5px;
-    height:34px ;
+    height: 34px;
     border-radius: 5px;
     border: none;
     font-size: large;
 }
-#nameUser{
+
+#nameUser {
     width: 80%;
 }
-#surname{
+
+#surname {
     width: 80%;
 }
-#document_type{
+
+#document_type {
     margin: auto;
     height: 34px;
     width: 80%;
     border-radius: 10px;
     border: none;
 }
-#id_number{
+
+#id_number {
     width: 80%;
 }
-#email{
+
+#email {
     grid-column: span 2;
 }
-.password{
+#email:invalid {
+    border: 2px solid red;
+  }
+.password {
     grid-column: span 2;
 }
-#dateTime{
+
+#dateTime {
     grid-column: span 3;
     width: 90%;
-    height:45px;
+    height: 45px;
     border-radius: 10px;
     border: none;
     font-size: large;
 }
-.buttonRegister{
+
+.buttonRegister {
     grid-column: 2;
     width: 100%;
     height: 50px;
@@ -127,32 +155,43 @@ line-height: 54px;
     font-size: large;
     cursor: pointer;
 }
-.divCheckBox{
+
+.divCheckBox {
     background-color: #FFFFFF;
     height: 45px;
     width: 80%;
     border-radius: 10px;
-    align-items: center;
     display: flex;
+    align-items: center;
+
 }
-.checkbox{
+
+.checkbox {
     position: relative;
     font-size: large;
     font-family: 'Poppins';
+    margin-left: 15px;
+
+
 }
-.aceptarPolitica{
+
+.aceptarPolitica {
     color: #FFFFFF;
     grid-column: span 3;
     text-align: center;
-    font-size: large;
+    font-size: 13px;
     margin-bottom: 2px;
+    font-weight: 400;
+
 }
-.yaregis{
+
+.yaregis {
     margin: 0;
     grid-column: 2;
     text-align: center;
     font-size: larger;
 }
-.yaregis a{
+
+.yaregis a {
     color: #FFFFFF;
 }
