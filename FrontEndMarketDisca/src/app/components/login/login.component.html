@@ -11,6 +11,9 @@
         <i class="fa-2x fa-solid fa-user" style="color: #ffffff;"></i>
     </button>
     <h2 class="textLogin">Login</h2>
+    <div class="alert alert-danger " *ngIf="errors"  role="alert">
+       Las credenciales Ingresadas son incorrectas
+      </div>
     <h4 class="texth4">Ingrese Las Credenciales de Inicio de Sesion</h4>
     <div class="form">
         <form class="login-form">

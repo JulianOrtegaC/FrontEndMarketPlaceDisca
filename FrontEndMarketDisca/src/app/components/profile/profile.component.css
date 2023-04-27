@@ -325,7 +325,7 @@
   .input-editdataemail {
     padding-left: 6%;
     border-radius: 15px;
-    margin: auto;
+    margin: 15px auto 15px auto;
     position: relative;
     height: 40px;
     width: 60%;
@@ -363,12 +363,18 @@
     width: 55%;
   }
 
+  
+  .editdataSelect {
+    position: relative;
+    display: flex;
+    margin-top: 15px;
+  }
   /*aqui una vaina xd */
 
   select {
     /* Reset Select */
     appearance: none;
-    margin: auto;
+    margin: auto auto 15px auto;
     outline: 0;
     height: 40px;
     width: 60%;
@@ -401,7 +407,7 @@
 
   /* Arrow */
   .select::after {
-    margin: auto;
+    margin: auto auto 15px auto;
     content: '\25BC';
     position: absolute;
     top: 0;
@@ -430,6 +436,7 @@
     border: 1px solid #B9B3B3;
     margin-left: 6px;
     margin-right: 6px;
+
   }
 
   .editdata2 {

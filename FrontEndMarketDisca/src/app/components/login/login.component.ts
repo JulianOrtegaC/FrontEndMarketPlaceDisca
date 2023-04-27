@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   }
   email!: string;
   password!: string;
+  errors:boolean = false;
   iniciarSesionConGoogle() {
     // Lógica para iniciar sesión con Google
   }
@@ -49,9 +50,11 @@ export class LoginComponent implements OnInit {
         );
 
         this.router.navigate(['profile']);
+        this.errors=false;
       },
       error: (err) => {
-        console.log(err)
+        console.log(err);
+        this.errors=true;
       }
     });
   }

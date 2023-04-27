@@ -1,37 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+
 .imagenFondo {
-    position: absolute;
-    width: 58%;
-    height: 90%;
-    top: 5%;
-    left: 41%;
-    background-size: 100% 100%;
-    background-image: url("src\assets\imgLogin.png");
+  position: absolute;
+  width: 58%;
+  height: 90%;
+  top: 5%;
+  left: 41%;
+  background-size: 100% 100%;
+  background-image: url("src\assets\imgLogin.png");
 }
 
 .divLogo {
-    display: inline;
+  display: inline;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
 }
 
 .textLogo {
-    display: inline;
-    flex-grow: 1;
-    /* Para que el texto ocupe el espacio disponible */
-    text-align: center;
-    /* Para centrar el texto */
-    margin-left: 5px;
-    font-size: large;
+  display: inline;
+  flex-grow: 1;
+  /* Para que el texto ocupe el espacio disponible */
+  text-align: center;
+  /* Para centrar el texto */
+  margin-left: 5px;
+  font-size: large;
 }
-.buttonRegister{
+
+.buttonRegister {
   position: absolute;
   width: 150px;
   height: 40px;
@@ -39,115 +43,126 @@
   background: #4F7397;
   border-radius: 20px;
   cursor: pointer;
-  border:none;
+  border: none;
   left: 86%;
   top: 8%;
   font-size: large;
 }
+
 .divFormulario {
-    display: grid;
-    text-align: center;
-    width: 35%;
-    max-height: 500px;
+  display: grid;
+  text-align: center;
+  width: 35%;
+  max-height: 500px;
 }
 
 .boton-circular {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    left: 45%;
-    border-radius: 50%;
-    background-color: #4F7397;
-    border: none;
-    margin-top: 15px;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  left: 45%;
+  border-radius: 50%;
+  background-color: #4F7397;
+  border: none;
+  margin-top: 15px;
 }
-.textLogin{
-    position: relative;
-    width: 70px;
-    height: 39px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
-    left: 45%;
-    line-height: 39px;
-    color: #0E3A66;
+
+.textLogin {
+  position: relative;
+  width: 70px;
+  height: 39px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: bolder;
+  font-size: xx-large;
+  left: 45%;
+  color: #0E3A66;
+  margin: 35px 0 25px;
 }
+
 .texth4 {
-    position: relative;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-    color: rgba(0, 0, 0, 0.6);
+  position: relative;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: bolder;
+  font-size: large;
+  margin: 35px 0 35px 0;
+
 }
 
 .form {
-    position: relative;
-    z-index: 1;
-    max-width: 360px;
-    margin: 0 auto 90px;
-    text-align: center;
-    
-  }
+  position: relative;
+  z-index: 1;
+  max-width: 360px;
+  margin: 0 auto 90px;
+  text-align: center;
+
+}
 
 
-  .form input {
-    font-family: "Poppins", sans-serif;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #8f8f8f; 
-    width: 70%;
-    height: 24px;
-    margin: 0 0 15px;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 14px;
-    flex: 1;
-    padding-right: 30px; 
-    font-size: large;
-  }
-  #iconEmail{
-    position: absolute;
-    right: 70px; /* Ajusta la posición del icono */
-    cursor: pointer;
-    top: 5%;
-  }
-  #iconEyeSlash{
-    position: absolute;
-    right: 70px; /* Ajusta la posición del icono */
-    cursor: pointer;
-    top: 20%;
-  }
-  .buttonAceptar{
-    position: relative;
-    width: 288.09px;
-    height: 51.22px;
-    top: calc(50% - 51.22px/2 + 271.61px);
-    color: white;
-    background: #4F7397;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    font-size: large;
-    margin-top: 15px;
-  }
+.form input {
+  font-family: "Poppins", sans-serif;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #8f8f8f;
+  height: 24px;
+  margin: 15px 0 35px 0;
+  flex: 1;
+  padding-right: 30px;
+  font-size: large;
+  font-weight: bold;
+}
 
-  .message{
-    font-family: 'Inter';
-    font-style: normal;
-    font-size: large;
-  }
-  .btn-google , .btn-facebook{
-    background-color: white;
-    height: 34px;
-    width: 100%;
-    margin-top: 15px;
-    margin-bottom: 5px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: large;
-  }
+#iconEmail {
+  position: absolute;
+  right: 70px;
+  /* Ajusta la posición del icono */
+  cursor: pointer;
+  top: 5%;
+}
 
-  
+#iconEyeSlash {
+  position: absolute;
+  right: 70px;
+  /* Ajusta la posición del icono */
+  cursor: pointer;
+  top: 20%;
+}
+
+.buttonAceptar {
+  position: relative;
+  width: 288.09px;
+  height: 51.22px;
+  top: calc(50% - 51.22px/2 + 271.61px);
+  color: white;
+  background: #4F7397;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: large;
+  margin-top: 15px;
+}
+
+.message {
+  font-family: 'Inter';
+  font-style: normal;
+  font-size: large;
+}
+
+.btn-google,
+.btn-facebook {
+  background-color: white;
+  height: 34px;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  font-size: large;
+}
+.alert{
+  position: relative;
+  margin:auto;
+  width: 70%;
+}
