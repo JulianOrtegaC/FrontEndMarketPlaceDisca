@@ -64,8 +64,9 @@
   }
 
   .nav-seleccionada {
-    font-weight: 300;
     background-color: #A4CDF2;
+    color: #147ad4;
+    font-weight: bold;
   }
 
   a:hover {
@@ -82,6 +83,7 @@
     font-family: 'Inter';
     width: 50%;
     border-radius: 20px;
+    color: #151111;
 
   }
 
@@ -183,7 +185,6 @@
 
   .imagen {
     height: 25%;
-    background-color: aqua;
   }
 
   .imgPortada {
