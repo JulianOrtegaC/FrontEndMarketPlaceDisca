@@ -34,15 +34,13 @@ export class LoginComponent implements OnInit {
     console.log(auxEmail, auxPas);//estos estan indefinidosssss
     this.registerService.login(auxEmail,auxPas).subscribe({
       next: (res: any) => {
-        console.log(res);
         localStorage.setItem('token', res.token);
         this.registerService.setactualID(res.userId);
         this.registerService.setDatosProfile(
           res.idUser,
           res.nameUser,
           res.lastNameUser,
-          res.address,
-          res.telephone,
+          res.birthDate,
           res.email,
           res.typeDocument,
           res.gender,

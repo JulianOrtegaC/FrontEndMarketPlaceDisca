@@ -14,8 +14,7 @@ export class RegisterComponent implements OnInit {
   idUser!:string;
   nameUser!:string;
   lastNameUser!:string;
-  address!:string;
-  telephone!:string;
+  birthdate!:Date;
   email!:string;
   typeDocument!:string;
   date!:string;
@@ -28,7 +27,7 @@ export class RegisterComponent implements OnInit {
   }
 
   get Registerr() {
-    return this.idUser && this.nameUser && this.lastNameUser  && this.email && this.typeDocument && this.date && this.gender && this.forgotPassword && this.password ;
+    return this.idUser && this.nameUser && this.lastNameUser  && this.email && this.typeDocument && this.birthdate && this.gender && this.forgotPassword && this.password ;
 
   }
   registrarse() {
@@ -36,8 +35,7 @@ export class RegisterComponent implements OnInit {
       idUser:this.idUser,
       nameUser:this.nameUser,
       lastNameUser:this.lastNameUser,
-      address:"",
-      telephone:"123",
+      birthDate:this.birthdate,
       email:this.email,
       typeDocument:this.typeDocument,
       gender:this.gender,
