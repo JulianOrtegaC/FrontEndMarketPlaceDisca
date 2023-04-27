@@ -34,7 +34,7 @@
 
 
         <div class="prof">
-            <button (click)="showSecurity()" class="profile-button" >
+            <button (click)="showSecurity()" class="profile-button">
                 <div class="icon-profile">
                     <span class="material-symbols-outlined">security</span>
                 </div>
@@ -83,31 +83,31 @@
         <p class="ptitle">Actualiza tu foto y tus datos personales.</p>
         <!--  -->
         <div class="conteCompras" *ngIf="showComp">
-            <h1 class="h1-cv">Los servicios que has tomado  hasta el momento</h1>
+            <h1 class="h1-cv">Los servicios que has tomado hasta el momento</h1>
             <div class="TablaxD">
                 <table mat-table class="" matSort>
-    
-    
+
+
                     <!-- Position Column -->
-    
+
                     <!-- Name Column -->
                     <ng-container matColumnDef="bananaType">
                         <th mat-header-cell *matHeaderCellDef> Tipo de Platano </th>
                         <td mat-cell *matCellDef="let element"> {{element.bananaType}} </td>
                     </ng-container>
-    
+
                     <!-- Weight Column -->
                     <ng-container matColumnDef="measurementUnits">
                         <th mat-header-cell *matHeaderCellDef> Cantidad KG </th>
                         <td mat-cell *matCellDef="let element"> {{element.measurementUnits}} </td>
                     </ng-container>
-    
+
                     <!-- Symbol Column -->
                     <ng-container matColumnDef="pricePurchase">
                         <th mat-header-cell *matHeaderCellDef> Precio Total </th>
                         <td mat-cell *matCellDef="let element"> {{element.pricePurchase}} </td>
                     </ng-container>
-    
+
                     <ng-container matColumnDef="dateStarted">
                         <th mat-header-cell *matHeaderCellDef> Fecha de Inicio </th>
                         <td mat-cell *matCellDef="let element"> {{element.dateStarted}} </td>
@@ -128,36 +128,36 @@
                 </table>
                 <mat-paginator [pageSize]="4" showFirstLastButtons aria-label="Select page of periodic elements">
                 </mat-paginator>
-    
+
             </div>
         </div>
-    
+
         <div class="conteVentas " *ngIf="showVent">
             <h1 class="h1-cv">Ventas Generadas</h1>
             <div class="TablaxD">
                 <table mat-table class="">
-    
+
                     <!--- Note that these columns can be defined in any order.
                   The actual rendered columns are set as a property on the row definition" -->
-    
+
                     <!-- Position Column -->
                     <ng-container matColumnDef="bananaType">
                         <th mat-header-cell *matHeaderCellDef> Tipo de Banana </th>
                         <td mat-cell *matCellDef="let element"> {{element.bananaType}} </td>
                     </ng-container>
-    
+
                     <!-- Name Column -->
                     <ng-container matColumnDef="measurementUnits">
                         <th mat-header-cell *matHeaderCellDef> Cantidad Kg </th>
                         <td mat-cell *matCellDef="let element"> {{element.measurementUnits}} </td>
                     </ng-container>
-    
+
                     <!-- Weight Column -->
                     <ng-container matColumnDef="dateStarted">
                         <th mat-header-cell *matHeaderCellDef> Fecha Inicial</th>
                         <td mat-cell *matCellDef="let element"> {{element.dateStarted}} </td>
                     </ng-container>
-    
+
                     <!-- Symbol Column -->
                     <ng-container matColumnDef="dateEnded">
                         <th mat-header-cell *matHeaderCellDef>Fecha Final $ </th>
@@ -168,23 +168,23 @@
                         <th mat-header-cell *matHeaderCellDef>Precio Inicial </th>
                         <td mat-cell *matCellDef="let element"> {{element.initialPrice}} </td>
                     </ng-container>
-    
+
                     <ng-container matColumnDef="Eliminar">
                         <th mat-header-cell *matHeaderCellDef> Eliminar </th>
                         <td mat-cell *matCellDef="let element">
-                            <mat-icon (click)="eliminarA(element.idSubasta)" class="delete" matTooltip="Eliminar Subasta"
-                                fontIcon="delete"> </mat-icon>
+                            <mat-icon (click)="eliminarA(element.idSubasta)" class="delete"
+                                matTooltip="Eliminar Subasta" fontIcon="delete"> </mat-icon>
                         </td>
                     </ng-container>
-    
+
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    
+
                 </table>
                 <mat-paginator [pageSize]="4" showFirstLastButtons aria-label="Select page of periodic elements">
                 </mat-paginator>
             </div>
-    
+
         </div>
         <div class="edit-data" *ngIf="showeditProfi">
             <div class="editdata1">
@@ -217,7 +217,7 @@
             <div class="editdata1">
                 <h3 class="textditata">Departamento</h3>
                 <div class="select">
-                    <select class="selectAddress"name="ciudad" id="">
+                    <select class="selectAddress" name="ciudad" id="">
                         <option value="">Comooo</option>
                         <option value="">Comooo</option>
                         <option value="">Comooo</option>
@@ -226,13 +226,13 @@
                     </select>
                 </div>
             </div>
-             <div class="editdata1">
+            <div class="editdata1">
                 <h3 class="textditata">Ciudad</h3>
                 <div class="select">
-                    <select class="selectAddress"name="ciudad" id=""></select>
+                    <select class="selectAddress" name="ciudad" id=""></select>
                 </div>
             </div>
-             <div class="editdata1">
+            <div class="editdata1">
                 <h3 class="textditata">Barrio</h3>
                 <input type="text" class="input-editdataemail">
             </div>
@@ -246,12 +246,66 @@
                 <input type="text" class="input-editdataAddres">
             </div>
             <div class="editdata1">
-                <h3  class="textditata">Codigo Postal</h3>
+                <h3 class="textditata">Codigo Postal</h3>
                 <input type="text" class="input-editdataemail">
             </div>
             <mat-divider class="matdividerProfile" style="margin-bottom: 40px;"></mat-divider>
 
         </div>
     </div>
+    <div class="conteSecurity" *ngIf="showSecu">
+        <div class="divImgMyProfileSecurity">
+            <img src="./assets/photo.png" alt="" class="imgMyProfile2">
+            <div style="margin-left: 30px;">
+                <h1 class="titleSecurity">Seguridad</h1>
+                <h3 class="subtitleSecurity">Gestiona tu seguridad</h3>
+            </div>
+        </div>
+        <div class="edit-data" *ngIf="showEditSecu">
+            <h3 class="h3security">Cambio de contraseña</h3>
+            <div class="editdata1">
+                <h3 class="textditata">Contraseña Actual</h3>
+                <input type="password" class="input-editdataemail">
+            </div>
+            <mat-divider class="matdividerProfile"></mat-divider>
+            <div class="editdata1">
+                <h3 class="textditata">Nueva Contraseña</h3>
+                <input type="password" class="input-editdataemail">
+            </div>
+            <mat-divider class="matdividerProfile"></mat-divider>
+            <div class="editdata1">
+                <h3 class="textditata">Repetir</h3>
+                <input type="password" class="input-editdataemail">
+            </div>
+            <mat-divider class="matdividerProfile"></mat-divider>
+            <div class="prof">
+                <button class="profile-button">
+                    <div class="icon-profile">
+                        <span class="material-symbols-outlined">
+                            computer
+                        </span>
+                    </div>
+                    <div class="info-profile">
+                        <h2>Desktops</h2>
+                    </div>
+                </button>
+                <mat-divider></mat-divider>
+            </div>
+            <div class="prof">
+                <button class="profile-button">
+                    <div class="icon-profile">
+                        <span class="material-symbols-outlined">
+                            smartphone
+                        </span>
+                    </div>
+                    <div class="info-profile">
+                        <h2>Moviles</h2>
+                    </div>
+                </button>
+                <mat-divider></mat-divider>
+            </div>
 
-</div>
+
+        </div>
+
+    </div>

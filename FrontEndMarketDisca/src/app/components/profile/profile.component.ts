@@ -23,7 +23,9 @@ export class ProfileComponent implements OnInit,AfterViewInit {
   showProfi: boolean = false;
   showeditProfi: boolean = false;
   showPrinci: boolean = true;
-  showPhotoProfile:boolean = true;
+  showPhotoProfile:boolean = false;
+  showSecu:boolean = false;
+  showEditSecu:boolean = false;
 
   ngOnInit(): void {
 
@@ -57,6 +59,8 @@ for (let i = 0; i < elementosMenu.length; i++) {
     this.showPrinci = false;
     this.showProfi = true;
     this.showeditProfi=false;
+    this.showSecu=false;
+    this.showEditSecu=false;
   }
 
   showVentas() {
@@ -66,6 +70,8 @@ for (let i = 0; i < elementosMenu.length; i++) {
     this.showPrinci = false;
     this.showProfi = true;
     this.showeditProfi=false;
+    this.showSecu=false;
+    this.showEditSecu=false;
 
   }
   showProfile(){
@@ -75,6 +81,8 @@ for (let i = 0; i < elementosMenu.length; i++) {
     this.showPrinci = false;
     this.showProfi = true;
     this.showeditProfi=true;
+    this.showSecu=false;
+    this.showEditSecu=false;
   }
   eliminarA(idSub:number){
     this.router.navigate(['start']);
@@ -89,6 +97,8 @@ for (let i = 0; i < elementosMenu.length; i++) {
     this.showPrinci = true;
     this.showProfi = false;
     this.showeditProfi=false;
+    this.showSecu=false;
+    this.showEditSecu=false;
   }
 
   showSecurity(){
@@ -97,7 +107,10 @@ for (let i = 0; i < elementosMenu.length; i++) {
     this.showPrinci = false;
     this.showProfi = false;
     this.showeditProfi=false;
+    this.showSecu=true;
+    this.showEditSecu=true;
   }
+
 
   
 }

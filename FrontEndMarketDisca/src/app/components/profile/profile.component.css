@@ -102,6 +102,7 @@
     display: flex;
     border: none;
     padding: 15px;
+    cursor: pointer;
   }
 
   .icon-profile {
@@ -150,7 +151,7 @@
     font-weight: bold;
     font-size: 24px;
     line-height: 36px;
-    
+
     color: #151111;
   }
 
@@ -187,7 +188,7 @@
 
   .imgPortada {
     display: flex;
-    height: 20%;
+    height: 12vw;
     width: 95%;
 
   }
@@ -200,7 +201,7 @@
 
   .divImgMyProfile {
     position: absolute;
-    top: 35%;
+    top: 22vw;
     margin-left: 4%;
     display: flex;
 
@@ -361,7 +362,7 @@
     height: 40px;
     width: 55%;
   }
- 
+
   /*aqui una vaina xd */
 
   select {
@@ -382,10 +383,12 @@
     background-image: none;
     cursor: pointer;
   }
+
   /* Remove IE arrow */
   select::-ms-expand {
     display: none;
   }
+
   /* Custom Select wrapper */
   .select {
     position: relative;
@@ -395,6 +398,7 @@
     overflow: hidden;
     margin: auto;
   }
+
   /* Arrow */
   .select::after {
     margin: auto;
@@ -411,12 +415,13 @@
     height: 40px;
     pointer-events: none;
   }
+
   /* Transition */
   .select:hover::after {
     color: #969696;
   }
 
-  .input-editdataAddres{
+  .input-editdataAddres {
     border-radius: 15px;
     position: relative;
     height: 40px;
@@ -426,8 +431,8 @@
     margin-left: 6px;
     margin-right: 6px;
   }
-  
-  .editdata2{
+
+  .editdata2 {
     margin: auto;
     position: relative;
     display: flex;
@@ -436,3 +441,39 @@
     align-items: center;
     align-content: center;
   }
+
+  .conteSecurity {
+    background-color: #fff;
+    margin-top: 5%;
+    width: 100%;
+  }
+
+  .divImgMyProfileSecurity {
+    display: flex;
+  }
+
+  .titleSecurity {
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 36px;
+    line-height: 54px;
+    text-align: center;
+  }
+.subtitleSecurity{
+  font-family: 'Inter';
+font-style: normal;
+font-weight: bold;
+font-size: 20px;
+line-height: 24px;
+}
+.h3security{
+  position: relative;
+  font-family: 'Inter';
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+margin-left: 5%;
+margin-bottom: 20px;
+}
