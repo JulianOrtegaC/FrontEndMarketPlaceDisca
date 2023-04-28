@@ -187,10 +187,19 @@
 
         </div>
         <div class="edit-data" *ngIf="showeditProfi">
+            <button class="buttonEditar" (click)="editData=true" *ngIf="!editData">
+                <span class="material-symbols-outlined" style="font-size: 20px; margin:auto 5px auto 5px;">
+                edit
+                </span>editar</button>
+            <div  class="divButtonscansave" *ngIf="editData">
+                <button class="buttonCancel" (click)="editData=false" >cancelar</button>
+                <button class="buttonSave" (click)="editData=false" >guardar</button>
+            </div>
+
             <div class="editdata1">
                 <h3 class="textditata">Nombre de Usuario</h3>
-                <input type="text" class="input-editdatadaRout">
-                <input type="text" class="input-editdata">
+                <input type="text" class="input-editdatadaRout" disabled style="text-align: right;" placeholder="AccesAbility.com/">
+                <input type="text" [disabled]="!editData" class="input-editdata" placeholder="{{dataProfile.nameUser}}">
             </div>
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdata1">
@@ -198,30 +207,26 @@
                 <div class="myPhotoedit">
                     <img src="./assets/photo.png" alt="" class="imgMyProfile">
                 </div>
-                <input type="file" id="f1" multiple="false" accept="image/*" class="inputImg">
+                <input type="file" id="f1" multiple="false" *ngIf="editData" accept="image/*" class="inputImg">
 
             </div>
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdata1">
                 <h3 class="textditata">Email</h3>
-                <input type="text" class="input-editdataemail">
+                <input type="text" [disabled]="!editData"  class="input-editdataemail">
                 <i class=" fa-lg fa-solid fa-envelope" id="iconEmail"></i>
             </div>
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdata1">
                 <h3 class="textditata">Teléfono</h3>
-                <input type="text" class="input-editdataphone1">
-                <input type="text" class="input-editdataphone">
+                <input type="text" class="input-editdataphone1" disabled placeholder="+57">
+                <input type="text" class="input-editdataphone" [disabled]="!editData">
             </div>
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdataSelect">
                 <h3 class="textditata">Departamento</h3>
-                <div class="select">
-                    <select class="selectAddress" name="ciudad" id="">
-                        <option value="">Comooo</option>
-                        <option value="">Comooo</option>
-                        <option value="">Comooo</option>
-                        <option value="">Comooo</option>
+                <div class="select" >
+                    <select class="selectAddress" name="ciudad" id="" [disabled]="!editData">
                         <option value="">Comooo</option>
                     </select>
                 </div>
@@ -229,25 +234,25 @@
             <div class="editdataSelect">
                 <h3 class="textditata">Ciudad</h3>
                 <div class="select">
-                    <select class="selectAddress" name="ciudad" id=""></select>
+                    <select class="selectAddress" name="ciudad" id="" [disabled]="!editData"></select>
                 </div>
             </div>
             <div class="editdata1">
                 <h3 class="textditata">Barrio</h3>
-                <input type="text" class="input-editdataemail">
+                <input type="text" class="input-editdataemail" [disabled]="!editData">
             </div>
             <div class="editdata2">
                 <h3 class="textditata">Dirección</h3>
-                <input style="margin-left: 10%;" type="text" class="input-editdataAddres">
-                <input type="text" class="input-editdataAddres">
+                <input style="margin-left: 10%;" type="text" class="input-editdataAddres" [disabled]="!editData">
+                <input type="text" class="input-editdataAddres" [disabled]="!editData">
                 <h3 style="display: flex; font-size: large;">#</h3>
-                <input type="text" class="input-editdataAddres">
+                <input type="text" class="input-editdataAddres" [disabled]="!editData">
                 <h3 style="font-size: large;">-</h3>
-                <input type="text" class="input-editdataAddres">
+                <input type="text" class="input-editdataAddres" [disabled]="!editData">
             </div>
             <div class="editdata1">
                 <h3 class="textditata">Codigo Postal</h3>
-                <input type="text" class="input-editdataemail">
+                <input type="text" class="input-editdataemail" [disabled]="!editData">
             </div>
             <mat-divider class="matdividerProfile" style="margin-bottom: 40px;"></mat-divider>
 

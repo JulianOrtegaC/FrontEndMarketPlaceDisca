@@ -260,6 +260,39 @@
 
 
   /* aqui esta el de personal data / editar data */
+  .buttonEditar{
+    position: relative;
+    margin-left: 80%;
+    width: 100px;
+    height: 30px;
+    background-color: #1573d5;
+    color: #fff;
+    font-family: 'Poppings';
+    margin-bottom: 20px;
+    border: 0;
+    border-radius: 10px;
+  }
+  .divButtonscansave{
+    position: relative;
+    margin-left: 70%;
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .buttonCancel , .buttonSave{
+    position: relative;
+    width: 100px;
+    height: 30px;
+    background-color: #df3331;
+    color: #fff;
+    font-size: large;
+    font-family: 'Poppings';
+    margin:0 7px 0 7px ;
+    border: 0;
+    border-radius: 10px;
+  }
+  .buttonSave{
+    background-color: #52c12f;
+  }
 
   .edit-data {
     margin-top: 7%;

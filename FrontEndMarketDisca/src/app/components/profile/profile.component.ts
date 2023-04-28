@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit,AfterViewInit {
     this.dataProfile=registerService.getdatosPerfil$;
 
   }
-
+  editData: boolean = false;
   showVent: boolean = false;
   showComp: boolean = false;
   showProfi: boolean = false;
