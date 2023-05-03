@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
-import { Registro } from '../interfaces/cuenta';
+import { EditData, Registro } from '../interfaces/cuenta';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -11,11 +11,11 @@ export class RegisterService {
   private myAppUrl: string = environment.endpoint;
   private myApiUrl: string = "/Login/Register/"
   private myApiUrlL: string = "/Login/"
-  userID= 0
-  private userID$ = new BehaviorSubject<number>(this.userID)
-  public idActual$!:number;
+  userID= "";
+  private userID$ = new BehaviorSubject<string>(this.userID)
+  public idActual$!:string;
 
-  public datosPerfil!:Registro
+  public datosPerfil!:EditData
 
   constructor(private http: HttpClient) { }
 
@@ -25,35 +25,19 @@ export class RegisterService {
   login(userName: string, password: string): Observable<any> {
     return this.http.post(`${this.myAppUrl}${this.myApiUrlL}?userName=${userName}&password=${password}`, {});
   }
-  get actualID$(): Observable<number> {
+  get actualID$(): Observable<string> {
     return this.userID$.asObservable();
   }
 
-  setDatosProfile(
-    idUser:string,
-    nameUser:string,
-    lastNameUser:string,
-    birthDate:Date,
-    email:string,
-    typeDocument:string,
-    gender:string,
-    password:string){
-      this.datosPerfil={
-        "idUser":idUser,
-        "nameUser":nameUser,
-        "lastNameUser":lastNameUser,
-        "birthDate":birthDate,
-        "email":email,
-        "typeDocument":typeDocument,
-        "gender":gender,
-        "password":password}
+  setDatosProfile(data:EditData){
+      this.datosPerfil=data;
   }
-  setactualID(documentNumber: number) {
+  setactualID(documentNumber: string) {
     this.userID$.next(documentNumber);
     this.idActual$=documentNumber;
   }
 
-  get getdatosPerfil$(): Registro {
+  get getdatosPerfil$(): EditData {
     return this.datosPerfil;
   }
 

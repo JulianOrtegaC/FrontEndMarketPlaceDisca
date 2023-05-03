@@ -18,7 +18,7 @@
             <div class="imgProfile">
                 <img src="./assets/photo.png" alt="" class="imgMyProfile">
             </div>
-            <p class="text-name">zz</p>
+            <p class="text-name">{{dataProfile.nameUser}} {{dataProfile.lastNameUser}}</p>
         </div>
         <div class="prof">
             <button (click)="showProfile()" class="profile-button">
@@ -189,17 +189,19 @@
         <div class="edit-data" *ngIf="showeditProfi">
             <button class="buttonEditar" (click)="editData=true" *ngIf="!editData">
                 <span class="material-symbols-outlined" style="font-size: 20px; margin:auto 5px auto 5px;">
-                edit
+                    edit
                 </span>editar</button>
-            <div  class="divButtonscansave" *ngIf="editData">
-                <button class="buttonCancel" (click)="editData=false" >cancelar</button>
-                <button class="buttonSave" (click)="editData=false" >guardar</button>
+            <div class="divButtonscansave" *ngIf="editData">
+                <button class="buttonCancel" (click)="editData=false">cancelar</button>
+                <button class="buttonSave" (click)="editarDataSave()">guardar</button>
             </div>
 
             <div class="editdata1">
                 <h3 class="textditata">Nombre de Usuario</h3>
-                <input type="text" class="input-editdatadaRout" disabled style="text-align: right;" placeholder="AccesAbility.com/">
-                <input type="text" [disabled]="!editData" class="input-editdata" placeholder="{{dataProfile.nameUser}}">
+                <input type="text" class="input-editdatadaRout" disabled style="text-align: right;"
+                    placeholder="AccesAbility.com/" [(ngModel)]="xd" name="xd">
+                <input type="text" [disabled]="!editData" class="input-editdata" placeholder="{{dataProfile.nameUser}}"
+                    [(ngModel)]="dataProfile.nameUser" name="nameUser">
             </div>
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdata1">
@@ -213,19 +215,21 @@
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdata1">
                 <h3 class="textditata">Email</h3>
-                <input type="text" [disabled]="!editData"  class="input-editdataemail">
+                <input type="text" [disabled]="!editData" class="input-editdataemail" [(ngModel)]="dataProfile.email"
+                    placeholder="{{dataProfile.email}}" name="email">
                 <i class=" fa-lg fa-solid fa-envelope" id="iconEmail"></i>
             </div>
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdata1">
                 <h3 class="textditata">Teléfono</h3>
                 <input type="text" class="input-editdataphone1" disabled placeholder="+57">
-                <input type="text" class="input-editdataphone" [disabled]="!editData">
+                <input type="text" class="input-editdataphone" [disabled]="!editData" [(ngModel)]="dataProfile.telephone"
+                    placeholder="{{dataProfile.telephone}}" name="telephone">
             </div>
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdataSelect">
                 <h3 class="textditata">Departamento</h3>
-                <div class="select" >
+                <div class="select">
                     <select class="selectAddress" name="ciudad" id="" [disabled]="!editData">
                         <option value="">Comooo</option>
                     </select>
@@ -234,7 +238,8 @@
             <div class="editdataSelect">
                 <h3 class="textditata">Ciudad</h3>
                 <div class="select">
-                    <select class="selectAddress" name="ciudad" id="" [disabled]="!editData"></select>
+                    <select class="selectAddress" name="ciudad" id="" [disabled]="!editData"
+                        [(ngModel)]="dataProfile.address"></select>
                 </div>
             </div>
             <div class="editdata1">

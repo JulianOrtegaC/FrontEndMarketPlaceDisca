@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EditData } from 'src/app/interfaces/cuenta';
 import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
@@ -15,6 +16,8 @@ export class LoginComponent implements OnInit {
   email!: string;
   password!: string;
   errors:boolean = false;
+  auxEditInfo!: EditData;
+ 
   iniciarSesionConGoogle() {
     // Lógica para iniciar sesión con Google
   }
@@ -34,19 +37,11 @@ export class LoginComponent implements OnInit {
     console.log(auxEmail, auxPas);//estos estan indefinidosssss
     this.registerService.login(auxEmail,auxPas).subscribe({
       next: (res: any) => {
+        this.auxEditInfo= res.usuario;
         localStorage.setItem('token', res.token);
-        this.registerService.setactualID(res.userId);
-        this.registerService.setDatosProfile(
-          res.idUser,
-          res.nameUser,
-          res.lastNameUser,
-          res.birthDate,
-          res.email,
-          res.typeDocument,
-          res.gender,
-          res.password
-        );
-
+        this.registerService.setactualID(this.auxEditInfo.idUser);
+        this.registerService.setDatosProfile(this.auxEditInfo);
+         
         this.router.navigate(['profile']);
         this.errors=false;
       },
