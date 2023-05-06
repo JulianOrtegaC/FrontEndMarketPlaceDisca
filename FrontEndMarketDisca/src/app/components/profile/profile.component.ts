@@ -14,8 +14,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['idSubasta', 'bananaType', 'measurementUnits', 'pricePurchase', 'dateStarted', 'dateEnded'];
   dataSource = <any>[];
   dataProfile!: EditData;
-  xd!:string;
-  constructor(private registerService: RegisterService, private userService:UsersService,private router: Router) {
+  xd!: string;
+  constructor(private registerService: RegisterService, private userService: UsersService, private router: Router) {
     this.dataProfile = registerService.getdatosPerfil$;
 
   }
@@ -85,7 +85,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     this.showeditProfi = true;
     this.showSecu = false;
     this.showEditSecu = false;
-    this.editData =false;
+    this.editData = false;
   }
   eliminarA(idSub: number) {
     this.router.navigate(['start']);
@@ -115,8 +115,16 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
 
 
-  editarDataSave(){
-  // this.userService.patchUsers(dataProfile.idActual$ , this.editData).subscribe()
+  editarDataSave() {
+    
+    this.userService.patchUsers(this.dataProfile.idUser, this.dataProfile).subscribe({
+      next: (res: any) => {
+        this.editData=false;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
 

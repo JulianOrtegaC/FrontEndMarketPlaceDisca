@@ -12,6 +12,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { SharedModule } from './shared/shared.module';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AddServiceComponent } from './components/add-service/add-service.component';
 
 
 
@@ -23,7 +24,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     RegisterComponent,
     ForgotPasswordComponent,
     NavBarComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddServiceComponent
   ],
   imports: [
     BrowserModule,

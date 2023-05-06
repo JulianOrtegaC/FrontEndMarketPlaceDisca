@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+
+.titleAdd {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 40px;
+  line-height: 60px;
+  margin: 25px auto 1px 6%;
+
+}
+
+.subtittle {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 1px auto 15px 6%;
+}
+
+.divFormuService {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.formleft {
+  grid-column: span 1;
+}
+
+.formright {
+  grid-column: span 1;
+}
+
+.divButtonscansave {
+  position: relative;
+  margin-left: 70%;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.buttonCancel,
+.buttonSave {
+  position: relative;
+  width: 100px;
+  height: 30px;
+  background-color: #fff;
+  font-size: large;
+  font-family: 'Poppings';
+  margin: 0 7px 0 7px;
+  border-width: 1px;
+  border-color: #C6BFBF;
+  border-radius: 10px;
+}
+
+.buttonSave {
+  background-color: #2b78eb;
+  color: #fff;
+}
+
+.buttonCancel:hover {
+  background-color: #C6BFBF;
+  color: #fff;
+}
+
+.buttonSave:hover {
+  background-color: #fff;
+  color: #2b78eb;
+
+}
+
+.textditata {
+  display: inline;
+  display: flex;
+  margin: 15px auto 15px 10%;
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 18px;
+  font-weight: bolder;
+  line-height: 22px;
+}
+
+.input-editdataName {
+  padding-left: 10px;
+  border-radius: 15px;
+  margin: 15px auto 15px 10%;
+  position: relative;
+  height: 40px;
+  width: 80%;
+  box-sizing: border-box;
+  border: 1px solid #B9B3B3;
+}
+
+/* aqui vamos a poner lo de los select */
+.editdataSelect {
+  position: relative;
+  display: flex;
+}
+
+/*aqui una vaina xd */
+
+select {
+  /* Reset Select */
+  position: relative;
+  display: inline;
+  appearance: none;
+  outline: 0;
+  height: 40px;
+  border: 1px solid #B9B3B3;
+  background-color: #B9B3B3;
+
+  border-radius: 15px;
+  /* Personalize */
+  flex: 5;
+  padding: 0 1em;
+  background-color: var(--darkgray);
+  cursor: pointer;
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  width: 80%;
+  overflow: hidden;
+  margin: auto;
+}
+
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #fff;
+  transition: .25s all ease;
+  box-sizing: border-box;
+  border: 1px solid #B9B3B3;
+color: #B9B3B3;
+  border-radius: 0 15px 15px 0;
+  height: 40px;
+  pointer-events: none;
+}
+
+/* Transition */
+.select:hover::after {
+  color: #969696;
+}
+
+
+/* Fin de lo de los select */
+
+.matdivider {
+  margin: auto;
+  width: 80%;
+  color: #B8B8B8;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+textarea {
+  margin: 15px auto 15px 10%;
+  width: 80%;
+  height: 150px;
+  border-radius: 15px;
+}
