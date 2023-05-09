@@ -1,7 +1,10 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { EditData, Registro } from 'src/app/interfaces/cuenta';
+import { EditData, Registro, Service } from 'src/app/interfaces/cuenta';
 import { RegisterService } from 'src/app/services/register.service';
+import { ServicesService } from 'src/app/services/services.service';
 import { UsersService } from 'src/app/services/users.service';
 
 
@@ -11,16 +14,16 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['idSubasta', 'bananaType', 'measurementUnits', 'pricePurchase', 'dateStarted', 'dateEnded'];
-  dataSource = <any>[];
+  displayedColumns: string[] = ['Nombre', 'Categoria', 'Contratado', 'Calificaciones'];
+  dataSource = new MatTableDataSource<Service>();
   dataProfile!: EditData;
   xd!: string;
-  constructor(private registerService: RegisterService, private userService: UsersService, private router: Router) {
+  constructor(private servicesService:ServicesService,private registerService: RegisterService, private userService: UsersService, private router: Router) {
     this.dataProfile = registerService.getdatosPerfil$;
 
   }
   editData: boolean = false;
-  showVent: boolean = false;
+  showMisServis: boolean = false;
   showComp: boolean = false;
   showProfi: boolean = false;
   showeditProfi: boolean = false;
@@ -33,6 +36,18 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     this.dataProfile = this.registerService.getdatosPerfil$;
   }
 
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+
+  getServices(){
+    console.log("aqui si entrooooo");
+    this.servicesService.getServices().subscribe(data=>{
+      console.log(data);
+      this.dataSource = new MatTableDataSource<Service>(data);
+      this.dataSource.paginator = this.paginator;
+
+    })
+  }
   ngAfterViewInit() {
     // Obtén todos los elementos de ancla del menú
     const elementosMenu = document.getElementsByTagName("a");
@@ -55,7 +70,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
 
   showCompras() {
-    this.showVent = false;
+    this.showMisServis = false;
     this.showPhotoProfile = false;
     this.showComp = true;
     this.showPrinci = false;
@@ -65,9 +80,10 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     this.showEditSecu = false;
   }
 
-  showVentas() {
+  showMisServicios() {
+    this.getServices();
     this.showPhotoProfile = false;
-    this.showVent = true;
+    this.showMisServis = true;
     this.showComp = false;
     this.showPrinci = false;
     this.showProfi = true;
@@ -78,7 +94,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
   showProfile() {
     this.showPhotoProfile = false;
-    this.showVent = false;
+    this.showMisServis = false;
     this.showComp = false;
     this.showPrinci = false;
     this.showProfi = true;
@@ -95,7 +111,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   }
   showPrincipal() {
-    this.showVent = false;
+    this.showMisServis = false;
     this.showComp = false;
     this.showPrinci = true;
     this.showProfi = false;
@@ -105,7 +121,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
 
   showSecurity() {
-    this.showVent = false;
+    this.showMisServis = false;
     this.showComp = false;
     this.showPrinci = false;
     this.showProfi = false;
@@ -117,7 +133,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   editarDataSave() {
     
-    this.userService.patchUsers(this.dataProfile.idUser, this.dataProfile).subscribe({
+    this.userService.patchUsers(this.dataProfile.IdUser, this.dataProfile).subscribe({
       next: (res: any) => {
         this.editData=false;
       },

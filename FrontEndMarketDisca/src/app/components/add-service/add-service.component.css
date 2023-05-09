@@ -174,11 +174,15 @@ textarea {
 }
 
 /*Lo de las imagenes*/
+.inputImg{
+  margin-left: 10%;
+}
 .carrusel {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  max-width: 90%;
+  max-width: 80%;
+  margin-left: 10%;
 }
 
 .imagen {
@@ -191,68 +195,11 @@ textarea {
 }
 
 /* fecha disponiblesss */
-.occupied-date {
-  color: red;
-}
-
-.selected-date {
-  background-color: blue;
-  color: white;
-}
-
-.calendar {
-  position: relative;
-  z-index: 1;
-  border: 1px solid black;
-  background-color: white;
-  width: 300px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+#fecha {
+  margin-left: 10%;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  font-size: 16px;
   padding: 10px;
-  background-color: #f0f0f0;
-}
-
-.header button {
-  background-color: #ccc;
-  border: none;
-  padding: 5px;
-  cursor: pointer;
-}
-
-.body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-}
-
-.days {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.dates {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-gap: 5px;
-}
-
-.dates div {
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.dates div:hover {
-  background-color: #f0f0f0;
+  box-sizing: border-box;
 }

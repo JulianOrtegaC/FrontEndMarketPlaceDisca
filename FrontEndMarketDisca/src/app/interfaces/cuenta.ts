@@ -11,16 +11,25 @@ export interface Registro {
 
 
 export interface EditData {
-    idUser:string;
-    nameUser?: string;
-    lastNameUser?: string;
-    address?: string;
-    telephone?: string;
-    email?: string;
-    typeDocument?: string;
-    gender?: string;
-    photo?: string;
-    coverPhoto?: string;
-    birthDate?: string;
+    IdUser:string;
+    NameUser?: string;
+    LastNameUser?: string;
+    Address?: string;
+    Telephone?: string;
+    Email?: string;
+    TypeDocument?: string;
+    Gender?: string;
+    Photo?: string;
+    CoverPhoto?: string;
+    BirthDate?: string;
 }
-
+export interface Service{
+    idService ?:string;
+    categoria:string;
+    nameService:string;
+    description :string;
+    initialPrice ?:string;
+    pathPhotos :string;
+    address:string;
+    datesDispo :string;
+}

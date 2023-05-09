@@ -3,20 +3,29 @@
     <p class="subtittle">Agrega el servicio que vas a prestar.</p>
     <div class="divButtonscansave">
         <button class="buttonCancel">cancelar</button>
-        <button class="buttonSave">guardar</button>
+        <button class="buttonSave" (click)="addServicio()">guardar</button>
     </div>
 
     <!-- aqui va el formulario para crear un servicio -->
     <div class="divFormuService">
         <div class="formleft">
             <h3 class="textditata">Nombre del Servicio</h3>
-            <input type="text" class="input-editdataName" placeholder="Nombre del servicio" name="email">
+            <input type="text" class="input-editdataName" [(ngModel)]="nameService" placeholder="Nombre del servicio"
+                name="nameService">
             <mat-divider class="matdivider"></mat-divider>
             <h3 class="textditata">Categoria</h3>
             <div class="editdataSelect">
                 <div class="select">
-                    <select class="selectAddress" name="categoria" id="">
-                        <option value="">Comooo</option>
+                    <select class="selectAddress"  [(ngModel)]="categoria" name="categoria" id="">
+                        <option value="Transporte y movilidad">Transporte y movilidad</option>
+                        <option value="Traducción e interpretación">Traducción e interpretación</option>
+                        <option value="Asesoramiento y acompañamiento">Asesoramiento y acompañamiento</option>
+                        <option value="Diseño de interiores y arquitectura accesible">Diseño de interiores y arquitectura accesible</option>
+                        <option value="Asistencia y cuidado personal">Asistencia y cuidado personal</option>
+                        <option value="Tecnología y dispositivos de apoyo">Tecnología y dispositivos de apoyo</option>
+                        <option value="Formación y capacitación">Formación y capacitación</option>
+                        <option value="Accesibilidad digital">Accesibilidad digital</option>
+                        <option value="Turismo y ocio accesibles">Turismo y ocio accesibles</option>
                     </select>
                 </div>
 
@@ -26,7 +35,9 @@
             <div class="editdataSelect">
                 <div class="select">
                     <select class="selectAddress" name="departamento" id="">
-                        <option value="">Comooo</option>
+                        <option value="Boyaca">Boyaca</option>
+                        <option value="Cundinamarca">Cundinamarca</option>
+                        <option value="Santander">Santander</option>
 
                     </select>
                 </div>
@@ -35,8 +46,10 @@
             <h3 class="textditata">Ciudad</h3>
             <div class="editdataSelect">
                 <div class="select">
-                    <select class="selectAddress" name="ciudad" id="">
-                        <option value="">Comooo</option>
+                    <select class="selectAddress" [(ngModel)]="address" name="address" id="">
+                        <option value="Tunja">Tunja</option>
+                        <option value="Bogota">Bogota</option>
+                        <option value="Villa de Leyva">Villa de Leyva</option>
 
                     </select>
                 </div>
@@ -44,7 +57,7 @@
             </div>
             <mat-divider class="matdivider"></mat-divider>
             <h3 class="textditata">Descripción</h3>
-            <textarea></textarea>
+            <textarea [(ngModel)]="description" name="description"></textarea>
 
         </div>
 
@@ -52,7 +65,7 @@
         <div class="formright">
             <h3 class="textditata">Imagenes del servicio</h3>
             <div>
-                <input type="file" (change)="cargarImagen($event)">
+                <input type="file" class="inputImg" (change)="cargarImagen($event)">
                 <div class="carrusel">
                     <div class="imagen" *ngFor="let imagen of imagenes">
                         <img [src]="imagen" alt="Imagen cargada" width="150" height="150">
@@ -63,7 +76,7 @@
             <div class="editdataSelect">
                 <div class="select">
                     <select class="selectAddress" name="ciudad" id="">
-                        <option value="">Medio Tiempo</option>
+                        <option value="Medio Tiempo">Medio Tiempo</option>
 
                     </select>
                 </div>
@@ -71,27 +84,9 @@
             </div>
 
             <h3 class="textditata">Fechas Disponibles</h3>
-            <div class="calendar">
-                <div class="header">
-                    <button (click)="previousMonth()">Anterior</button>
-                    <span>{{ monthYear }}</span>
-                    <button (click)="nextMonth()">Siguiente</button>
-                </div>
-                <div class="body">
-                    <div class="days">
-                        <div *ngFor="let day of days">{{ day }}</div>
-                    </div>
-                    <div class="dates">
-                        <div *ngFor="let date of dates"
-                            [ngClass]="{'occupied-date': isOccupied(date), 'selected-date': isSelected(date)}"
-                            (click)="selectDate(date)">
-                            {{ date.getDate() }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
+            <input type="date" [(ngModel)]="datesDispo" name="datesDispo" id="fecha">
+            <h3 class="textditata">Valor Inicial</h3>
+            <input type="number" class="input-editdataName" [(ngModel)]="initialPrice" name="initialPrice" placeholder="Nombre del servicio">
         </div>
 
 

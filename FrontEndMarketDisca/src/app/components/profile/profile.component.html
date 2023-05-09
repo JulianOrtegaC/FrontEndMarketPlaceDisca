@@ -8,7 +8,7 @@
     <div class="left-content">
         <div class="config-profile">
             <a (click)="showCompras()">Compras</a>
-            <a (click)="showVentas()">Ventas</a>
+            <a (click)="showMisServicios()">Mis Servicios</a>
             <a (click)="showPrincipal()">Configuración</a>
         </div>
     </div>
@@ -18,7 +18,7 @@
             <div class="imgProfile">
                 <img src="./assets/photo.png" alt="" class="imgMyProfile">
             </div>
-            <p class="text-name">{{dataProfile.nameUser}} {{dataProfile.lastNameUser}}</p>
+            <p class="text-name">{{dataProfile.NameUser}} {{dataProfile.LastNameUser}}</p>
         </div>
         <div class="prof">
             <button (click)="showProfile()" class="profile-button">
@@ -132,57 +132,35 @@
             </div>
         </div>
 
-        <div class="conteVentas " *ngIf="showVent">
-            <h1 class="h1-cv">Ventas Generadas</h1>
+        <div class="conteVentas " *ngIf="showMisServis">
+            <h1 class="h1-cv">Tus Servicios</h1>
             <div class="TablaxD">
-                <table mat-table class="">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-                    <!--- Note that these columns can be defined in any order.
-                  The actual rendered columns are set as a property on the row definition" -->
-
-                    <!-- Position Column -->
-                    <ng-container matColumnDef="bananaType">
-                        <th mat-header-cell *matHeaderCellDef> Tipo de Banana </th>
-                        <td mat-cell *matCellDef="let element"> {{element.bananaType}} </td>
+                    <ng-container matColumnDef="Nombre">
+                      <th mat-header-cell *matHeaderCellDef> Nombre del Servicio </th>
+                      <td mat-cell *matCellDef="let element"> {{element.nameService}} </td>
                     </ng-container>
-
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="measurementUnits">
-                        <th mat-header-cell *matHeaderCellDef> Cantidad Kg </th>
-                        <td mat-cell *matCellDef="let element"> {{element.measurementUnits}} </td>
+                  
+                    <ng-container matColumnDef="Categoria">
+                      <th mat-header-cell *matHeaderCellDef> Categoria </th>
+                      <td mat-cell *matCellDef="let element"> {{element.categoria}} </td>
                     </ng-container>
-
-                    <!-- Weight Column -->
-                    <ng-container matColumnDef="dateStarted">
-                        <th mat-header-cell *matHeaderCellDef> Fecha Inicial</th>
-                        <td mat-cell *matCellDef="let element"> {{element.dateStarted}} </td>
+                  
+                    <ng-container matColumnDef="Contratado">
+                      <th mat-header-cell *matHeaderCellDef> Contratado </th>
+                      <td mat-cell *matCellDef="let element"> proximamente </td>
                     </ng-container>
-
-                    <!-- Symbol Column -->
-                    <ng-container matColumnDef="dateEnded">
-                        <th mat-header-cell *matHeaderCellDef>Fecha Final $ </th>
-                        <td mat-cell *matCellDef="let element"> {{element.dateEnded}} </td>
+                  
+                    <ng-container matColumnDef="Calificaciones">
+                      <th mat-header-cell *matHeaderCellDef> Calificaciones </th>
+                      <td mat-cell *matCellDef="let element"> proximamente </td>
                     </ng-container>
-                    <!-- Estado Column -->
-                    <ng-container matColumnDef="initialPrice">
-                        <th mat-header-cell *matHeaderCellDef>Precio Inicial </th>
-                        <td mat-cell *matCellDef="let element"> {{element.initialPrice}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="Eliminar">
-                        <th mat-header-cell *matHeaderCellDef> Eliminar </th>
-                        <td mat-cell *matCellDef="let element">
-                            <mat-icon (click)="eliminarA(element.idSubasta)" class="delete"
-                                matTooltip="Eliminar Subasta" fontIcon="delete"> </mat-icon>
-                        </td>
-                    </ng-container>
-
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-                </table>
-                <mat-paginator [pageSize]="4" showFirstLastButtons aria-label="Select page of periodic elements">
-                </mat-paginator>
+                  </table>
+                  <mat-paginator [pageSize]="10" showFirstLastButtons aria-label="Select page of periodic elements">
+                  </mat-paginator>
             </div>
 
         </div>
@@ -200,8 +178,8 @@
                 <h3 class="textditata">Nombre de Usuario</h3>
                 <input type="text" class="input-editdatadaRout" disabled style="text-align: right;"
                     placeholder="AccesAbility.com/" [(ngModel)]="xd" name="xd">
-                <input type="text" [disabled]="!editData" class="input-editdata" placeholder="{{dataProfile.nameUser}}"
-                    [(ngModel)]="dataProfile.nameUser" name="nameUser">
+                <input type="text" [disabled]="!editData" class="input-editdata" placeholder="{{dataProfile.NameUser}}"
+                    [(ngModel)]="dataProfile.NameUser" name="nameUser">
             </div>
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdata1">
@@ -215,16 +193,16 @@
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdata1">
                 <h3 class="textditata">Email</h3>
-                <input type="text" [disabled]="!editData" class="input-editdataemail" [(ngModel)]="dataProfile.email"
-                    placeholder="{{dataProfile.email}}" name="email">
+                <input type="text" [disabled]="!editData" class="input-editdataemail" [(ngModel)]="dataProfile.Email"
+                    placeholder="{{dataProfile.Email}}" name="email">
                 <i class=" fa-lg fa-solid fa-envelope" id="iconEmail"></i>
             </div>
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdata1">
                 <h3 class="textditata">Teléfono</h3>
                 <input type="text" class="input-editdataphone1" disabled placeholder="+57">
-                <input type="text" class="input-editdataphone" [disabled]="!editData" [(ngModel)]="dataProfile.telephone"
-                    placeholder="{{dataProfile.telephone}}" name="telephone">
+                <input type="text" class="input-editdataphone" [disabled]="!editData" [(ngModel)]="dataProfile.Telephone"
+                    placeholder="{{dataProfile.Telephone}}" name="telephone">
             </div>
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdataSelect">
@@ -239,7 +217,7 @@
                 <h3 class="textditata">Ciudad</h3>
                 <div class="select">
                     <select class="selectAddress" name="ciudad" id="" [disabled]="!editData"
-                        [(ngModel)]="dataProfile.address"></select>
+                        [(ngModel)]="dataProfile.Address"></select>
                 </div>
             </div>
             <div class="editdata1">
