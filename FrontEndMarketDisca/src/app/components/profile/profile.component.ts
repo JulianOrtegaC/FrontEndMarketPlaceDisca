@@ -14,7 +14,7 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['Nombre', 'Categoria', 'Contratado', 'Calificaciones'];
+  displayedColumns: string[] = ['Nombre', 'Categoria', 'Contratado', 'Calificaciones','Precio'];
   dataSource = new MatTableDataSource<Service>();
   dataProfile!: EditData;
   xd!: string;
@@ -40,7 +40,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   paginator!: MatPaginator;
 
   getServices(){
-    console.log("aqui si entrooooo");
     this.servicesService.getServices().subscribe(data=>{
       console.log(data);
       this.dataSource = new MatTableDataSource<Service>(data);

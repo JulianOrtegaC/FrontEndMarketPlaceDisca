@@ -151,6 +151,8 @@
   .h1-cv {
     font-family: 'Poppins';
     font-weight: bold;
+    position: relative;
+    display: inline;
     font-size: 24px;
     line-height: 36px;
 
@@ -260,7 +262,7 @@
 
 
   /* aqui esta el de personal data / editar data */
-  .buttonEditar{
+  .buttonEditar {
     position: relative;
     margin-left: 80%;
     width: 100px;
@@ -272,27 +274,32 @@
     border: 0;
     border-radius: 10px;
   }
-  .divButtonscansave{
+
+  .divButtonscansave {
     position: relative;
     margin-left: 70%;
     display: flex;
     margin-bottom: 20px;
   }
-  .buttonCancel , .buttonSave{
+
+  .buttonCancel,
+  .buttonSave {
     position: relative;
     width: 100px;
     height: 30px;
     color: #fff;
     font-size: large;
     font-family: 'Poppings';
-    margin:0 7px 0 7px ;
+    margin: 0 7px 0 7px;
     border: 0;
     border-radius: 10px;
   }
-  .buttonSave{
+
+  .buttonSave {
     background-color: #2B78EB;
   }
-  .buttonCancel{
+
+  .buttonCancel {
     border: 1;
     color: #151111;
   }
@@ -401,12 +408,13 @@
     width: 55%;
   }
 
-  
+
   .editdataSelect {
     position: relative;
     display: flex;
     margin-top: 15px;
   }
+
   /*aqui una vaina xd */
 
   select {
@@ -506,19 +514,34 @@
     line-height: 54px;
     text-align: center;
   }
-.subtitleSecurity{
-  font-family: 'Inter';
-font-style: normal;
-font-weight: bold;
-font-size: 20px;
-line-height: 24px;
-}
-.h3security{
-  position: relative;
-  font-family: 'Inter';
-font-style: normal;
-font-weight: bold;
-font-size: 18px;
-margin-left: 5%;
-margin-bottom: 20px;
-}
+
+  .subtitleSecurity {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .h3security {
+    position: relative;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 5%;
+    margin-bottom: 20px;
+  }
+
+  .buttonAddService {
+    position: relative;
+    margin-left: 80%;
+    width: 100px;
+    background-color: #147ad4;
+    height: 30px;
+    color: #fff;
+    font-size: large;
+    font-family: 'Poppings';
+    border: 0;
+    border-radius: 10px;
+  }
