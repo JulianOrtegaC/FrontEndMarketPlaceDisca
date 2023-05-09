@@ -19,7 +19,7 @@
                         <option value="">Comooo</option>
                     </select>
                 </div>
-                
+
             </div>
             <mat-divider class="matdivider"></mat-divider>
             <h3 class="textditata">Departamento</h3>
@@ -30,7 +30,7 @@
 
                     </select>
                 </div>
-                
+
             </div>
             <h3 class="textditata">Ciudad</h3>
             <div class="editdataSelect">
@@ -40,7 +40,7 @@
 
                     </select>
                 </div>
-                
+
             </div>
             <mat-divider class="matdivider"></mat-divider>
             <h3 class="textditata">Descripción</h3>
@@ -50,8 +50,51 @@
 
 
         <div class="formright">
-            <p>aqui va lo de imagen y lo otro</p>
+            <h3 class="textditata">Imagenes del servicio</h3>
+            <div>
+                <input type="file" (change)="cargarImagen($event)">
+                <div class="carrusel">
+                    <div class="imagen" *ngFor="let imagen of imagenes">
+                        <img [src]="imagen" alt="Imagen cargada" width="150" height="150">
+                    </div>
+                </div>
+            </div>
+            <h3 class="textditata">Disponibilidad</h3>
+            <div class="editdataSelect">
+                <div class="select">
+                    <select class="selectAddress" name="ciudad" id="">
+                        <option value="">Medio Tiempo</option>
+
+                    </select>
+                </div>
+
+            </div>
+
+            <h3 class="textditata">Fechas Disponibles</h3>
+            <div class="calendar">
+                <div class="header">
+                    <button (click)="previousMonth()">Anterior</button>
+                    <span>{{ monthYear }}</span>
+                    <button (click)="nextMonth()">Siguiente</button>
+                </div>
+                <div class="body">
+                    <div class="days">
+                        <div *ngFor="let day of days">{{ day }}</div>
+                    </div>
+                    <div class="dates">
+                        <div *ngFor="let date of dates"
+                            [ngClass]="{'occupied-date': isOccupied(date), 'selected-date': isSelected(date)}"
+                            (click)="selectDate(date)">
+                            {{ date.getDate() }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
+
+
 
     </div>
 
