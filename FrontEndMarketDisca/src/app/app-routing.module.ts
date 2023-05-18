@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddServiceComponent } from './components/add-service/add-service.component';
+import { ViewServiceComponent } from './components/view-service/view-service.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent, canActivate:[GuardGuard]},
   {path: 'register', component: RegisterComponent},
   {path: 'addService', component:AddServiceComponent },
+  {path: 'viewService',component:ViewServiceComponent},
   {path: '', redirectTo:'/login' , pathMatch:'full'},
   {path: "**",redirectTo:'/login' , pathMatch:'full'},
 

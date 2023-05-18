@@ -13,6 +13,7 @@ import { SharedModule } from './shared/shared.module';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddServiceComponent } from './components/add-service/add-service.component';
+import { ViewServiceComponent } from './components/view-service/view-service.component';
 
 
 
@@ -25,7 +26,8 @@ import { AddServiceComponent } from './components/add-service/add-service.compon
     ForgotPasswordComponent,
     NavBarComponent,
     ProfileComponent,
-    AddServiceComponent
+    AddServiceComponent,
+    ViewServiceComponent
   ],
   imports: [
     BrowserModule,
