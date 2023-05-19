@@ -65,7 +65,7 @@
         <div class="formright">
             <h3 class="textditata">Imagenes del servicio</h3>
             <div>
-                <input type="file" class="inputImg" (change)="cargarImagen($event)">
+                <input type="file" class="inputImg" multiple  (change)="cargarImagen($event)">
                 <div class="carrusel">
                     <div class="imagen" *ngFor="let imagen of imagenes">
                         <img [src]="imagen" alt="Imagen cargada" width="150" height="150">
