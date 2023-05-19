@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-
+import {GuardGuard} from './Guards/guard.guard'
 import { RegisterComponent } from './components/register/register.component';
 import { SharedModule } from './shared/shared.module';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -41,7 +41,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage())
   ],
-  providers: [],
+  providers: [GuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

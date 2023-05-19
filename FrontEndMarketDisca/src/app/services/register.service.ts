@@ -30,6 +30,7 @@ export class RegisterService {
   }
 
   setDatosProfile(data:EditData){
+    localStorage.setItem('dataProfile' ,JSON.stringify(data));
       this.datosPerfil=data;
   }
   setactualID(documentNumber: string) {
@@ -38,7 +39,19 @@ export class RegisterService {
   }
 
   get getdatosPerfil$(): EditData {
+      const objetoString = localStorage.getItem('dataProfile');
+      if (objetoString) {
+        this.datosPerfil= JSON.parse(objetoString);
+      }
     return this.datosPerfil;
+  }
+
+  storeToken(tokenValue:string){
+    localStorage.setItem('token',tokenValue)
+  }
+
+  getToken(){
+    return localStorage.getItem('token');
   }
 
 }

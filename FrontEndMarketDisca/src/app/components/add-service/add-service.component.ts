@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Service } from 'src/app/interfaces/cuenta';
+import { EditData, Service } from 'src/app/interfaces/cuenta';
 import { ServicesService } from 'src/app/services/services.service';
+import{Storage ,ref , uploadBytes} from '@angular/fire/storage'
+import { RegisterService } from 'src/app/services/register.service';
 
 
 @Component({
@@ -12,7 +14,7 @@ import { ServicesService } from 'src/app/services/services.service';
 })
 export class AddServiceComponent implements OnInit {
 
-  constructor(private servicesService: ServicesService, private router: Router) { }
+  constructor(private storage :Storage, private servicesService: ServicesService, private router: Router , private registerService : RegisterService) { }
   ngOnInit(): void {
 
   }
@@ -26,6 +28,7 @@ export class AddServiceComponent implements OnInit {
   pathPhotos!: string;
   address!: string;
   datesDispo!: string;
+  file!:any;
   // fin datos Servicio
 
   @ViewChild('myDate') myDate: any;
@@ -40,10 +43,10 @@ export class AddServiceComponent implements OnInit {
 
   // lo de las imagenes
 
-  cargarImagen(evento: any): void {
-    const archivo = evento.target.files[0];
+  cargarImagen($event: any): void {
+     this.file = $event.target.files[0];
     const lector = new FileReader();
-    lector.readAsDataURL(archivo);
+    lector.readAsDataURL(this.file);
     lector.onload = () => {
       this.imagenes.push(lector.result as string);
     };
@@ -52,6 +55,13 @@ export class AddServiceComponent implements OnInit {
   //Crear Servicio
 
   addServicio() {
+    var infoData :EditData ;
+    infoData = this.registerService.getdatosPerfil$;
+    console.log(infoData);
+    const imgRef = ref(this.storage ,`images/${infoData.Email}`);
+    uploadBytes(imgRef,this.file)
+      .then(respose =>console.log(respose))
+      .catch(error=>console.log(error));
     const dataService = {
       categoria: this.categoria,
       nameService: this.nameService,
@@ -61,7 +71,7 @@ export class AddServiceComponent implements OnInit {
       address: this.address,
       datesDispo: this.datesDispo
     }
-    console.log(dataService);
+
     this.servicesService.crearService(dataService).subscribe({
       next: (res: any) => {
         this.router.navigate(['profile']);

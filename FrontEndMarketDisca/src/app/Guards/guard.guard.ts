@@ -8,15 +8,17 @@ import { Observable } from 'rxjs';
 export class GuardGuard implements CanActivate {
   constructor(private router: Router) {
   }
-
+  xd:boolean=false;
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (!!localStorage.getItem('token')) {
-     return true;
+    if (localStorage.getItem('token')) {
+      console.log(localStorage.getItem('token'));
+      this.xd=true;
     }
-    this.router.navigate(["/login"]);
-    return false;
+    if(!this.xd ){
+      this.router.navigate(['login']);    }
+    return this.xd;
   }
 
 

@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private registerService: RegisterService, private router: Router) { }
   ngOnInit(): void {
+    localStorage.removeItem('token');
   }
   email!: string;
   password!: string;
@@ -38,9 +39,10 @@ export class LoginComponent implements OnInit {
     this.registerService.login(auxEmail,auxPas).subscribe({
       next: (res: any) => {
         this.auxEditInfo=  JSON.parse( res.usuario);
-        console.log(this.auxEditInfo);
-        console.log(this.auxEditInfo.NameUser);
-        localStorage.setItem('token', res.token);
+        console.log('aqui 1 ' +localStorage.getItem('token'))
+        this.registerService.storeToken(res.token);
+        console.log('aqui 2 ' +localStorage.getItem('token'))
+
         this.registerService.setactualID(this.auxEditInfo.IdUser);
         this.registerService.setDatosProfile(this.auxEditInfo);
          
@@ -48,7 +50,6 @@ export class LoginComponent implements OnInit {
         this.errors=false;
       },
       error: (err) => {
-        console.log(err);
         this.errors=true;
       }
     });
