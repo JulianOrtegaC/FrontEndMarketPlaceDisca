@@ -11,7 +11,7 @@ export interface Registro {
 
 
 export interface EditData {
-    IdUser:string;
+    IdUser?:string;
     NameUser?: string;
     LastNameUser?: string;
     Address?: string;

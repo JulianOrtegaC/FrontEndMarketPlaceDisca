@@ -207,6 +207,8 @@
     top: 18vw;
     margin-left: 4%;
     display: flex;
+    width: 23%;
+    height: 23%;
 
   }
 
@@ -219,6 +221,8 @@
   .divImgProfile {
     display: flex;
     margin-bottom: 5%;
+    width: 30%;
+    height: 30%;
   }
 
 
@@ -503,6 +507,7 @@
 
   .divImgMyProfileSecurity {
     display: flex;
+  
   }
 
   .titleSecurity {

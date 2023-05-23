@@ -16,7 +16,7 @@
     <div class="right-profile" *ngIf="showPrinci">
         <div class="divImgProfile">
             <div class="imgProfile">
-                <img src="./assets/photo.png" alt="" class="imgMyProfile">
+                <img src="{{imgProfile}}" alt="" class="imgMyProfile">
             </div>
             <p class="text-name">{{dataProfile.NameUser}} {{dataProfile.LastNameUser}}</p>
         </div>
@@ -76,7 +76,7 @@
             <img src="./assets/portada.png" alt="" class="imgMyPortada">
         </div>
         <div class="divImgMyProfile">
-            <img src="./assets/photo.png" alt="" class="imgMyProfile2">
+            <img src="{{imgProfile}}" alt="" class="imgMyProfile2">
         </div>
 
         <h1 class="titleh1">Perfil</h1>
@@ -185,30 +185,30 @@
                 <input type="text" class="input-editdatadaRout" disabled style="text-align: right;"
                     placeholder="AccesAbility.com/" [(ngModel)]="xd" name="xd">
                 <input type="text" [disabled]="!editData" class="input-editdata" placeholder="{{dataProfile.NameUser}}"
-                    [(ngModel)]="dataProfile.NameUser" name="nameUser">
+                    [(ngModel)]="updateModel.NameUser" name="newNameUser">
             </div>
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdata1">
                 <h3 class="textditata">Tu Foto</h3>
                 <div class="myPhotoedit">
-                    <img src="./assets/photo.png" alt="" class="imgMyProfile">
+                    <img src="{{imgProfile}}" alt="" class="imgMyProfile">
                 </div>
-                <input type="file" id="f1" multiple="false" *ngIf="editData" accept="image/*" class="inputImg">
+                <input type="file" id="f1" multiple="false"  (change)="imgProfileSelect($event)" *ngIf="editData" accept="image/*" class="inputImg">
 
             </div>
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdata1">
                 <h3 class="textditata">Email</h3>
-                <input type="text" [disabled]="!editData" class="input-editdataemail" [(ngModel)]="dataProfile.Email"
-                    placeholder="{{dataProfile.Email}}" name="email">
+                <input type="text" [disabled]="!editData" class="input-editdataemail" [(ngModel)]="updateModel.Email"
+                    placeholder="{{dataProfile.Email}}" name="newEmailUser">
                 <i class=" fa-lg fa-solid fa-envelope" id="iconEmail"></i>
             </div>
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdata1">
                 <h3 class="textditata">Teléfono</h3>
                 <input type="text" class="input-editdataphone1" disabled placeholder="+57">
-                <input type="text" class="input-editdataphone" [disabled]="!editData" [(ngModel)]="dataProfile.Telephone"
-                    placeholder="{{dataProfile.Telephone}}" name="telephone">
+                <input type="text" class="input-editdataphone" [disabled]="!editData" [(ngModel)]="updateModel.Telephone"
+                    placeholder="{{dataProfile.Telephone}}" name="newTehephoneUser">
             </div>
             <mat-divider class="matdividerProfile"></mat-divider>
             <div class="editdataSelect">
@@ -249,7 +249,7 @@
     </div>
     <div class="conteSecurity" *ngIf="showSecu">
         <div class="divImgMyProfileSecurity">
-            <img src="./assets/photo.png" alt="" class="imgMyProfile2">
+            <img src="{{imgProfile}}" alt="" class="imgMyProfile2">
             <div style="margin-left: 30px;">
                 <h1 class="titleSecurity">Seguridad</h1>
                 <h3 class="subtitleSecurity">Gestiona tu seguridad</h3>
