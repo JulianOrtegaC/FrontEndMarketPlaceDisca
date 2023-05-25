@@ -17,6 +17,7 @@ import { ViewServiceComponent } from './components/view-service/view-service.com
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -30,7 +31,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     NavBarComponent,
     ProfileComponent,
     AddServiceComponent,
-    ViewServiceComponent
+    ViewServiceComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

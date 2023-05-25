@@ -24,6 +24,7 @@ export interface EditData {
     BirthDate?: string;
 }
 export interface Service{
+    idUser?:string;
     idService ?:string;
     categoria:string;
     nameService:string;

@@ -203,7 +203,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       (response) => {
         console.log('Usuario actualizado:', response);
         this.editData = false;
-        this.router.navigate(['profile']);
+        this.router.navigate(['profile']);  
       },
       (error) => {
         console.error('Error al actualizar el usuario:', error);

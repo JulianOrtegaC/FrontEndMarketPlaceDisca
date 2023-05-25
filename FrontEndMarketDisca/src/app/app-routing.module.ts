@@ -7,6 +7,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { ProfileComponent } from './components/profile/profile.component';
 import { AddServiceComponent } from './components/add-service/add-service.component';
 import { ViewServiceComponent } from './components/view-service/view-service.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'addService', component:AddServiceComponent ,canActivate:[GuardGuard]},
   {path: 'viewService',component:ViewServiceComponent,canActivate:[GuardGuard]},
+  {path: 'home',component:HomeComponent},
   {path: '', redirectTo:'/login' , pathMatch:'full'},
   {path: "**",redirectTo:'/login' , pathMatch:'full'},
 
