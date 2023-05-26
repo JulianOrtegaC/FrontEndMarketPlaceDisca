@@ -172,6 +172,12 @@ textarea {
   height: 150px;
   border-radius: 15px;
 }
+.textpreview{
+  margin: 15px auto 15px 10%;
+  width: 80%;
+  height: 80px;
+  border-radius: 15px;
+}
 
 /*Lo de las imagenes*/
 .inputImg{

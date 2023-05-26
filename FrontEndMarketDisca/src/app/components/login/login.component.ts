@@ -20,6 +20,11 @@ export class LoginComponent implements OnInit {
   password!: string;
   errors: boolean = false;
   auxEditInfo!: EditData;
+  showPassword = false;
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 
   iniciarSesionConGoogle() {
     // Lógica para iniciar sesión con Google

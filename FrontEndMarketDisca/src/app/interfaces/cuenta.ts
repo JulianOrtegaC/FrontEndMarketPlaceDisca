@@ -29,6 +29,7 @@ export interface Service{
     categoria:string;
     nameService:string;
     description :string;
+    preview:string;
     initialPrice ?:string;
     pathPhotos :string;
     address:string;

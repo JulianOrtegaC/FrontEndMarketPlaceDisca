@@ -1,8 +1,39 @@
 <app-nav-bar></app-nav-bar>
 <div class="contDiv">
-  <div class="divFiltros"></div>
+  <div class="divFiltros">
+    <div class="filtros">
+      <p class="textFiltro"><strong>Filtros</strong></p>
+      <p class="textFiltro">Reseñas y calificaciones</p>
+
+      <p class="textFiltro">Tipo de discapacidad</p>
+      <p class="checkTipo textFiltro"><mat-checkbox>Visual</mat-checkbox></p>
+      <p class="checkTipo textFiltro"><mat-checkbox>Auditiva</mat-checkbox></p>
+      <p class="checkTipo textFiltro"><mat-checkbox>Motora</mat-checkbox></p>
+      <p class="checkTipo textFiltro"><mat-checkbox>Otro</mat-checkbox></p>
+      <br />
+      <br />
+      <p>Precio/Hora</p>
+      <input
+        type="text"
+        class="input-editdataemail"
+        placeholder="email"
+        name="newEmailUser"
+      />
+      <i class="fa-lg fa-solid fa-envelope" id="iconEmail"></i>
+    </div>
+  </div>
   <div class="divRight">
-    <h1>aqui es algo de los mkfiltros , pero primero ahi que terlos xd</h1>
+    <div class="divSelectOrder">
+      <p class="textOrder">Ordenar por:</p>
+      <p>
+        <select class="selectOrder" name="order" id="">
+          <option value="">Mas vendido</option>
+          <option value="">Precio mas Bajo</option>
+          <option value="">Precio mas Alto</option>
+        </select>
+      </p>
+    </div>
+
     <!-- <div *ngFor="let publi of listaPublicaciones"> -->
     <div class="contenedorServicios">
       <!-- <div class="contend-publicacion" *ngIf="publi.idUser != idActualuser$"> -->

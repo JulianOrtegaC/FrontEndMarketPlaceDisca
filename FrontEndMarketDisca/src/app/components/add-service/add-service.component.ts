@@ -10,6 +10,8 @@ import {
   getDownloadURL,
 } from '@angular/fire/storage';
 import { RegisterService } from 'src/app/services/register.service';
+import { delay } from 'rxjs/operators';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-add-service',
@@ -30,6 +32,7 @@ export class AddServiceComponent implements OnInit {
   infoData!: EditData;
   categoria!: string;
   nameService!: string;
+  preview!: string;
   description!: string;
   initialPrice!: string;
   pathPhotos: any[] = [];
@@ -60,14 +63,14 @@ export class AddServiceComponent implements OnInit {
 
   //Crear Servicio
 
-  addServicio() {
-    
+  async addServicio() {
     this.infoData = this.registerService.getdatosPerfil$;
     for (let index = 0; index < this.file.length; index++) {
       const imgRef = ref(
         this.storage,
         `images/${this.infoData.Email}/services/${this.nameService}/${this.file[index].name}`
       );
+      console.log('aqui la imgref' + imgRef)
       uploadBytes(imgRef, this.file[index])
         .then((respose) => {
           console.log(respose);
@@ -75,44 +78,55 @@ export class AddServiceComponent implements OnInit {
 
         .catch((error) => console.log(error));
     }
-    this.getImages();
-    const dataService = {
-      categoria: this.categoria,
-      nameService: this.nameService,
-      description: this.description,
-      initialPrice: this.initialPrice,
-      pathPhotos: JSON.stringify(this.pathPhotos),
-      address: this.address,
-      datesDispo: this.datesDispo,
-    };
+    //await this.getImages();
+    const imagesPath = ref(
+      this.storage,
+      `images/${this.infoData.Email}/services/${this.nameService}/`
+    );
+    console.log(
+      'esto es lo de path de photos que se supone se esta enviando' +
+        JSON.stringify(this.pathPhotos)
+    );
 
-    this.servicesService.crearService(dataService).subscribe({
-      next: (res: any) => {
-        this.router.navigate(['profile']);
-      },
-      error: (err) => {
-        console.log(err);
+    console.log("haber si esta ruta sirve"+imagesPath);
+    // const dataService = {
+    //   categoria: this.categoria,
+    //   nameService: this.nameService,
+    //   description: this.description,
+    //   initialPrice: this.initialPrice,
+    //   pathPhotos: JSON.stringify(this.pathPhotos),
+    //   address: this.address,
+    //   datesDispo: this.datesDispo,
+    //   preview: this.preview,
+    // };
+
+    // this.servicesService.crearService(dataService).subscribe({
+    //   next: (res: any) => {
+    //     this.router.navigate(['profile']);
+    //   },
+    //   error: (err) => {
+    //     console.log(err);
+    //   },
+    // });
+  }
+/*
+  async getImages() {
+    const imagesRef = ref(
+      this.storage,
+      `images/${this.infoData.Email}/services/${this.nameService}`
+    );
+    console.log('aqui si entra normal');
+    try {
+      const response = await listAll(imagesRef);
+
+      for (let item of response.items) {
+        const url = await getDownloadURL(item);
+        console.log('la url' + url);
+        const ImagenService = { imagen: url };
+        this.pathPhotos.push(ImagenService);
       }
-    });
-  }
-
-  getImages() {
-    const imagesRef = ref(this.storage, `images/${this.infoData.Email}/services/${this.nameService}`);
-
-    listAll(imagesRef)
-      .then(async (response) => {
-
-        this.pathPhotos = [];
-        for (let item of response.items) {
-          const url = await getDownloadURL(item);
-          const ImagenService ={imagen:url};
-          this.pathPhotos.push(ImagenService);
-        }
-      })
-      .catch((error) => console.log(error));
-  }
-}
-
-function isSameDay(selectedDate: Date, date: Date): unknown {
-  throw new Error('Function not implemented.');
+    } catch (error) {
+      console.log(error);
+    }
+  } */
 }

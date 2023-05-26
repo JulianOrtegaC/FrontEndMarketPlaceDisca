@@ -21,9 +21,9 @@
             <input type="email"[(ngModel)]="email" name="email" placeholder="correo electronico" class="form-control"
                 id="email" />
             <i class=" fa-lg fa-solid fa-envelope" style="color: #8fc4f9;" id="iconEmail"></i>
-            <input type="password"[(ngModel)]="password"  name="password" placeholder="contraseña" class="form-control" 
+            <input type="{{ showPassword ? 'text' : 'password' }}"[(ngModel)]="password"  name="password" placeholder="contraseña" class="form-control" 
                 id="password" />
-                <i class="fa-lg fa-sharp fa-solid fa-eye-slash" style="color: #8fc4f9;" id="iconEyeSlash"></i>
+                <i class="fa-lg fa-sharp fa-solid fa-eye-slash" style="color: #8fc4f9;" id="iconEyeSlash" (click)="togglePasswordVisibility()"></i>
 
                 <button (click)="iniciarSesionConGoogle()" class="btn-google">
                     <i class="fa-brands fa-google-plus-g" style="color: #2d73eb;"></i>
