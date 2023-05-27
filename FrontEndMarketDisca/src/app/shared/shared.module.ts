@@ -11,6 +11,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DatepickerModule } from 'ng2-datepicker';
 import { MatTableModule } from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 
@@ -41,7 +43,8 @@ import { MatTableModule } from '@angular/material/table';
     ReactiveFormsModule,
     FormsModule,
     DatepickerModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ],
   exports: [ CommonModule,
     MatCheckboxModule,
@@ -54,7 +57,8 @@ import { MatTableModule } from '@angular/material/table';
     MatNativeDateModule ,
     MatIconModule,
     DatepickerModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ],
 })
 export class SharedModule { }
