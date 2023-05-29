@@ -1,0 +1,91 @@
+.divFondo {
+  position: absolute;
+  height: 1036px;
+  background: #3b7b93;
+  /* background: url("/src/assets/about1.png"); */
+  /* background: url("src\assets\about1.png"); */
+}
+.imgfondoxd {
+  width: 100%;
+  height: 100%;
+}
+.img1fondo {
+  width: 100%;
+  height: 100%;
+}
+.descri {
+  position: absolute;
+  top: 10px;
+  display: block;
+}
+.ptittle {
+    text-align: center;
+  margin: auto;
+  font-family: "IBM Plex Sans Devanagari";
+  font-style: normal;
+  font-weight: 100;
+  font-size: 120px;
+  width: 80%;
+  color: #fff;
+}
+
+.pdescrip {
+  font-family: "IBM Plex Sans Devanagari";
+  font-style: normal;
+  margin: auto;
+  width: 60%;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 43px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+
+  border: 1px solid #000000;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.conteDescript {
+  background: #3b7b93;
+  position: absolute;
+  width: 100%;
+  top: 1056px;
+}
+.conteColums {
+  position: relative;
+  display: flex;
+}
+.columnleft,
+.columnright {
+  flex: 1;
+  margin: auto;
+  padding: 10%;
+}
+.psubtittle {
+    text-align: center;
+  font-family: "IBM Plex Sans Devanagari";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 98px;
+  color: #fff;
+}
+.textparra {
+  font-family: "IBM Plex Sans Devanagari";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 43px;
+  text-align: justify;
+  margin: 0;
+
+  color: #ffffff;
+}
+.imgfondo2xd {
+    width: 100%;
+    height: 100%;
+  }
+  .img2fondo {
+    width: 100%;
+    height: 100%;
+  }

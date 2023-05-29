@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { HomeComponent } from './components/home/home.component';
 import { OrderByPrecioPipe } from './components/home/order-by-precio.pipe';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 
 
@@ -35,7 +36,8 @@ import { OrderByPrecioPipe } from './components/home/order-by-precio.pipe';
     AddServiceComponent,
     ViewServiceComponent,
     HomeComponent,
-    OrderByPrecioPipe
+    OrderByPrecioPipe,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
