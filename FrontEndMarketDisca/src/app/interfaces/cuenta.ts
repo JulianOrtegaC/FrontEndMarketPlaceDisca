@@ -30,8 +30,14 @@ export interface Service{
     nameService:string;
     description :string;
     preview:string;
-    initialPrice ?:string;
+    initialPrice :number;
     pathPhotos :string;
     address:string;
     datesDispo :string;
+    dispo:string;
+}
+
+export interface ContactService{
+    phone:string;
+    email:string;
 }

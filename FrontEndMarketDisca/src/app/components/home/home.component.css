@@ -11,7 +11,7 @@
 .divFiltros {
   position: relative;
   display: flex;
-  width: 800px;
+  width: 400px;
   max-width: 800px;
   height: 100%;
 }
@@ -46,12 +46,68 @@
 #iconEmail {
   font-size: 28px;
 }
+.editdataSelect {
+  position: relative;
+  display: flex;
+}
+select {
+  /* Reset Select */
+  position: relative;
+  display: inline;
+  appearance: none;
+  outline: 0;
+  height: 40px;
+  border: 1px solid #B9B3B3;
+  background-color: #B9B3B3;
+width: 90%;
+  border-radius: 15px;
+  /* Personalize */
+  flex: 5;
+  padding: 0 1em;
+  background-color: var(--darkgray);
+  cursor: pointer;
+}
+select::-ms-expand {
+  display: none;
+}
 
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  width: 90%;
+  overflow: hidden;
+}
+
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #fff;
+  transition: .25s all ease;
+  box-sizing: border-box;
+  border: 1px solid #B9B3B3;
+color: #B9B3B3;
+  border-radius: 0 15px 15px 0;
+  height: 40px;
+  pointer-events: none;
+}
+
+/* Transition */
+.select:hover::after {
+  color: #969696;
+}
 /* aqui termina el div de los filtros */
 
 /* inicio del div de productos */
 .divRight {
-  width: auto;
+  position: relative;
+  width: 100%;
+  background-color: #1684ac;
+  
 }
 .divSelectOrder{
   display: flex;
@@ -83,13 +139,16 @@
   line-height: 30px;
 }
 .contenedorServicios {
+  position: relative;
+  background-color: #615e5e;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
 .contend-service {
+  position: relative;
+  
   margin: 20px;
-  display: block;
   background-color: #e1dede;
   width: 300px;
   border-radius: 15px;
@@ -98,12 +157,15 @@
 .divimgService {
   display: flex;
   margin: 10px;
+  cursor: pointer;
+
 }
 .imgService {
   margin: auto;
   max-width: 300px;
   max-height: 200px;
   margin-top: 10px;
+  cursor: pointer;
 }
 
 .conte {
@@ -113,6 +175,7 @@
   border-radius: 10px;
   margin: 5px;
   padding-bottom: 5px;
+  cursor: pointer;
 }
 
 .valorService {

@@ -38,8 +38,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   // Data Nueva nueva
   updateModel: EditData = {
     NameUser: '',
-    Email:'',
-    Telephone:''
+    Email: '',
+    Telephone: '',
     // Inicializar otros campos aquí
   };
   xd!: string;
@@ -56,6 +56,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     private router: Router
   ) {
     this.dataProfile = registerService.getdatosPerfil$;
+    console.log('sera este el hp id' + this.dataProfile.IdUser);
 
     userService
       .getImageImgProfile()
@@ -85,11 +86,14 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   paginator!: MatPaginator;
 
   getServices() {
-    this.servicesService.getServices().subscribe((data) => {
-      console.log(data);
-      this.dataSource = new MatTableDataSource<Service>(data);
-      this.dataSource.paginator = this.paginator;
-    });
+    if (this.dataProfile.IdUser)
+      this.servicesService
+        .getMyServices(this.dataProfile.IdUser)
+        .subscribe((data) => {
+          console.log(data);
+          this.dataSource = new MatTableDataSource<Service>(data);
+          this.dataSource.paginator = this.paginator;
+        });
   }
   ngAfterViewInit() {
     // Obtén todos los elementos de ancla del menú
@@ -190,20 +194,19 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         })
         .catch((error) => console.log(error));
       this.dataProfile.Photo = this.imageURL = this.imageURL ?? '';
-    } 
-    var id ='';
-    if(this.dataProfile.IdUser!=null){
-
-      var id =this.dataProfile.IdUser;
     }
-   
+    var id = '';
+    if (this.dataProfile.IdUser != null) {
+      var id = this.dataProfile.IdUser;
+    }
+
     this.updateModel.Photo = this.imageURL = this.imageURL ?? '';
 
     this.userService.updateUser(id, this.updateModel).subscribe(
       (response) => {
         console.log('Usuario actualizado:', response);
         this.editData = false;
-        this.router.navigate(['profile']);  
+        this.router.navigate(['profile']);
       },
       (error) => {
         console.error('Error al actualizar el usuario:', error);

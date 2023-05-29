@@ -4,15 +4,44 @@
     <div class="filtros">
       <p class="textFiltro"><strong>Filtros</strong></p>
       <p class="textFiltro">Reseñas y calificaciones</p>
-
-      <p class="textFiltro">Tipo de discapacidad</p>
-      <p class="checkTipo textFiltro"><mat-checkbox>Visual</mat-checkbox></p>
-      <p class="checkTipo textFiltro"><mat-checkbox>Auditiva</mat-checkbox></p>
-      <p class="checkTipo textFiltro"><mat-checkbox>Motora</mat-checkbox></p>
-      <p class="checkTipo textFiltro"><mat-checkbox>Otro</mat-checkbox></p>
       <br />
       <br />
-      <p>Precio/Hora</p>
+      <p class="textFiltro"><strong>Categoria</strong></p>
+      <br />
+      <div class="editdataSelect">
+        <div class="select">
+          <select class="" name="categoria" id="">
+            <option value="Transporte y movilidad">
+              Transporte y movilidad
+            </option>
+            <option value="Traducción e interpretación">
+              Traducción e interpretación
+            </option>
+            <option value="Asesoramiento y acompañamiento">
+              Asesoramiento y acompañamiento
+            </option>
+            <option value="Diseño de interiores y arquitectura accesible">
+              Diseño de interiores y arquitectura accesible
+            </option>
+            <option value="Asistencia y cuidado personal">
+              Asistencia y cuidado personal
+            </option>
+            <option value="Tecnología y dispositivos de apoyo">
+              Tecnología y dispositivos de apoyo
+            </option>
+            <option value="Formación y capacitación">
+              Formación y capacitación
+            </option>
+            <option value="Accesibilidad digital">Accesibilidad digital</option>
+            <option value="Turismo y ocio accesibles">
+              Turismo y ocio accesibles
+            </option>
+          </select>
+        </div>
+      </div>
+      <br />
+      <br />
+      <p><strong> Precio/Hora </strong></p>
       <input
         type="text"
         class="input-editdataemail"
@@ -28,233 +57,37 @@
       <p>
         <select class="selectOrder" name="order" id="">
           <option value="">Mas vendido</option>
-          <option value="">Precio mas Bajo</option>
+          <option (click)="ordenarMenorPrecio()">Precio mas Bajo</option>
           <option value="">Precio mas Alto</option>
         </select>
       </p>
     </div>
 
-    <!-- <div *ngFor="let publi of listaPublicaciones"> -->
     <div class="contenedorServicios">
-      <!-- <div class="contend-publicacion" *ngIf="publi.idUser != idActualuser$"> -->
-      <div class="contend-service">
-        <div class="divimgService">
-          <img
-            src="../../../assets/imgLogin.png"
-            alt="Imagen del botón"
-            class="imgService"
-          />
-        </div>
-        <div class="conte">
-          <p class="valorService">48.000 COP/hora</p>
-          <p class="titleService">Chef especializado</p>
-          <p class="descriptionService">
-            Todo tipo de recetas - dietas especiales
-          </p>
-          <p class="puntuacionService">
-            <i class="fa-solid fa-star" style="color: #ffffff"></i>4.8
-          </p>
-          <p class="contratadoService">| contratado : 50 veces</p>
-        </div>
-      </div>
-      <div class="contend-service">
-        <div class="divimgService">
-          <img
-            src="../../../assets/imgLogin.png"
-            alt="Imagen del botón"
-            class="imgService"
-          />
-        </div>
-        <div class="conte">
-          <p class="valorService">48.000 COP/hora</p>
-          <p class="titleService">Chef especializado</p>
-          <p class="descriptionService">
-            Todo tipo de recetas - dietas especiales
-          </p>
-          <p class="puntuacionService">
-            <i class="fa-solid fa-star" style="color: #ffffff"></i>4.8
-          </p>
-          <p class="contratadoService">| contratado : 50 veces</p>
-        </div>
-      </div>
-      <div class="contend-service">
-        <div class="divimgService">
-          <img
-            src="../../../assets/imgLogin.png"
-            alt="Imagen del botón"
-            class="imgService"
-          />
-        </div>
-        <div class="conte">
-          <p class="valorService">48.000 COP/hora</p>
-          <p class="titleService">Chef especializado</p>
-          <p class="descriptionService">
-            Todo tipo de recetas - dietas especiales
-          </p>
-          <p class="puntuacionService">
-            <i class="fa-solid fa-star" style="color: #ffffff"></i>4.8
-          </p>
-          <p class="contratadoService">| contratado : 50 veces</p>
-        </div>
-      </div>
-      <div class="contend-service">
-        <div class="divimgService">
-          <img
-            src="../../../assets/imgLogin.png"
-            alt="Imagen del botón"
-            class="imgService"
-          />
-        </div>
-        <div class="conte">
-          <p class="valorService">48.000 COP/hora</p>
-          <p class="titleService">Chef especializado</p>
-          <p class="descriptionService">
-            Todo tipo de recetas - dietas especiales
-          </p>
-          <p class="puntuacionService">
-            <i class="fa-solid fa-star" style="color: #ffffff"></i>4.8
-          </p>
-          <p class="contratadoService">| contratado : 50 veces</p>
-        </div>
-      </div>
-      <div class="contend-service">
-        <div class="divimgService">
-          <img
-            src="../../../assets/imgLogin.png"
-            alt="Imagen del botón"
-            class="imgService"
-          />
-        </div>
-        <div class="conte">
-          <p class="valorService">48.000 COP/hora</p>
-          <p class="titleService">Chef especializado</p>
-          <p class="descriptionService">
-            Todo tipo de recetas - dietas especiales
-          </p>
-          <p class="puntuacionService">
-            <i class="fa-solid fa-star" style="color: #ffffff"></i>4.8
-          </p>
-          <p class="contratadoService">| contratado : 50 veces</p>
-        </div>
-      </div>
-      <div class="contend-service">
-        <div class="divimgService">
-          <img
-            src="../../../assets/imgLogin.png"
-            alt="Imagen del botón"
-            class="imgService"
-          />
-        </div>
-        <div class="conte">
-          <p class="valorService">48.000 COP/hora</p>
-          <p class="titleService">Chef especializado</p>
-          <p class="descriptionService">
-            Todo tipo de recetas - dietas especiales
-          </p>
-          <p class="puntuacionService">
-            <i class="fa-solid fa-star" style="color: #ffffff"></i>4.8
-          </p>
-          <p class="contratadoService">| contratado : 50 veces</p>
-        </div>
-      </div>
-      <div class="contend-service">
-        <div class="divimgService">
-          <img
-            src="../../../assets/imgLogin.png"
-            alt="Imagen del botón"
-            class="imgService"
-          />
-        </div>
-        <div class="conte">
-          <p class="valorService">48.000 COP/hora</p>
-          <p class="titleService">Chef especializado</p>
-          <p class="descriptionService">
-            Todo tipo de recetas - dietas especiales
-          </p>
-          <p class="puntuacionService">
-            <i class="fa-solid fa-star" style="color: #ffffff"></i>4.8
-          </p>
-          <p class="contratadoService">| contratado : 50 veces</p>
-        </div>
-      </div>
-      <div class="contend-service">
-        <div class="divimgService">
-          <img
-            src="../../../assets/imgLogin.png"
-            alt="Imagen del botón"
-            class="imgService"
-          />
-        </div>
-        <div class="conte">
-          <p class="valorService">48.000 COP/hora</p>
-          <p class="titleService">Chef especializado</p>
-          <p class="descriptionService">
-            Todo tipo de recetas - dietas especiales
-          </p>
-          <p class="puntuacionService">
-            <i class="fa-solid fa-star" style="color: #ffffff"></i>4.8
-          </p>
-          <p class="contratadoService">| contratado : 50 veces</p>
-        </div>
-      </div>
-      <div class="contend-service">
-        <div class="divimgService">
-          <img
-            src="../../../assets/imgLogin.png"
-            alt="Imagen del botón"
-            class="imgService"
-          />
-        </div>
-        <div class="conte">
-          <p class="valorService">48.000 COP/hora</p>
-          <p class="titleService">Chef especializado</p>
-          <p class="descriptionService">
-            Todo tipo de recetas - dietas especiales
-          </p>
-          <p class="puntuacionService">
-            <i class="fa-solid fa-star" style="color: #ffffff"></i>4.8
-          </p>
-          <p class="contratadoService">| contratado : 50 veces</p>
-        </div>
-      </div>
-      <div class="contend-service">
-        <div class="divimgService">
-          <img
-            src="../../../assets/imgLogin.png"
-            alt="Imagen del botón"
-            class="imgService"
-          />
-        </div>
-        <div class="conte">
-          <p class="valorService">48.000 COP/hora</p>
-          <p class="titleService">Chef especializado</p>
-          <p class="descriptionService">
-            Todo tipo de recetas - dietas especiales
-          </p>
-          <p class="puntuacionService">
-            <i class="fa-solid fa-star" style="color: #ffffff"></i>4.8
-          </p>
-          <p class="contratadoService">| contratado : 50 veces</p>
-        </div>
-      </div>
-      <div class="contend-service">
-        <div class="divimgService">
-          <img
-            src="../../../assets/imgLogin.png"
-            alt="Imagen del botón"
-            class="imgService"
-          />
-        </div>
-        <div class="conte">
-          <p class="valorService">48.000 COP/hora</p>
-          <p class="titleService">Chef especializado</p>
-          <p class="descriptionService">
-            Todo tipo de recetas - dietas especiales
-          </p>
-          <p class="puntuacionService">
-            <i class="fa-solid fa-star" style="color: #ffffff"></i>4.8
-          </p>
-          <p class="contratadoService">| contratado : 50 veces</p>
+      <div
+        *ngFor="
+          let publi of listaPublicaciones | orderByPrecio : ordenarPrecioBajo
+        "
+      >
+        <div class="contend-service" *ngIf="publi.idUser != idActualuser$"  (click)="mostrarModalVerServicio(publi)">
+          <div class="divimgService">
+            <img
+              src="{{ obtenerURLImagen(publi.pathPhotos) }}"
+              alt="Imagen del botón"
+              class="imgService"
+            />
+          </div>
+          <div class="conte">
+            <p class="valorService">{{ publi.initialPrice }} COP/hora</p>
+            <p class="titleService">{{ publi.nameService }}</p>
+            <p class="descriptionService">
+              {{ publi.preview }}
+            </p>
+            <p class="puntuacionService">
+              <i class="fa-solid fa-star" style="color: #ffffff"></i>4.8
+            </p>
+            <p class="contratadoService">| contratado : # veces</p>
+          </div>
         </div>
       </div>
     </div>

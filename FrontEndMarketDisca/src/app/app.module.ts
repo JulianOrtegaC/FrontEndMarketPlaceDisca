@@ -18,6 +18,8 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { HomeComponent } from './components/home/home.component';
+import { OrderByPrecioPipe } from './components/home/order-by-precio.pipe';
+
 
 
 
@@ -32,7 +34,8 @@ import { HomeComponent } from './components/home/home.component';
     ProfileComponent,
     AddServiceComponent,
     ViewServiceComponent,
-    HomeComponent
+    HomeComponent,
+    OrderByPrecioPipe
   ],
   imports: [
     BrowserModule,

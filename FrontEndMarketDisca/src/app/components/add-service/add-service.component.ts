@@ -34,9 +34,10 @@ export class AddServiceComponent implements OnInit {
   nameService!: string;
   preview!: string;
   description!: string;
-  initialPrice!: string;
+  initialPrice!: number;
   pathPhotos: any[] = [];
   address!: string;
+  dispo!:string;
   datesDispo!: string;
   file: any[] = [];
   // fin datos Servicio
@@ -93,6 +94,8 @@ export class AddServiceComponent implements OnInit {
         address: this.address,
         datesDispo: this.datesDispo,
         preview: this.preview,
+        idUser:this.registerService.getdatosPerfil$.IdUser,
+        dispo:this.dispo,
       };
   
       this.servicesService.crearService(dataService).subscribe({
