@@ -27,7 +27,7 @@
       <p class="pText">Disponiblidad</p>
       <p>{{ datosService.dispo }}</p>
       <p class="pPrice">{{ datosService.initialPrice }} COP/hora</p>
-      <button class="buttonContratar">Contratar</button>
+      <button class="buttonContratar" (click)="solicitar(datosService)">Contratar</button>
 
       <p class="pText">Contactos</p>
       <p class="pText"><i class="fa-regular fa-envelope"></i>correo : {{ datosContactService.email }}</p>

@@ -7,7 +7,7 @@
 
     <div class="left-content">
         <div class="config-profile">
-            <a (click)="showCompras()">Compras</a>
+            <a (click)="showCompras()">Solicitados</a>
             <a (click)="showMisServicios()">Mis Servicios</a>
             <a (click)="showPrincipal()">Configuración</a>
         </div>
@@ -83,44 +83,26 @@
         <p class="ptitle">Actualiza tu foto y tus datos personales.</p>
         <!--  -->
         <div class="conteCompras" *ngIf="showComp">
-            <h1 class="h1-cv">Los servicios que has tomado hasta el momento</h1>
+            <h1 class="h1-cv">Los servicios que Solicitados</h1>
             <div class="TablaxD">
-                <table mat-table class="" matSort>
-
-
-                    <!-- Position Column -->
+                <table mat-table mat-table [dataSource]="dataSource" class="" matSort>
 
                     <!-- Name Column -->
-                    <ng-container matColumnDef="bananaType">
-                        <th mat-header-cell *matHeaderCellDef> Tipo de Platano </th>
-                        <td mat-cell *matCellDef="let element"> {{element.bananaType}} </td>
-                    </ng-container>
+                    <ng-container matColumnDef="Nombre">
+                        <th mat-header-cell *matHeaderCellDef> Nombre del Servicio </th>
+                        <td mat-cell *matCellDef="let element"> {{element.nameService}} </td>
+                      </ng-container>
 
                     <!-- Weight Column -->
-                    <ng-container matColumnDef="measurementUnits">
-                        <th mat-header-cell *matHeaderCellDef> Cantidad KG </th>
-                        <td mat-cell *matCellDef="let element"> {{element.measurementUnits}} </td>
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef> Estado </th>
+                        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
                     </ng-container>
 
-                    <!-- Symbol Column -->
-                    <ng-container matColumnDef="pricePurchase">
-                        <th mat-header-cell *matHeaderCellDef> Precio Total </th>
-                        <td mat-cell *matCellDef="let element"> {{element.pricePurchase}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="dateStarted">
-                        <th mat-header-cell *matHeaderCellDef> Fecha de Inicio </th>
-                        <td mat-cell *matCellDef="let element"> {{element.dateStarted}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="dateEnded">
-                        <th mat-header-cell *matHeaderCellDef> Fecha de Fin </th>
-                        <td mat-cell *matCellDef="let element"> {{element.dateEnded}} </td>
-                    </ng-container>
-                    <ng-container matColumnDef="Eliminar">
+                    <ng-container matColumnDef="Eliminar" >
                         <th mat-header-cell *matHeaderCellDef> Eliminar </th>
                         <td mat-cell *matCellDef="let element">
-                            <mat-icon (click)="eliminarInscripcion(element.idSubasta)" class="delete"
-                                matTooltip="Eliminar Subasta" fontIcon="delete"> </mat-icon>
+                            <i class="fa-solid fa-trash" style="color: #f34135;" (click)="eliminarInscripcion(element.serviceIdService ,element.userIdUser)"></i> 
                         </td>
                     </ng-container>
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

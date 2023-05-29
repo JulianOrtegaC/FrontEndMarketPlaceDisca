@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactService, Service } from 'src/app/interfaces/cuenta';
+import { Route, Router } from '@angular/router';
+import {
+  ContactService,
+  EditData,
+  RequestService,
+  Service,
+} from 'src/app/interfaces/cuenta';
+import { RegisterService } from 'src/app/services/register.service';
 import { ServicesService } from 'src/app/services/services.service';
 import { ViewServiceService } from 'src/app/services/view-service.service';
 
@@ -10,14 +17,20 @@ import { ViewServiceService } from 'src/app/services/view-service.service';
 })
 export class ViewServiceComponent {
   public datosService!: Service;
-  datosContactService!:ContactService;
+  datosContactService!: ContactService;
+  dataProfile!: EditData;
 
   imgaServices: string[] = [];
   imagenSeleccionada: string = '';
   constructor(
+    private router: Router,
     private viewService: ViewServiceService,
-    private serviceServices: ServicesService
+    private serviceServices: ServicesService,
+    private registerService: RegisterService,
+
   ) {
+    this.dataProfile = registerService.getdatosPerfil$;
+
     this.datosService = viewService.getDatosService$;
 
     const objeto = JSON.parse(this.datosService.pathPhotos);
@@ -26,10 +39,23 @@ export class ViewServiceComponent {
       this.imgaServices.push(url);
     }
     this.imagenSeleccionada = this.imgaServices[0];
-     this.datosContactService =  viewService.getDatosContactService$;
+    this.datosContactService = viewService.getDatosContactService$;
   }
 
   seleccionarImagen(imagen: string) {
     this.imagenSeleccionada = imagen;
   }
+  solicitar(xd: Service) {
+    const request: RequestService = {
+      userIdUser: this.dataProfile.IdUser,
+      serviceIdService: xd.idService,
+      status: 'enviada',
+    };
+    this.serviceServices.crearRequest(request).subscribe((data) => {
+      console.log(data);
+      this.router.navigate(['profile']);
+    });
+  }
+
+  
 }

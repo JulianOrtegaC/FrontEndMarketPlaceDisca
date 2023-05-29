@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
-import { EditData, Registro, Service } from '../interfaces/cuenta';
+import { EditData, Registro, RequestService, Service } from '../interfaces/cuenta';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -10,6 +10,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class ServicesService {
   private myAppUrl: string = environment.endpoint;
   private myApiUrl: string = '/api/services/';
+  private myApiUrlR: string = '/api/request/';
   userID = '';
   private userID$ = new BehaviorSubject<string>(this.userID);
 
@@ -34,6 +35,22 @@ export class ServicesService {
   getContactServices( idService:string): Observable<any> {
     return this.http.get(`${this.myAppUrl}${this.myApiUrl}dataContactService?idService=${idService}`);
   }
+
+  crearRequest(request: RequestService): Observable<any> {
+    return this.http.post(
+      `${this.myAppUrl}${this.myApiUrlR}createRequest/`,
+      request
+    );
+  }
+
+  getMyRequest( idUser:string): Observable<any> {
+    return this.http.get(`${this.myAppUrl}${this.myApiUrlR}listServicesByIdUser?idUser=${idUser}`);
+  }
+  deleteRequest( serviceId:string , userId:string): Observable<any> {
+    return this.http.delete(`${this.myAppUrl}${this.myApiUrlR}deleteRequest?serviceId=${serviceId}&userId=${userId}`);
+  }
+
+
 
   
 }

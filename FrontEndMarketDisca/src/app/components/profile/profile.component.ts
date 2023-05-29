@@ -2,7 +2,12 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { EditData, Registro, Service } from 'src/app/interfaces/cuenta';
+import {
+  EditData,
+  Registro,
+  RequestService,
+  Service,
+} from 'src/app/interfaces/cuenta';
 import { RegisterService } from 'src/app/services/register.service';
 import { ServicesService } from 'src/app/services/services.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -27,7 +32,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     'Calificaciones',
     'Precio',
   ];
-  dataSource = new MatTableDataSource<Service>();
   dataProfile!: EditData;
   imgProfile: string | null = null;
   imgProfiSelect: string | null = null;
@@ -83,8 +87,20 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
 
   @ViewChild(MatPaginator)
+  dataSource = <any>[];
   paginator!: MatPaginator;
 
+  getRequest() {
+    console.log('el id' + this.dataProfile.IdUser);
+    if (this.dataProfile.IdUser)
+      this.servicesService
+        .getMyRequest(this.dataProfile.IdUser)
+        .subscribe((data) => {
+          console.log('probando la data' + JSON.stringify(data));
+          this.dataSource = new MatTableDataSource<RequestService>(data);
+          this.dataSource.paginator = this.paginator;
+        });
+  }
   getServices() {
     if (this.dataProfile.IdUser)
       this.servicesService
@@ -96,6 +112,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         });
   }
   ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+
     // Obtén todos los elementos de ancla del menú
     const elementosMenu = document.getElementsByTagName('a');
 
@@ -115,50 +133,67 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
 
   showCompras() {
+    this.getRequest();
+    this.displayedColumns = ['Nombre', 'status', 'Eliminar'];
+
     this.showMisServis = false;
     this.showPhotoProfile = false;
-    this.showComp = true;
     this.showPrinci = false;
-    this.showProfi = true;
     this.showeditProfi = false;
     this.showSecu = false;
     this.showEditSecu = false;
+    this.showProfi = true;
+    this.showComp = true;
   }
 
   showMisServicios() {
     this.getServices();
+    this.displayedColumns = [
+      'Nombre',
+      'Categoria',
+      'Contratado',
+      'Calificaciones',
+      'Precio',
+    ];
     this.showPhotoProfile = false;
-    this.showMisServis = true;
     this.showComp = false;
     this.showPrinci = false;
-    this.showProfi = true;
     this.showeditProfi = false;
     this.showSecu = false;
     this.showEditSecu = false;
+    this.showProfi = true;
+    this.showMisServis = true;
   }
   showProfile() {
     this.showPhotoProfile = false;
     this.showMisServis = false;
     this.showComp = false;
     this.showPrinci = false;
-    this.showProfi = true;
-    this.showeditProfi = true;
     this.showSecu = false;
     this.showEditSecu = false;
     this.editData = false;
+    this.showProfi = true;
+    this.showeditProfi = true;
   }
   eliminarA(idSub: number) {
     this.router.navigate(['start']);
   }
-  eliminarInscripcion(idSuba: number) {}
+  eliminarInscripcion(serviceId:string , userId:string) {
+
+    this.servicesService
+    .deleteRequest(serviceId, userId)
+    .subscribe((data) => {
+      this.router.navigate(['home']);
+    });
+  }
   showPrincipal() {
     this.showMisServis = false;
     this.showComp = false;
-    this.showPrinci = true;
     this.showProfi = false;
     this.showeditProfi = false;
     this.showSecu = false;
     this.showEditSecu = false;
+    this.showPrinci = true;
   }
 
   showSecurity() {

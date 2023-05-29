@@ -41,3 +41,10 @@ export interface ContactService{
     telephone:string;
     email:string;
 }
+
+export interface RequestService{
+    userIdUser?:string;
+    serviceIdService ?:string;
+    nameService?:string;
+    status?:string;
+}
