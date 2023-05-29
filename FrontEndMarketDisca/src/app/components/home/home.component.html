@@ -10,8 +10,8 @@
       <br />
       <div class="editdataSelect">
         <div class="select">
-          <select class="" [(ngModel)]="filtroCategoria" name="filtroCategoria" id="">
-            <option value="Todas">Todas</option>
+          <select  [(ngModel)]="filtroCategoria" name="filtroCategoria" id="">
+            <option selected  value="todas">Todas</option>
             <option value="Transporte y movilidad">
               Transporte y movilidad
             </option>
@@ -43,6 +43,7 @@
       <br />
       <br />
       <p><strong> Precio/Hora </strong></p>
+      <p *ngIf="errorfiltre" class="errorfiltrer">error en los valores puestos</p>
       <i class="fa-solid fa-dollar-sign" id="iconDollar"></i>
       <input
         type="number"
@@ -61,6 +62,8 @@
         [(ngModel)]="filtroPriceMax"
       />
       <button class="buttonappfiltre" (click)="appFiltro()">Aplicar Filtro</button>
+      <br>
+      <button class="buttoncancelfiltre" (click)="cancelFiltro()">Cancelar Filtros</button>
 
     </div>
   </div>

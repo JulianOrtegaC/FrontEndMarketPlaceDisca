@@ -12,14 +12,16 @@ import { ViewServiceService } from 'src/app/services/view-service.service';
 })
 export class HomeComponent {
   listaPublicaciones!: Service[];
+  listaPublicacionesAux!: Service[];
   dataProfile!: EditData;
   ordenarPrecioBajo: boolean = false;
   idActualuser$: string = '';
 
   // variables de los filtros
-  filtroCategoria:string ='';
-  filtroPriceMin:number=0;
-  filtroPriceMax:number=0;
+  filtroCategoria: string = 'todas';
+  filtroPriceMin: number = 0;
+  filtroPriceMax: number = 0;
+  errorfiltre = false;
 
   constructor(
     private registerService: RegisterService,
@@ -42,7 +44,7 @@ export class HomeComponent {
       this.servicesService.getServices().subscribe((data) => {
         console.log(data);
         this.listaPublicaciones = data;
-        console.log(this.listaPublicaciones[0]);
+        this.listaPublicacionesAux = this.listaPublicaciones;
       });
   }
 
@@ -62,21 +64,56 @@ export class HomeComponent {
       this.selectedButton = button; // Si el botón seleccionado es diferente, lo selecciona
     }
 
-    if(button =='precioBajo'){
-      console.log("se selecciono el precio bajo")
+    if (button == 'precioBajo') {
+      console.log('se selecciono el precio bajo');
       this.listaPublicaciones.sort((a, b) => a.initialPrice - b.initialPrice);
-    }else
-    if(button =='precioAlto'){
-      console.log("se selecciono el precio Alto")
+    } else if (button == 'precioAlto') {
+      console.log('se selecciono el precio Alto');
       this.listaPublicaciones.sort((a, b) => b.initialPrice - a.initialPrice);
-
     }
   }
 
-  appFiltro(){
-console.log("estos son los valores de los filtro "+ 'min' + this.filtroPriceMin + "max" + this.filtroPriceMax + "catego" + this.filtroCategoria)
+  appFiltro() {
+    if (this.filtroPriceMax!=0 &&
+      this.filtroPriceMin > this.filtroPriceMax ||
+      (this.filtroPriceMax == 0 &&
+        this.filtroPriceMin == 0 )
+    ) {
+      this.errorfiltre = true;
+    } else {
+      if (this.filtroPriceMax != 0) {
+        const publicacionesFiltradas = this.listaPublicaciones.filter(
+          (publicacion) =>
+            publicacion.initialPrice >= this.filtroPriceMin &&
+            publicacion.initialPrice <= this.filtroPriceMax
+        );
+        this.listaPublicaciones = publicacionesFiltradas;
+        this.errorfiltre = false;
+      } else if (this.filtroPriceMax == 0) {
+        const publicacionesFiltradas = this.listaPublicaciones.filter(
+          (publicacion) => publicacion.initialPrice >= this.filtroPriceMin
+        );
+        this.listaPublicaciones = publicacionesFiltradas;
+        this.errorfiltre = false;
+      } else if (this.filtroPriceMin == 0 && this.filtroPriceMax! + 0) {
+        const publicacionesFiltradas = this.listaPublicaciones.filter(
+          (publicacion) => publicacion.initialPrice <= this.filtroPriceMax
+        );
+        this.listaPublicaciones = publicacionesFiltradas;
+        this.errorfiltre = false;
+      }
+    }
+    if (this.filtroCategoria != 'todas') {
+      const publicacionesFiltradas = this.listaPublicaciones.filter(
+        (publicacion) => publicacion.categoria == this.filtroCategoria
+      );
+      this.listaPublicaciones = publicacionesFiltradas;
+      this.errorfiltre = false;
+    }
   }
-
+  cancelFiltro() {
+    this.listaPublicaciones = this.listaPublicacionesAux;
+  }
   orderProducts(orderBy: string) {
     if (orderBy === 'priceLowToHigh') {
       // Realiza la lógica para ordenar por precio de menor a mayor aquí
@@ -86,7 +123,6 @@ console.log("estos son los valores de los filtro "+ 'min' + this.filtroPriceMin 
       // ...
     }
   }
- 
 
   async mostrarModalVerServicio(servicio: Service) {
     var datosContactService!: ContactService;
@@ -99,14 +135,11 @@ console.log("estos son los valores de los filtro "+ 'min' + this.filtroPriceMin 
         .getContactServices(idServiceAux)
         .subscribe((data) => {
           this.viewService.setDatosContactService(data);
-          console.log("se supone que ya estan ")
+          console.log('se supone que ya estan ');
           this.router.navigate(['viewService']);
         });
-    
     } catch (error) {
       console.log(error);
     }
-
- 
   }
 }

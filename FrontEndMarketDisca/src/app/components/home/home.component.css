@@ -47,7 +47,7 @@
 #iconEmail {
   font-size: 28px;
 }
-#iconDollar{
+#iconDollar {
   position: absolute;
   color: #1684ac;
   /* left: 10%;
@@ -56,7 +56,7 @@
   left: 10%;
   z-index: 90;
 }
-#iconDollar2{
+#iconDollar2 {
   position: absolute;
   color: #1684ac;
   /* left: 10%;
@@ -64,6 +64,13 @@
   left: 10%;
   top: 361px;
   z-index: 91;
+}
+.errorfiltrer{
+  position: absolute;
+  left: 10%;
+  top: 267px;
+  z-index: 91;
+  color: red;
 }
 .editdataSelect {
   position: relative;
@@ -76,9 +83,9 @@ select {
   appearance: none;
   outline: 0;
   height: 40px;
-  border: 1px solid #B9B3B3;
-  background-color: #B9B3B3;
-width: 90%;
+  border: 1px solid #b9b3b3;
+  background-color: #b9b3b3;
+  width: 90%;
   border-radius: 15px;
   /* Personalize */
   flex: 5;
@@ -100,16 +107,16 @@ select::-ms-expand {
 
 /* Arrow */
 .select::after {
-  content: '\25BC';
+  content: "\25BC";
   position: absolute;
   top: 0;
   right: 0;
   padding: 1em;
   background-color: #fff;
-  transition: .25s all ease;
+  transition: 0.25s all ease;
   box-sizing: border-box;
-  border: 1px solid #B9B3B3;
-color: #B9B3B3;
+  border: 1px solid #b9b3b3;
+  color: #b9b3b3;
   border-radius: 0 15px 15px 0;
   height: 40px;
   pointer-events: none;
@@ -120,21 +127,30 @@ color: #B9B3B3;
   color: #969696;
 }
 
-.buttonfiltrer{
+.buttonfiltrer {
   height: 35px;
   margin-left: 5px;
-  background: #FFFFFF;
-border: 1px solid #B9B3B3;
-border-radius: 15px;
+  background: #ffffff;
+  border: 1px solid #b9b3b3;
+  border-radius: 15px;
 }
-.buttonappfiltre{
+.buttonappfiltre {
   height: 40px;
   width: 60%;
   margin: auto;
   background: #2389e2;
-border: 1px solid #B9B3B3;
-border-radius: 12px;
-color: #fff;
+  border: 1px solid #b9b3b3;
+  border-radius: 12px;
+  color: #fff;
+}
+.buttoncancelfiltre {
+  height: 40px;
+  width: 60%;
+  margin-top: 30px;
+  background: #fff;
+  border: 1px solid #b9b3b3;
+  border-radius: 12px;
+  color: #000;
 }
 .selected {
   background-color: #2389e2; /* Cambia el color como desees */
@@ -146,9 +162,8 @@ color: #fff;
 .divRight {
   position: relative;
   width: 100%;
-  
 }
-.divSelectOrder{
+.divSelectOrder {
   display: flex;
   float: right;
   padding-right: 20%;
@@ -161,7 +176,7 @@ color: #fff;
   height: 40px;
   box-shadow: none;
   box-sizing: border-box;
-  border: 1px solid #B9B3B3;
+  border: 1px solid #b9b3b3;
   border-radius: 15px;
   /* Personalize */
   flex: 1;
@@ -185,7 +200,7 @@ color: #fff;
 }
 .contend-service {
   position: relative;
-  
+
   margin: 20px;
   background-color: #e1dede;
   width: 300px;
@@ -196,7 +211,6 @@ color: #fff;
   display: flex;
   margin: 10px;
   cursor: pointer;
-
 }
 .imgService {
   margin: auto;
@@ -267,6 +281,5 @@ color: #fff;
 
   color: #615e5e;
 }
-
 
 /* Fin div de productos */
