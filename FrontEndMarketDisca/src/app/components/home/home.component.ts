@@ -15,7 +15,11 @@ export class HomeComponent {
   dataProfile!: EditData;
   ordenarPrecioBajo: boolean = false;
   idActualuser$: string = '';
-  filters: any = {}; // Aquí almacena los filtros seleccionados
+
+  // variables de los filtros
+  filtroCategoria:string ='';
+  filtroPriceMin:number=0;
+  filtroPriceMax:number=0;
 
   constructor(
     private registerService: RegisterService,
@@ -49,11 +53,40 @@ export class HomeComponent {
     }
     return '';
   }
+  selectedButton: string = ''; // Propiedad para almacenar el botón seleccionado
 
-  ordenarMenorPrecio() {
-    this.listaPublicaciones.sort((a, b) => a.initialPrice - b.initialPrice);
-    this.ordenarPrecioBajo = true;
+  selectButton(button: string): void {
+    if (this.selectedButton === button) {
+      this.selectedButton = ''; // Si el botón seleccionado es el mismo, lo deselecciona
+    } else {
+      this.selectedButton = button; // Si el botón seleccionado es diferente, lo selecciona
+    }
+
+    if(button =='precioBajo'){
+      console.log("se selecciono el precio bajo")
+      this.listaPublicaciones.sort((a, b) => a.initialPrice - b.initialPrice);
+    }else
+    if(button =='precioAlto'){
+      console.log("se selecciono el precio Alto")
+      this.listaPublicaciones.sort((a, b) => b.initialPrice - a.initialPrice);
+
+    }
   }
+
+  appFiltro(){
+console.log("estos son los valores de los filtro "+ 'min' + this.filtroPriceMin + "max" + this.filtroPriceMax + "catego" + this.filtroCategoria)
+  }
+
+  orderProducts(orderBy: string) {
+    if (orderBy === 'priceLowToHigh') {
+      // Realiza la lógica para ordenar por precio de menor a mayor aquí
+      // ...
+    } else if (orderBy === 'priceHighToLow') {
+      // Realiza la lógica para ordenar por precio de mayor a menor aquí
+      // ...
+    }
+  }
+ 
 
   async mostrarModalVerServicio(servicio: Service) {
     var datosContactService!: ContactService;

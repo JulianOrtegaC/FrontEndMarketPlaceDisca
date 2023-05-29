@@ -38,6 +38,6 @@ export interface Service{
 }
 
 export interface ContactService{
-    phone:string;
+    telephone:string;
     email:string;
 }

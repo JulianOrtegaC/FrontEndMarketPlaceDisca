@@ -33,18 +33,37 @@
   padding: 0;
 }
 
-.input-editdataemail {
+.input-editdataPrice {
   padding-left: 6%;
   border-radius: 15px;
   margin: 0 auto 15px auto;
   position: relative;
   height: 40px;
   width: 90%;
+  padding-left: 10%;
   box-sizing: border-box;
   border: 1px solid #b9b3b3;
 }
 #iconEmail {
   font-size: 28px;
+}
+#iconDollar{
+  position: absolute;
+  color: #1684ac;
+  /* left: 10%;
+  top: 45.7%; */
+  top: 306px;
+  left: 10%;
+  z-index: 90;
+}
+#iconDollar2{
+  position: absolute;
+  color: #1684ac;
+  /* left: 10%;
+  top: 54%; */
+  left: 10%;
+  top: 361px;
+  z-index: 91;
 }
 .editdataSelect {
   position: relative;
@@ -100,13 +119,33 @@ color: #B9B3B3;
 .select:hover::after {
   color: #969696;
 }
+
+.buttonfiltrer{
+  height: 35px;
+  margin-left: 5px;
+  background: #FFFFFF;
+border: 1px solid #B9B3B3;
+border-radius: 15px;
+}
+.buttonappfiltre{
+  height: 40px;
+  width: 60%;
+  margin: auto;
+  background: #2389e2;
+border: 1px solid #B9B3B3;
+border-radius: 12px;
+color: #fff;
+}
+.selected {
+  background-color: #2389e2; /* Cambia el color como desees */
+  color: #ffffff; /* Cambia el color del texto si es necesario */
+}
 /* aqui termina el div de los filtros */
 
 /* inicio del div de productos */
 .divRight {
   position: relative;
   width: 100%;
-  background-color: #1684ac;
   
 }
 .divSelectOrder{
@@ -117,7 +156,7 @@ color: #B9B3B3;
 .selectOrder {
   /* Reset Select */
   appearance: none;
-  margin: auto auto 15px auto;
+  margin: auto auto 15px 15px;
   outline: 0;
   height: 40px;
   box-shadow: none;
@@ -140,7 +179,6 @@ color: #B9B3B3;
 }
 .contenedorServicios {
   position: relative;
-  background-color: #615e5e;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -229,5 +267,6 @@ color: #B9B3B3;
 
   color: #615e5e;
 }
+
 
 /* Fin div de productos */

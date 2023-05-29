@@ -10,7 +10,8 @@
       <br />
       <div class="editdataSelect">
         <div class="select">
-          <select class="" name="categoria" id="">
+          <select class="" [(ngModel)]="filtroCategoria" name="filtroCategoria" id="">
+            <option value="Todas">Todas</option>
             <option value="Transporte y movilidad">
               Transporte y movilidad
             </option>
@@ -42,25 +43,51 @@
       <br />
       <br />
       <p><strong> Precio/Hora </strong></p>
+      <i class="fa-solid fa-dollar-sign" id="iconDollar"></i>
       <input
-        type="text"
-        class="input-editdataemail"
-        placeholder="email"
-        name="newEmailUser"
+        type="number"
+        class="input-editdataPrice"
+        placeholder="Precio Minimo"
+        name="filtroPriceMin"
+         [(ngModel)]="filtroPriceMin"
+
       />
-      <i class="fa-lg fa-solid fa-envelope" id="iconEmail"></i>
+      <i class="fa-solid fa-dollar-sign" id="iconDollar2"></i>
+      <input
+        type="number"
+        class="input-editdataPrice"
+        placeholder="Precio Maximo"
+        name="filtroPriceMax"
+        [(ngModel)]="filtroPriceMax"
+      />
+      <button class="buttonappfiltre" (click)="appFiltro()">Aplicar Filtro</button>
+
     </div>
   </div>
   <div class="divRight">
     <div class="divSelectOrder">
-      <p class="textOrder">Ordenar por:</p>
-      <p>
-        <select class="selectOrder" name="order" id="">
-          <option value="">Mas vendido</option>
-          <option (click)="ordenarMenorPrecio()">Precio mas Bajo</option>
-          <option value="">Precio mas Alto</option>
-        </select>
-      </p>
+      <p class="textOrder">Ordenar por :</p>
+      <button
+        class="buttonfiltrer"
+        [ngClass]="{ selected: selectedButton === 'masVendido' }"
+        (click)="selectButton('masVendido')"
+      >
+        Mas vendido
+      </button>
+      <button
+        class="buttonfiltrer"
+        [ngClass]="{ selected: selectedButton === 'precioBajo' }"
+        (click)="selectButton('precioBajo')"
+      >
+        Precio más bajo
+      </button>
+      <button
+        class="buttonfiltrer"
+        [ngClass]="{ selected: selectedButton === 'precioAlto' }"
+        (click)="selectButton('precioAlto')"
+      >
+        Precio más alto
+      </button>
     </div>
 
     <div class="contenedorServicios">
@@ -69,7 +96,11 @@
           let publi of listaPublicaciones | orderByPrecio : ordenarPrecioBajo
         "
       >
-        <div class="contend-service" *ngIf="publi.idUser != idActualuser$"  (click)="mostrarModalVerServicio(publi)">
+        <div
+          class="contend-service"
+          *ngIf="publi.idUser != idActualuser$"
+          (click)="mostrarModalVerServicio(publi)"
+        >
           <div class="divimgService">
             <img
               src="{{ obtenerURLImagen(publi.pathPhotos) }}"

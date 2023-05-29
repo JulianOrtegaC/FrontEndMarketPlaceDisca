@@ -22,24 +22,21 @@
     </div>
   </div>
   <div class="conRight columna">
+    <h1 class="ptittle">{{ datosService.nameService }}</h1>
     <div class="columna">
+      <p class="pText">Disponiblidad</p>
+      <p>{{ datosService.dispo }}</p>
+      <p class="pPrice">{{ datosService.initialPrice }} COP/hora</p>
+      <button class="buttonContratar">Contratar</button>
 
-        <h1 class="ptittle">{{datosService.nameService}}</h1>
-        <p class="pText">Disponiblidad</p>
-        <p>{{ datosService.dispo }}</p>
-        <p class="pPrice">{{ datosService.initialPrice }}  COP/hora</p>
-        <button class="buttonContratar">Contratar</button>
-        
-        <p class="pText">Contactos</p>
-        <p class="pText">correo : {{ datosContactService.email }}</p>
-        <p class="pText">
-            Telefono : {{ datosContactService.phone }}
-        </p>
+      <p class="pText">Contactos</p>
+      <p class="pText"><i class="fa-regular fa-envelope"></i>correo : {{ datosContactService.email }}</p>
+      <p class="pText"><i class="fa-brands fa-whatsapp"></i> : {{ datosContactService.telephone }}</p>
     </div>
     <div class="columna">
-        <p class="pText">Descripción</p>
-        <p>{{datosService.preview}}</p>
-        <p>{{datosService.description}}</p>
+      <p class="pText">Descripción</p>
+      <p>{{ datosService.preview }}</p>
+      <p>{{ datosService.description }}</p>
     </div>
   </div>
 </div>

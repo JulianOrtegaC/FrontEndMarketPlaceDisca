@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
           this.registerService.setactualID(this.auxEditInfo.IdUser);
         this.registerService.setDatosProfile(this.auxEditInfo);
 
-        this.router.navigate(['profile']);
+        this.router.navigate(['home']);
         this.errors = false;
       },
       error: (err) => {
