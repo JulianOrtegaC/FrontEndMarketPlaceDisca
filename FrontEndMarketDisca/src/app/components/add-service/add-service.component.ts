@@ -125,7 +125,7 @@ export class AddServiceComponent implements OnInit {
         idUser:this.registerService.getdatosPerfil$.IdUser,
         dispo:this.dispo,
       };
-  
+  console.log("este es el servicio a agregar"+dataService)
       this.servicesService.crearService(dataService).subscribe({
         next: (res: any) => {
           this.router.navigate(['profile']);

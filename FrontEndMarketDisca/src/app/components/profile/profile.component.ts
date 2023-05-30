@@ -32,9 +32,10 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     'Contratado',
     'Calificaciones',
     'Precio',
+    'Eliminar'
   ];
   dataProfile!: EditData;
-  imgProfile: string | null = null;
+  imgProfile: string | null = '../../../assets/photoprofi.png';
   imgProfiSelect: string | null = null;
   imageURL: string | null = null;
   file: any;
@@ -72,7 +73,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       this.imgProfile = url;
     })
     .catch((error) => {
-      console.log('Error al obtener la URL de la imagen:', error);
+      this.imgProfile='../../../assets/photoprofi.png';
     });
   }
   editData: boolean = false;
@@ -163,6 +164,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       'Contratado',
       'Calificaciones',
       'Precio',
+      'Eliminar'
     ];
     this.showPhotoProfile = false;
     this.showComp = false;
@@ -191,6 +193,15 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
     this.servicesService
     .deleteRequest(serviceId, userId)
+    .subscribe((data) => {
+      this.router.navigate(['home']);
+    });
+  }
+
+  eliminarService(serviceId:string ) {
+    console.log("aqui si llego xd")
+    this.servicesService
+    .deleteService(serviceId)
     .subscribe((data) => {
       this.router.navigate(['home']);
     });
