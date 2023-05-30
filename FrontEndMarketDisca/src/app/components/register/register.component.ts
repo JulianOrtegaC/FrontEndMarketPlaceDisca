@@ -42,7 +42,6 @@ export class RegisterComponent implements OnInit {
       password:this.password
     }
 
-    console.log(registAux);
     this.registerService.register(registAux).subscribe({
       next: (res: any) => {
         this.router.navigate(['login']);

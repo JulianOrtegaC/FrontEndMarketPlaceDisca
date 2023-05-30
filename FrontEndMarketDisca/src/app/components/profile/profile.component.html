@@ -18,7 +18,7 @@
             <div class="imgProfile">
                 <img src="{{imgProfile}}" alt="" class="imgMyProfile">
             </div>
-            <p class="text-name">{{dataProfile.NameUser}} {{dataProfile.LastNameUser}}</p>
+            <p class="text-nameS">{{dataProfile.NameUser}} {{dataProfile.LastNameUser}}</p>
         </div>
         <div class="prof">
             <button (click)="showProfile()" class="profile-button">
@@ -102,7 +102,10 @@
                     <ng-container matColumnDef="Eliminar" >
                         <th mat-header-cell *matHeaderCellDef> Eliminar </th>
                         <td mat-cell *matCellDef="let element">
-                            <i class="fa-solid fa-trash" style="color: #f34135;" (click)="eliminarInscripcion(element.serviceIdService ,element.userIdUser)"></i> 
+                            <button class="btn btn-danger">
+eliminar
+                                <i class="fa-solid fa-trash" style="color: #ffff;" (click)="eliminarInscripcion(element.serviceIdService ,element.userIdUser)"></i> 
+                            </button>
                         </td>
                     </ng-container>
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -121,6 +124,14 @@
             <div class="TablaxD">
                 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+                    <ng-container matColumnDef="img">
+                      <th mat-header-cell *matHeaderCellDef>  </th>
+                      <td mat-cell *matCellDef="let element">  <img
+                        src="{{ obtenerURLImagen(element.pathPhotos) }}"
+                        alt="Imagen del botón"
+                        class="imgService"
+                      /> </td>
+                    </ng-container>
                     <ng-container matColumnDef="Nombre">
                       <th mat-header-cell *matHeaderCellDef> Nombre del Servicio </th>
                       <td mat-cell *matCellDef="let element"> {{element.nameService}} </td>

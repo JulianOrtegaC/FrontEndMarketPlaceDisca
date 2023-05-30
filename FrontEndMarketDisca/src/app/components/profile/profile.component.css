@@ -53,6 +53,14 @@
     padding-left: 5%;
     font-size: larger;
   }
+  .text-nameS {
+    font-family: Arial;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    font-size: 40px;
+  }
 
   .config-profile {
     width: 90%;
@@ -161,8 +169,8 @@
 
   .TablaxD {
     margin-top: 5%;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 
   table {
@@ -207,23 +215,35 @@
     top: 18vw;
     margin-left: 4%;
     display: flex;
-    width: 23%;
-    height: 23%;
+    width: 13%;
+    height: 20%;
 
   }
 
   .imgMyProfile2 {
     background-color: #fff;
     border-radius: 46%;
-
+    width: 100%;
+    height: 100%;
+  }
+  .imgProfile{
+    display: flex;
+    width: 20%;
+    height: 100%;
+  }
+  .imgMyProfile {
+    width: 100%;
+    height: 100%;
+    border-radius: 46%;
   }
 
   .divImgProfile {
     display: flex;
-    margin-bottom: 5%;
-    width: 30%;
+    margin-bottom: 8%;
     height: 30%;
   }
+ 
+  
 
 
 
@@ -360,10 +380,7 @@
     width: 80px;
   }
 
-  .imgMyProfile {
-    width: 100%;
-    height: 100%;
-  }
+ 
 
   .inputImg {
     margin: auto;
@@ -507,6 +524,10 @@
 
   .divImgMyProfileSecurity {
     display: flex;
+    text-align: center;
+    align-items: center;
+    width: 23%;
+    height: 23%;
   
   }
 
@@ -540,7 +561,7 @@
 
   .buttonAddService {
     position: relative;
-    margin-left: 80%;
+    margin-left: 70%;
     width: 100px;
     background-color: #147ad4;
     height: 30px;
@@ -549,4 +570,8 @@
     font-family: 'Poppings';
     border: 0;
     border-radius: 10px;
+  }
+  .imgService{
+    width: 50px;
+    height: 50px;
   }

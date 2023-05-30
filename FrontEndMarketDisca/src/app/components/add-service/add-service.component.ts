@@ -75,7 +75,6 @@ export class AddServiceComponent implements OnInit {
   
       try {
         const response = await uploadBytes(imgRef, this.file[index]);
-        console.log(response);
       } catch (error) {
         console.log(error);
       }
@@ -83,7 +82,6 @@ export class AddServiceComponent implements OnInit {
   
     try {
       await this.getImages();
-      console.log('esto es lo de path de photos que se supone se esta enviando' + JSON.stringify(this.pathPhotos));
   
       const dataService = {
         categoria: this.categoria,
@@ -113,14 +111,12 @@ export class AddServiceComponent implements OnInit {
   
   async getImages() {
     const imagesRef = ref(this.storage, `images/${this.infoData.Email}/services/${this.nameService}`);
-    console.log('aqui si entra normal');
   
     try {
       const response = await listAll(imagesRef);
   
       for (let item of response.items) {
         const url = await getDownloadURL(item);
-        console.log('la url' + url);
         const ImagenService = { imagen: url };
         this.pathPhotos.push(ImagenService);
       }

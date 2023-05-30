@@ -41,13 +41,10 @@ export class LoginComponent implements OnInit {
     const auxEmail = this.email;
     const auxPas = this.password;
 
-    console.log(auxEmail, auxPas); //estos estan indefinidosssss
     this.registerService.login(auxEmail, auxPas).subscribe({
       next: (res: any) => {
         this.auxEditInfo = JSON.parse(res.usuario);
-        console.log('aqui 1 ' + localStorage.getItem('token'));
         this.registerService.storeToken(res.token);
-        console.log('aqui 2 ' + localStorage.getItem('token'));
         if (this.auxEditInfo.IdUser)
           this.registerService.setactualID(this.auxEditInfo.IdUser);
         this.registerService.setDatosProfile(this.auxEditInfo);

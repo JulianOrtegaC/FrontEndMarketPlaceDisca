@@ -49,10 +49,9 @@ export class ViewServiceComponent {
     const request: RequestService = {
       userIdUser: this.dataProfile.IdUser,
       serviceIdService: xd.idService,
-      status: 'enviada',
+      status: 'solicitado',
     };
     this.serviceServices.crearRequest(request).subscribe((data) => {
-      console.log(data);
       this.router.navigate(['profile']);
     });
   }

@@ -34,7 +34,6 @@ export class HomeComponent {
       this.idActualuser$ = this.dataProfile.IdUser;
     }
     this.getServices();
-    console.log('este es el id actual' + this.idActualuser$);
   }
 
   mostrarModalVermasServicio(auxPubli: Service) {}
@@ -42,7 +41,6 @@ export class HomeComponent {
   getServices() {
     if (this.dataProfile.IdUser)
       this.servicesService.getServices().subscribe((data) => {
-        console.log(data);
         this.listaPublicaciones = data;
         this.listaPublicacionesAux = this.listaPublicaciones;
       });
@@ -65,10 +63,8 @@ export class HomeComponent {
     }
 
     if (button == 'precioBajo') {
-      console.log('se selecciono el precio bajo');
       this.listaPublicaciones.sort((a, b) => a.initialPrice - b.initialPrice);
     } else if (button == 'precioAlto') {
-      console.log('se selecciono el precio Alto');
       this.listaPublicaciones.sort((a, b) => b.initialPrice - a.initialPrice);
     }
   }
@@ -135,7 +131,6 @@ export class HomeComponent {
         .getContactServices(idServiceAux)
         .subscribe((data) => {
           this.viewService.setDatosContactService(data);
-          console.log('se supone que ya estan ');
           this.router.navigate(['viewService']);
         });
     } catch (error) {

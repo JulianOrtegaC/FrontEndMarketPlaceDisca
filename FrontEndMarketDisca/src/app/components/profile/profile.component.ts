@@ -26,6 +26,7 @@ import {
 })
 export class ProfileComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = [
+    'img',
     'Nombre',
     'Categoria',
     'Contratado',
@@ -60,16 +61,19 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     private router: Router
   ) {
     this.dataProfile = registerService.getdatosPerfil$;
-    console.log('sera este el hp id' + this.dataProfile.IdUser);
+    this.getImgProfileew();
+   
+  }
 
-    userService
-      .getImageImgProfile()
-      .then((url: string | null) => {
-        this.imgProfile = url;
-      })
-      .catch((error) => {
-        console.log('Error al obtener la URL de la imagen:', error);
-      });
+  getImgProfileew(){
+    this.userService
+    .getImageImgProfile()
+    .then((url: string | null) => {
+      this.imgProfile = url;
+    })
+    .catch((error) => {
+      console.log('Error al obtener la URL de la imagen:', error);
+    });
   }
   editData: boolean = false;
   showMisServis: boolean = false;
@@ -91,12 +95,10 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   paginator!: MatPaginator;
 
   getRequest() {
-    console.log('el id' + this.dataProfile.IdUser);
     if (this.dataProfile.IdUser)
       this.servicesService
         .getMyRequest(this.dataProfile.IdUser)
         .subscribe((data) => {
-          console.log('probando la data' + JSON.stringify(data));
           this.dataSource = new MatTableDataSource<RequestService>(data);
           this.dataSource.paginator = this.paginator;
         });
@@ -106,7 +108,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       this.servicesService
         .getMyServices(this.dataProfile.IdUser)
         .subscribe((data) => {
-          console.log(data);
           this.dataSource = new MatTableDataSource<Service>(data);
           this.dataSource.paginator = this.paginator;
         });
@@ -131,7 +132,14 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       });
     }
   }
-
+  obtenerURLImagen(imagenes: string): string {
+    console.log('aqui estan las imagenes '+imagenes)
+    const arreglo: any[] = JSON.parse(imagenes);
+    if (arreglo && arreglo.length > 0) {
+      return arreglo[0]?.imagen || '';
+    }
+    return '';
+  }
   showCompras() {
     this.getRequest();
     this.displayedColumns = ['Nombre', 'status', 'Eliminar'];
@@ -149,6 +157,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   showMisServicios() {
     this.getServices();
     this.displayedColumns = [
+      'img',
       'Nombre',
       'Categoria',
       'Contratado',
@@ -225,7 +234,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       );
       uploadBytes(imgRef, this.file)
         .then((respose) => {
-          console.log(respose);
         })
         .catch((error) => console.log(error));
       this.dataProfile.Photo = this.imageURL = this.imageURL ?? '';
@@ -239,9 +247,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
     this.userService.updateUser(id, this.updateModel).subscribe(
       (response) => {
-        console.log('Usuario actualizado:', response);
         this.editData = false;
-        this.router.navigate(['profile']);
+        this.getImgProfileew();
       },
       (error) => {
         console.error('Error al actualizar el usuario:', error);
