@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { EditData, Service } from 'src/app/interfaces/cuenta';
+import { City, Department, EditData, Service } from 'src/app/interfaces/cuenta';
 import { ServicesService } from 'src/app/services/services.service';
 import {
   Storage,
@@ -19,13 +19,43 @@ import { lastValueFrom } from 'rxjs';
   styleUrls: ['./add-service.component.css'],
 })
 export class AddServiceComponent implements OnInit {
+
+  departments!:Department[];
+  cities!:City[];
+  city!:string;
+  department!:number;
   constructor(
     private storage: Storage,
     private servicesService: ServicesService,
     private router: Router,
     private registerService: RegisterService
   ) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.servicesService.cargarDepartment().subscribe({
+      next:(res:any)=>{
+        this.departments =res;
+        console.log(this.departments);
+      },
+      error:(err)=>{
+        console.log(err.message)
+      }
+    });
+  }
+
+  loadCities(){
+    console.log('este es el departamento'+this.department)
+    this.servicesService.cargarCities(this.department ).subscribe({
+      next:(res:any)=>{
+        console.log(res)
+        this.cities=res;
+        console.log('si me trae la ciudad' +this.cities)
+      },
+      error:(err)=>{
+        console.log(err.message)
+      }
+    })
+  }
   imagenes: string[] = [];
 
   // datos Servicio

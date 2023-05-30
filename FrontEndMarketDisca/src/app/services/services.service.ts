@@ -50,7 +50,13 @@ export class ServicesService {
     return this.http.delete(`${this.myAppUrl}${this.myApiUrlR}deleteRequest?serviceId=${serviceId}&userId=${userId}`);
   }
 
-
+  cargarDepartment():Observable<any>{
+    return this.http.get(`${this.myAppUrl}/Department/`)
+    }
+    
+      cargarCities(idDepartment:number): Observable<any>{
+        return this.http.get(`${this.myAppUrl}/Department/GetCities?codigoDepartamento=${idDepartment}`,{});
+      }
 
   
 }

@@ -48,3 +48,14 @@ export interface RequestService{
     nameService?:string;
     status?:string;
 }
+
+export interface Department{
+    codigodepartamento: number;
+    nombredepartamento: string;
+  }
+  export interface City{
+    idmunicipios: number;
+    nombremunicipio: string;
+    codigodepartamento: number;
+  }
+  

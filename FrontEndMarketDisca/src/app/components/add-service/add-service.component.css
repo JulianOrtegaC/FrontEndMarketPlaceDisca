@@ -209,3 +209,16 @@ textarea {
   padding: 10px;
   box-sizing: border-box;
 }
+.Depa ,.Muni {
+  display: inline;
+  margin-left: 10%;
+  width: 35%;
+  height: 40px;
+}
+.selectx{
+  background-color: #f0f0f0;
+  height: 40px;
+  border-radius: 10px;
+  margin-top: 0px;
+  border: none;
+}
